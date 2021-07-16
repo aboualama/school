@@ -32,6 +32,38 @@
  
 
 @section('content') 
+
+
+      
+      <div class="card">
+        <h5 class="card-header"></h5>
+        <div class="d-flex justify-content-between align-items-center mx-50 row pt-0 pb-2"> 
+          <div class="col-md-4 user_status">
+            <h5>تاريخ اليوم</h5>
+            {{$fulldate}}
+          </div>
+          <div class="col-md-4 user_status">
+            <div class="form-group">
+              <label for="status">تعيين عام دراسي افتراضي</label>
+              <select class="form-control" name="defaultyear_id" id="defaultyear" >
+                <option  value="0">----</option>
+                @foreach ($allyears as $year) 
+                  <option value="{{$year->id}}" {{($year->year  == $defaultyear->year) ? 'selected' : '' }}>{{$year->year}}</option> 
+                @endforeach
+              </select>
+            </div> 
+          </div>
+        </div>
+      </div> 
+
+
+
+
+
+
+
+
+
 <div class="row">
   <div class="col-12">
     <div class="card"> 
@@ -323,6 +355,40 @@
   
   
   <script>
+  
+ 
+
+
+ 
+  //  set default year
+  $('#defaultyear').on('change',function(e) { 
+        var id = $(this).val(); 
+          $.ajax({ 
+            type:"get",
+            url: '/set-default-year/' + id, 
+            data: { id: id },
+            success:function (data) { 
+              toastr['success'](
+                      'تم تعيين العام الدراسي الافتراضي بنجاح ',
+                      ' الاعدادات  ' ,
+                      {
+                        closeButton: true,
+                        tapToDismiss: false, 
+                        positionClass: 'toast-top-right',
+                        rtl: 'rtl'
+                      }
+                    ); 
+              // setInterval(function(){
+              //   window.location.reload(1);
+              // }, 3000);
+            }
+          }) 
+      }); 
+
+
+
+
+
   
   // update setting
  $(document).on('click', '#edit', function (e) {

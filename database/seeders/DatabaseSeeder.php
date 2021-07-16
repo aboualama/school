@@ -17,6 +17,7 @@ class DatabaseSeeder extends Seeder
         $this->call(UserSeeder::class); 
         $this->call(SettingTableSeeder::class); 
         $this->call(YearSeeder::class); 
+        \App\Models\OtherSetting::factory(3)->create();
 
         
     }

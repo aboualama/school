@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Year;
 use Illuminate\Database\Seeder;
 
 class YearSeeder extends Seeder
@@ -15,11 +16,13 @@ class YearSeeder extends Seeder
     {
         for($i = 1440 ; $i < 1461 ; $i++)
         {
-            $year = \App\Models\Year::create([
-              'year' => $i, 
+            $year = Year::create([
+              'year' => $i . ' - ' . ($i + 1),
+              'default' => '0',   
               'details' => ' لا يوجد تفاصيل اضافية',  
             ]);
 
         }
+        Year::first()->update(['default' => 1]);
     }
 }

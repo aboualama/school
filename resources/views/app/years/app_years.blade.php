@@ -4,42 +4,19 @@
 @section('title', 'بيانات المدرسة')
 
 @section('vendor-style')
-  {{-- vendor css files --}}
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/dataTables.bootstrap4.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/responsive.bootstrap4.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/buttons.bootstrap4.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/tables/datatable/rowGroup.bootstrap4.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/pickers/flatpickr/flatpickr.min.css')) }}">
-
-  
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.min.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('vendors/css/forms/select/select2.min.css')) }}">
-
-
-
+  {{-- vendor css files --}}  
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.min.css')) }}">  
 @endsection
 
 @section('page-style')
   <!-- Page css files --> 
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}"> 
-  {{-- <link rel="stylesheet" href="{{ asset(mix('css/base/pages/app-user.css')) }}"> --}}
-
-  
-
- 
+  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">  
 @endsection 
  
  
 
 @section('content') 
 
- 
-  <div class="card">
-    <h5 class="card-header">تاريخ اليوم</h5>
-    <div class="d-flex justify-content-between align-items-center mx-50 row pt-0 pb-2"> 
-      <div class="col-md-4 user_status">{{$fulldate}}</div>
-    </div>
-  </div> 
 
 
   <section class="app-user-edit">
@@ -59,17 +36,16 @@
                     <label for="status">العام الدراسي</label>
                     <select class="form-control" name="year_id" id="year" >
                       <option  value="0">----</option>
-                      @foreach ($record as $record) 
-                        <option value="{{$record->id}}" {{($record->year  == $date) ? 'selected' : '' }}>{{$record->year}}</option> 
+                      @foreach ($allyears as $year) 
+                        <option value="{{$year->id}}" {{($year->year  == $defaultyear->year) ? 'selected' : '' }}>{{$year->year}}</option> 
                       @endforeach
                     </select>
                   </div> 
                 </div>
-                
+               
+
                 {{-- section_inputs row --}}
-                <div class="col-md-12"  id="section_inputs"> 
-   
-                  
+                <div class="col-md-12"  id="section_inputs">  
   
                   {{-- Taxs row --}}
                   <div class="row"> 
@@ -88,21 +64,21 @@
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="role"> الوكيلات</label> 
-                              <input type="number" class="form-control" name="tax_percent" id="basicInput" placeholder="........" disabled>
+                              <input type="number" class="form-control" name="tax_percent" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
                               <span id="tax_percent_error" class="form-text text-danger small_error"> </span> 
                             </div>
                           </div>   
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="role"> الاداريات </label> 
-                              <input type="number" class="form-control" name="tax_amount" id="basicInput" placeholder="........" disabled>
+                              <input type="number" class="form-control" name="tax_amount" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
                               <span id="tax_amount_error" class="form-text text-danger small_error"> </span> 
                             </div>
                           </div>   
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="role">المعلمات </label> 
-                              <input type="number" class="form-control" name="discount" id="basicInput" placeholder="........" disabled>
+                              <input type="number" class="form-control" name="discount" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
                               <span id="discount_error" class="form-text text-danger small_error"> </span> 
                             </div>
                           </div>  
@@ -113,21 +89,21 @@
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="role"> الطالبات</label> 
-                              <input type="number" class="form-control" name="tax_percent" id="basicInput" placeholder="........" disabled>
+                              <input type="number" class="form-control" name="tax_percent" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
                               <span id="tax_percent_error" class="form-text text-danger small_error"> </span> 
                             </div>
                           </div>   
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="role">المستخدمات </label> 
-                              <input type="number" class="form-control" name="tax_amount" id="basicInput" placeholder="........" disabled>
+                              <input type="number" class="form-control" name="tax_amount" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
                               <span id="tax_amount_error" class="form-text text-danger small_error"> </span> 
                             </div>
                           </div>   
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="role">عدد الحراس</label> 
-                              <input type="number" class="form-control" name="discount" id="basicInput" placeholder="........" disabled>
+                              <input type="number" class="form-control" name="discount" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
                               <span id="discount_error" class="form-text text-danger small_error"> </span> 
                             </div>
                           </div>  
@@ -156,21 +132,21 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="role"> قسم الابتدائي</label> 
-                            <input type="number" class="form-control" name="tax_percent" id="basicInput" placeholder="........" disabled>
+                            <input type="number" class="form-control" name="tax_percent" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
                             <span id="tax_percent_error" class="form-text text-danger small_error"> </span> 
                           </div>
                         </div>   
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="role">قسم المتوسط </label> 
-                            <input type="number" class="form-control" name="tax_amount" id="basicInput" placeholder="........" disabled>
+                            <input type="number" class="form-control" name="tax_amount" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
                             <span id="tax_amount_error" class="form-text text-danger small_error"> </span> 
                           </div>
                         </div>   
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="role">قسم الثانوي</label> 
-                            <input type="number" class="form-control" value="4" name="discount" id="basicInput" placeholder="........" disabled>
+                            <input type="number" class="form-control" name="discount" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
                             <span id="discount_error" class="form-text text-danger small_error"> </span> 
                           </div>
                         </div>  
@@ -270,34 +246,10 @@
 @endsection
 
 
-@section('vendor-script')
-  {{-- vendor files --}}
-  <script src="{{ asset(mix('vendors/js/tables/datatable/jquery.dataTables.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.bootstrap4.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.responsive.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/responsive.bootstrap4.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.checkboxes.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.buttons.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/jszip.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/pdfmake.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/vfs_fonts.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/buttons.html5.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/buttons.print.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.rowGroup.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
-  
-
+@section('vendor-script') 
   
   <!-- toastr -->
-  <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
-  <!-- form-repeater -->
-  <script src="{{ asset(mix('vendors/js/forms/repeater/jquery.repeater.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
-
-  <script src="{{ asset(mix('js/scripts/pages/app-user-edit.js')) }}"></script>
-
- 
-
+  <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>  
 
 @endsection 
 
@@ -306,19 +258,17 @@
 
 @section('page-script')
   {{-- Page js files --}} 
-  
-  
+   
   <script src="{{ asset(mix('js/scripts/components/components-modals.js')) }}"></script>
   <script>
 
 
  
 $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
- 
 
 
 
-    //  edit model
+ //  edit model
     $('.edit').on("click", function (e) {
       e.stopPropagation();
       var id = $('#year').val();
@@ -334,31 +284,7 @@ $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('conten
     });
 
  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
 

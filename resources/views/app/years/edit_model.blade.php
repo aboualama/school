@@ -1,6 +1,4 @@
-
-
-                          <div >
+ 
 
 <section class="app-user-edit">
   <div class="card">
@@ -42,7 +40,7 @@
                           <div class="form-group">
                             <label for="role"> الوكيلات</label>
                             <input type="number" class="form-control" name="tax_percent" id="basicInput"
-                              placeholder="........">
+                              placeholder="{{$record->settings->agents}}">
                             <span id="tax_percent_error" class="form-text text-danger small_error"> </span>
                           </div>
                         </div>
@@ -50,7 +48,7 @@
                           <div class="form-group">
                             <label for="role"> الاداريات </label>
                             <input type="number" class="form-control" name="tax_amount" id="basicInput"
-                              placeholder="........">
+                              placeholder="{{$record->settings->agents}}">
                             <span id="tax_amount_error" class="form-text text-danger small_error"> </span>
                           </div>
                         </div>
@@ -58,7 +56,7 @@
                           <div class="form-group">
                             <label for="role">المعلمات </label>
                             <input type="number" class="form-control" name="discount" id="basicInput"
-                              placeholder="........">
+                              placeholder="{{$record->settings->agents}}">
                             <span id="discount_error" class="form-text text-danger small_error"> </span>
                           </div>
                         </div>
@@ -70,7 +68,7 @@
                           <div class="form-group">
                             <label for="role"> الطالبات</label>
                             <input type="number" class="form-control" name="tax_percent" id="basicInput"
-                              placeholder="........">
+                              placeholder="{{$record->settings->agents}}">
                             <span id="tax_percent_error" class="form-text text-danger small_error"> </span>
                           </div>
                         </div>
@@ -78,7 +76,7 @@
                           <div class="form-group">
                             <label for="role">المستخدمات </label>
                             <input type="number" class="form-control" name="tax_amount" id="basicInput"
-                              placeholder="........">
+                              placeholder="{{$record->settings->agents}}">
                             <span id="tax_amount_error" class="form-text text-danger small_error"> </span>
                           </div>
                         </div>
@@ -86,7 +84,7 @@
                           <div class="form-group">
                             <label for="role">عدد الحراس</label>
                             <input type="number" class="form-control" name="discount" id="basicInput"
-                              placeholder="........">
+                              placeholder="{{$record->settings->agents}}">
                             <span id="discount_error" class="form-text text-danger small_error"> </span>
                           </div>
                         </div>
@@ -113,7 +111,7 @@
                         <div class="form-group">
                           <label for="role"> قسم الابتدائي</label>
                           <input type="number" class="form-control" name="tax_percent" id="basicInput"
-                            placeholder="........">
+                            placeholder="{{$record->settings->agents}}">
                           <span id="tax_percent_error" class="form-text text-danger small_error"> </span>
                         </div>
                       </div>
@@ -121,15 +119,15 @@
                         <div class="form-group">
                           <label for="role">قسم المتوسط </label>
                           <input type="number" class="form-control" name="tax_amount" id="basicInput"
-                            placeholder="........">
+                            placeholder="{{$record->settings->agents}}">
                           <span id="tax_amount_error" class="form-text text-danger small_error"> </span>
                         </div>
                       </div>
                       <div class="col-md-4">
                         <div class="form-group">
                           <label for="role">قسم الثانوي</label>
-                          <input type="number" class="form-control" value="4" name="discount" id="basicInput"
-                            placeholder="........">
+                          <input type="number" class="form-control" name="discount" id="basicInput"
+                            placeholder="{{$record->settings->agents}}">
                           <span id="discount_error" class="form-text text-danger small_error"> </span>
                         </div>
                       </div>
@@ -162,5 +160,4 @@
     </div>
   </div>
 </section>
-
-</div>
+ 

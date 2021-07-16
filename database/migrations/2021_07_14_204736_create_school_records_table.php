@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateYearsTable extends Migration
+class CreateSchoolRecordsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateYearsTable extends Migration
      */
     public function up()
     {
-        Schema::create('years', function (Blueprint $table) {
+        Schema::create('school_records', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-            $table->string('year');  
-            $table->boolean('default'); 
-            $table->string('details')->nullable(); 
         });
     }
 
@@ -29,6 +26,6 @@ class CreateYearsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('years');
+        Schema::dropIfExists('school_records');
     }
 }

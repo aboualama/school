@@ -16,9 +16,10 @@ class YearController extends Controller
      */
     public function index()
     {
-        $record = Year::get();
+        $allyears    = Year::get();
+        $record      = Year::where('default', 1)->first();
         $pageConfigs = ['pageHeader' => false];
-        return view('/app/years/app_years', ['pageConfigs' => $pageConfigs, 'record' => $record]); 
+        return view('/app/years/app_years', ['pageConfigs' => $pageConfigs, 'allyears' => $allyears, 'record' => $record]); 
     }
  
 
@@ -47,9 +48,7 @@ class YearController extends Controller
         $record->update($request->all());  
         $record->save();
     }
- 
-
-
+  
 
     public function setting($id)
     { 
@@ -58,7 +57,7 @@ class YearController extends Controller
     }
  
 
-
+ 
 
 
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Dashboard; 
 
+use App\Models\Year;
 use App\Models\Setting;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -15,9 +16,10 @@ class SettingController extends Controller
      */
     public function index()
     {
+        $allyears    = Year::get();
         $record = Setting::first();
         $pageConfigs = ['pageHeader' => false];
-        return view('/app/settings/app_settings', ['pageConfigs' => $pageConfigs, 'record' => $record]);
+        return view('/app/settings/app_settings', ['pageConfigs' => $pageConfigs, 'record' => $record, 'allyears' => $allyears]);
     } 
   
     /**
@@ -28,10 +30,8 @@ class SettingController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, Setting $setting)
-    {
- 
-        $record = Setting::first();
-
+    { 
+        $record = Setting::first(); 
         $record->update($request->all());
         if (request()->hasFile('logo'))
         {
@@ -46,6 +46,13 @@ class SettingController extends Controller
      
         $record['logo'] = $image_name; 
         $record->save();
+    }
+
+
+    public function set_default_year($id)
+    { 
+        Year::where('default', 1)->update(['default' => 0]);
+        $record = Year::find($id)->update(['default' => 1]); 
     }
  
 }

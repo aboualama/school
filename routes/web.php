@@ -52,10 +52,12 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
   Route::get('settings', [SettingController::class,'index'])->name('app-settings');
   Route::post('settings', [SettingController::class,'update'])->name('edit-settings');
+  Route::get('set-default-year/{id}', [SettingController::class,'set_default_year'])->name('set-default-year');
 
+
+  
   Route::get('years', [YearController::class,'index'])->name('app-years');
-  Route::post('years', [YearController::class,'store'])->name('edit-years');
-
+  Route::post('years', [YearController::class,'store'])->name('edit-years'); 
   Route::get('edit-setting/{id}', [YearController::class,'setting']); 
 
 

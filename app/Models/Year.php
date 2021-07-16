@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Year extends Model
 {
     use HasFactory;
+    protected $fillable = [ 'year', 'default', 'details']; 
+    
+
+    public function settings()
+    {
+        return $this->hasOne(OtherSetting::class);
+    }
 }
