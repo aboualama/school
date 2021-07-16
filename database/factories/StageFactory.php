@@ -21,8 +21,7 @@ class StageFactory extends Factory
      */
     public function definition()
     {
-        return [
-            //
+        return [  
         ];
     }
 }

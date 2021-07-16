@@ -54,5 +54,13 @@ class SettingController extends Controller
         Year::where('default', 1)->update(['default' => 0]);
         $record = Year::find($id)->update(['default' => 1]); 
     }
+
+
+    public function change_year($id)
+    { 
+        $record = Year::find($id);  
+        return view('app.years.change_years', ['record' => $record]); 
+    }
  
 }
+ 

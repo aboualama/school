@@ -66,6 +66,28 @@ $configData = Helper::applClasses();
           </li>  
         </ul> 
       </li>
+  
+
+      <li class="nav-item {{ Route::currentRouteName() === ''  ? 'active' : '' }} {{ $custom_classes }}">
+        <a href="javascript:void(0)" class="d-flex align-items-center" target="_self">
+          <i data-feather="settings"></i>
+          <span class="menu-title text-truncate">المراحل الدراسية</span> 
+        </a>  
+        <ul class="menu-content"> 
+          <li class="nav-item {{ Route::currentRouteName() === "app-stages" ? 'active' : '' }} {{ $custom_classes }}">
+            <a href="/stages" class="d-flex align-items-center" target="_self">
+              <i data-feather="circle"></i>
+              <span class="menu-title text-truncate">الاعدادات الاساسية </span> 
+            </a> 
+          </li> 
+          <li class="nav-item {{ Route::currentRouteName() === "app-yeasssrs" ? 'active' : '' }} {{ $custom_classes }}">
+            <a href="/yearvvvs" class="d-flex align-items-center" target="_self">
+              <i data-feather="circle"></i>
+              <span class="menu-title text-truncate">الاعدادات المتغيرة</span> 
+            </a> 
+          </li>  
+        </ul> 
+      </li>
 
 
 

@@ -21,6 +21,7 @@ use App\Http\Controllers\AuthenticationController;
 use  App\Http\Controllers\Dashboard\UserController;   
 use App\Http\Controllers\Dashboard\SettingController; 
 use App\Http\Controllers\Dashboard\YearController; 
+use App\Http\Controllers\Dashboard\StageController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -53,15 +54,37 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
   Route::get('settings', [SettingController::class,'index'])->name('app-settings');
   Route::post('settings', [SettingController::class,'update'])->name('edit-settings');
   Route::get('set-default-year/{id}', [SettingController::class,'set_default_year'])->name('set-default-year');
+  Route::get('change-year/{id}', [SettingController::class,'change_year'])->name('change-year');
 
 
   
   Route::get('years', [YearController::class,'index'])->name('app-years');
   Route::post('years', [YearController::class,'store'])->name('edit-years'); 
-  Route::get('edit-setting/{id}', [YearController::class,'setting']); 
+  Route::get('edit-setting/{id}', [YearController::class,'edit_setting']); 
+  Route::get('add-setting', [YearController::class,'add_setting']);  
+  Route::post('edit-other-settings', [YearController::class,'edit_other_setting']); 
+  Route::post('add-other-settings', [YearController::class,'add_other_setting']); 
+
+   
 
 
- 
+  Route::get('stages', [StageController::class,'index'])->name('app-stages');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
 
   /* Route Apps */
   Route::group(['prefix' => 'app'], function () {

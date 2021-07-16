@@ -12,13 +12,10 @@
   <!-- Page css files --> 
   <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">  
 @endsection 
- 
- 
+  
 
 @section('content') 
-
-
-
+ 
   <section class="app-user-edit">
     <div class="card">
       <div class="card-body">
@@ -26,28 +23,21 @@
         <div class="tab-content">
           <!-- Account Tab starts -->
           <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel">
-         
-            <!-- company form start -->
-            <form id="section_form" class="form-validate" >
-              <div class="row">
-     
+          
+              <div class="row"> 
                 <div class="col-md-12">
                   <div class="form-group">
                     <label for="status">العام الدراسي</label>
-                    <select class="form-control" name="year_id" id="year" >
-                      <option  value="0">----</option>
-                      @foreach ($allyears as $year) 
+                    <select class="form-control" name="year_id" id="year" > 
+                      @foreach ($years as $year) 
                         <option value="{{$year->id}}" {{($year->year  == $defaultyear->year) ? 'selected' : '' }}>{{$year->year}}</option> 
                       @endforeach
                     </select>
                   </div> 
-                </div>
-               
-
-                {{-- section_inputs row --}}
+                </div> 
+                   
                 <div class="col-md-12"  id="section_inputs">  
-  
-                  {{-- Taxs row --}}
+   
                   <div class="row"> 
                     <section id="divider-text-position" style="width: 98%; margin: auto;">
                       <div class="row">
@@ -57,64 +47,53 @@
                             </div>   
                         </div>
                       </div>
-                    </section> 
-                    {{-- <section class="form-control-repeater" style="width: 100%;"> --}}
+                    </section>  
                       <div class="col-md-12"> 
                         <div class="row">  
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="role"> الوكيلات</label> 
-                              <input type="number" class="form-control" name="tax_percent" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
-                              <span id="tax_percent_error" class="form-text text-danger small_error"> </span> 
+                              <input type="number" class="form-control" name="agents" id="agents" placeholder="{{$record->settings->agents}}" disabled> 
                             </div>
                           </div>   
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="role"> الاداريات </label> 
-                              <input type="number" class="form-control" name="tax_amount" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
-                              <span id="tax_amount_error" class="form-text text-danger small_error"> </span> 
+                              <input type="number" class="form-control" name="administrators" id="administrators" placeholder="{{$record->settings->administrators}}" disabled> 
                             </div>
                           </div>   
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="role">المعلمات </label> 
-                              <input type="number" class="form-control" name="discount" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
-                              <span id="discount_error" class="form-text text-danger small_error"> </span> 
+                              <input type="number" class="form-control" name="teachers" id="teachers" placeholder="{{$record->settings->teachers}}" disabled> 
                             </div>
                           </div>  
                         </div> 
                       </div>
+ 
                       <div class="col-md-12"> 
                         <div class="row">  
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="role"> الطالبات</label> 
-                              <input type="number" class="form-control" name="tax_percent" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
-                              <span id="tax_percent_error" class="form-text text-danger small_error"> </span> 
+                              <input type="number" class="form-control" name="students" id="students" placeholder="{{$record->settings->users}}" disabled> 
                             </div>
                           </div>   
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="role">المستخدمات </label> 
-                              <input type="number" class="form-control" name="tax_amount" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
-                              <span id="tax_amount_error" class="form-text text-danger small_error"> </span> 
+                              <input type="number" class="form-control" name="users" id="users" placeholder="{{$record->settings->users}}" disabled> 
                             </div>
                           </div>   
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="role">عدد الحراس</label> 
-                              <input type="number" class="form-control" name="discount" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
-                              <span id="discount_error" class="form-text text-danger small_error"> </span> 
+                              <input type="number" class="form-control" name="guards" id="guards" placeholder="{{$record->settings->guards}}" disabled> 
                             </div>
                           </div>  
                         </div> 
-                      </div>
-                    {{-- </section>   --}}
-                  </div>
-                  {{-- end Taxs row --}}
-  
-  
-                  {{-- Basic price/kg row --}}
+                      </div> 
+                  </div> 
                   <div class="row">
   
                     <section id="divider-text-position" style="width: 98%;margin: auto;">
@@ -132,55 +111,41 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="role"> قسم الابتدائي</label> 
-                            <input type="number" class="form-control" name="tax_percent" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
-                            <span id="tax_percent_error" class="form-text text-danger small_error"> </span> 
+                            <input type="number" class="form-control" name="primary_no" id="primary_no" placeholder="{{$record->settings->primary_no}}" disabled> 
                           </div>
                         </div>   
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="role">قسم المتوسط </label> 
-                            <input type="number" class="form-control" name="tax_amount" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
-                            <span id="tax_amount_error" class="form-text text-danger small_error"> </span> 
+                            <input type="number" class="form-control" name="middle_no" id="middle_no" placeholder="{{$record->settings->middle_no}}" disabled> 
                           </div>
                         </div>   
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="role">قسم الثانوي</label> 
-                            <input type="number" class="form-control" name="discount" id="basicInput" placeholder="{{$record->settings->agents}}" disabled>
-                            <span id="discount_error" class="form-text text-danger small_error"> </span> 
+                            <input type="number" class="form-control" name="secondary_no" id="secondary_no" placeholder="{{$record->settings->secondary_no}}" disabled> 
                           </div>
                         </div>  
                       </div> 
                     </div>
-                  </div> 
-                  {{-- end Basic price/kg row --}}
-  
-   
-  
-   
+                  </div>   
+                </div>   
       
-                  <div class="col-12 d-flex flex-sm-row flex-column mt-2"> 
-                            
-                    <button type="button" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1 add"> 
-                      <i data-feather="plus" class="mr-25"></i>
-                      <span>أضافة</span>
-                    </button> 
-                            
-                    <button type="button" class="btn btn-success mb-1 mb-sm-0 mr-0 mr-sm-1 edit"> 
-                      <i data-feather="edit" class="mr-25"></i>
-                      <span>تعديل</span>
-                    </button> 
-                  </div>
-                  
+                <div class="col-12 d-flex flex-sm-row flex-column mt-2"> 
+                          
+                  <button type="button" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1 add"> 
+                    <i data-feather="plus" class="mr-25"></i>
+                    <span>أضافة</span>
+                  </button> 
+                          
+                  <button type="button" class="btn btn-success mb-1 mb-sm-0 mr-0 mr-sm-1 edit"> 
+                    <i data-feather="edit" class="mr-25"></i>
+                    <span>تعديل</span>
+                  </button> 
                 </div>
-                {{-- end section_inputs row --}}
-  
-  
-              </div>
-            </form>
-            <!-- users edit account form ends -->
-          </div>
-          <!-- Account Tab ends -->
+                
+              </div> 
+          </div> 
    
    
         </div>
@@ -269,7 +234,7 @@ $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('conten
 
 
  //  edit model
-    $('.edit').on("click", function (e) {
+ $('.edit').on("click", function (e) {
       e.stopPropagation();
       var id = $('#year').val();
       console.log(id);
@@ -283,37 +248,37 @@ $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('conten
       });
     });
 
+    
+ //  add model
+ $('.add').on("click", function (e) {
+      e.stopPropagation();  
+      $.ajax({
+        type: 'GET',
+        url: '/add-setting/',
+        success: function (data) {
+          $('#modal-block').modal('toggle');
+          $('#setting').html(data);
+        }
+      });
+    });
+
+
+ // change year
+ $('#year').on("change", function (e) {
+      e.stopPropagation();
+      var id = $('#year').val();
+      $.ajax({
+        type: 'GET',
+        url: '/change-year/' + id,
+        success: function (data) {  
+          $('#section_inputs').html(data);
+        }
+      });
+    });
+
  
  
 
-
-
-
-      $('#year').on('change',function(e) {
-           //$("#form").find('input[type=text]').val(''); 
-              $("form").each(function(){
-               $(this).find('input[type=number]').val(''); 
-              });
-          var id = e.target.value; 
-          console.log(id);
-            // $.ajax({ 
-            //   type:"get",
-            //   data: {
-            //   id: id
-            //   },
-            //   success:function (data) { 
-            //     $('#form').empty();
-            //     $.each(data,function(index,zone){
-            //       $('#form').append('<option value="'+zone.num+'">المنطقة رقم: '+zone.num+'</option>');
-            //     })   
-            //     $('#to').empty();
-            //     $.each(data,function(index,zone){
-            //       $('#to').append('<option value="'+zone.num+'">المنطقة رقم: '+zone.num+'</option>');
-            //     })
-            //   }
-            // })
- 
-        }); 
  
 
 
@@ -333,14 +298,14 @@ $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('conten
 
   
   // update setting
- $(document).on('click', '#edit', function (e) {
+ $(document).on('click', '#submit', function (e) {
       e.preventDefault();
       $(".small_error").text('');
       var url = $("#url").val(); 
       var formData = new FormData($('#form')[0]);
 
-      var id = $("#id").val();
-      console.log(id);
+      var id = $("#year").val();
+      console.log(formData);
       $.ajax({
           type: 'post',
           enctype: 'multipart/form-data',
@@ -367,15 +332,11 @@ $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('conten
                           positionClass: 'toast-top-right',
                           rtl: 'rtl'
                         }
-                      ); 
-                    // $(".form-control").val('');
-                    // $(".user-avatar").val(''); 
-                    // $("#users-picture").attr("src","{{asset('images/logo/img.png')}}");
-                    $("#large").modal('toggle');
-                    // $("#name").text(data.name); 
-                    // $("#phone").text(data.phone); 
-                    // $("#zones").text(data.zones.length); 
-                    // $("#option").text(data.option);  
+                      );  
+                  $("#modal-block").modal('toggle');   
+                  setInterval(function(){
+                    window.location.reload(1);
+                  }, 3000);
               }
           }, error: function (xhr) {
 
@@ -384,6 +345,44 @@ $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('conten
   });
   
  
+
+
+
+
+
+
+
+
+
+
+
+ 
+  $('#year').on('change',function(e) {
+           //$("#form").find('input[type=text]').val(''); 
+              $("form").each(function(){
+               $(this).find('input[type=number]').val(''); 
+              });
+          var id = e.target.value; 
+          console.log(id);
+            // $.ajax({ 
+            //   type:"get",
+            //   data: {
+            //   id: id
+            //   },
+            //   success:function (data) { 
+            //     $('#form').empty();
+            //     $.each(data,function(index,zone){
+            //       $('#form').append('<option value="'+zone.num+'">المنطقة رقم: '+zone.num+'</option>');
+            //     })   
+            //     $('#to').empty();
+            //     $.each(data,function(index,zone){
+            //       $('#to').append('<option value="'+zone.num+'">المنطقة رقم: '+zone.num+'</option>');
+            //     })
+            //   }
+            // })
+ 
+        }); 
+
   </script>   
 
 @endsection

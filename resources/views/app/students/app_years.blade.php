@@ -309,9 +309,7 @@
       $(".small_error").text('');
       var url = $("#url").val(); 
       var formData = new FormData($('#form')[0]);
-
-      var id = $("#id").val();
-      console.log(id);
+ 
       $.ajax({
           type: 'post',
           enctype: 'multipart/form-data',
@@ -329,6 +327,7 @@
                   $("#" + str + "_error").text(val[0]); 
                 });
               }else{ 
+                  $("#large").modal('toggle'); 
                   toastr['success'](
                         'تم تعديل الاعدادات بنجاح ',
                         ' الاعدادات الرئيسية ' ,
@@ -338,15 +337,10 @@
                           positionClass: 'toast-top-right',
                           rtl: 'rtl'
                         }
-                      ); 
-                    // $(".form-control").val('');
-                    // $(".user-avatar").val(''); 
-                    // $("#users-picture").attr("src","{{asset('images/logo/img.png')}}");
-                    $("#large").modal('toggle');
-                    // $("#name").text(data.name); 
-                    // $("#phone").text(data.phone); 
-                    // $("#zones").text(data.zones.length); 
-                    // $("#option").text(data.option);  
+                      );  
+                  setInterval(function(){
+                    window.location.reload(1);
+                  }, 3000);
               }
           }, error: function (xhr) {
 

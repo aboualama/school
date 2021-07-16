@@ -15,7 +15,9 @@ class StageController extends Controller
      */
     public function index()
     {
-        //
+        $record    = Stage::get(); 
+        $pageConfigs = ['pageHeader' => false];
+        return view('/app/students/app_students', ['pageConfigs' => $pageConfigs, 'record' => $record]); 
     }
 
     /**
