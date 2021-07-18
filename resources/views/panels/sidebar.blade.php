@@ -77,13 +77,13 @@ $configData = Helper::applClasses();
           <li class="nav-item {{ Route::currentRouteName() === "app-stages" ? 'active' : '' }} {{ $custom_classes }}">
             <a href="/stages" class="d-flex align-items-center" target="_self">
               <i data-feather="circle"></i>
-              <span class="menu-title text-truncate">الاعدادات الاساسية </span> 
+              <span class="menu-title text-truncate">المراحل والفصول  </span> 
             </a> 
           </li> 
-          <li class="nav-item {{ Route::currentRouteName() === "app-yeasssrs" ? 'active' : '' }} {{ $custom_classes }}">
-            <a href="/yearvvvs" class="d-flex align-items-center" target="_self">
+          <li class="nav-item {{ Route::currentRouteName() === "app-students" ? 'active' : '' }} {{ $custom_classes }}">
+            <a href="/students" class="d-flex align-items-center" target="_self">
               <i data-feather="circle"></i>
-              <span class="menu-title text-truncate">الاعدادات المتغيرة</span> 
+              <span class="menu-title text-truncate">اعداد الطالبات</span> 
             </a> 
           </li>  
         </ul> 
@@ -274,7 +274,7 @@ $configData = Helper::applClasses();
     {{-- to show all menu --}}
 
      @php
-    $show = "6"; 
+    $show = "1"; 
     @endphp 
     
      <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" style="display: {{$show === "1" ? 'none' : '' }}" > 

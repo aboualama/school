@@ -22,15 +22,7 @@ class OtherSettingFactory extends Factory
     public function definition()
     {
         return [ 
-            'agents' => $this->faker->randomDigit,
-            'administrators' => $this->faker->randomDigit,
-            'teachers' => $this->faker->randomDigit,
-            'users' => $this->faker->randomDigit,
-            'guards' => $this->faker->randomDigit,
-            'primary_no' => $this->faker->randomDigit,
-            'middle_no' => $this->faker->randomDigit,
-            'secondary_no' => $this->faker->randomDigit,
-            'year_id' => $this->faker->randomElement(['1' ,'2', '3']), 
+            // 
         ];
     }
 }  

@@ -16,6 +16,9 @@ class CreateStudentCountsTable extends Migration
         Schema::create('student_counts', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+			$table->integer('count');
+			$table->foreignId('class_room_id')->constrained();
+			$table->foreignId('year_id')->constrained();
         });
     }
 

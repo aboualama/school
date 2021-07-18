@@ -72,8 +72,8 @@
                         <div class="col-md-4">
                           <div class="form-group">
                             <label for="role"> الطالبات</label>
-                            <input type="number" class="form-control" name="students" id="students"
-                              placeholder="........" >
+                            <input type="number" class="form-control" 
+                              placeholder="........" disabled>
                             <span id="students_error" class="form-text text-danger small_error"> </span>
                           </div>
                         </div>

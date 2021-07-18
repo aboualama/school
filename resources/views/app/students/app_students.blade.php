@@ -35,7 +35,7 @@
 
    
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-6">
     <section class="app-user-edit">
       <div class="card">
         <div class="card-body"> 
@@ -47,23 +47,23 @@
                     <section id="divider-text-position" style="width: 98%; margin: auto;">
                       <div class="row">
                         <div class="col-md-12"> 
-                            <div class="divider divider-left divider-danger">
-                              <div class="divider-text text-danger">المراحل الدراسية</div>
+                            <div class="divider divider-left divider-warning">
+                              <div class="divider-text text-warning">المراحل الدراسية</div>
                             </div>   
                         </div>
                       </div>
                     </section> 
-                
-                    <div class="form-group"> 
-                      @foreach ($record as $record)  
-                        <div class="form-group"> 
-                          {{$record->name}} 
-                        </div>
-                      @endforeach
-                    </div>  
                   </div>  
-                  <div class="col-12 d-flex flex-sm-row flex-column mt-2">
-                    <button type="submit" id="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">اضافة مرحلة </button> 
+                
+                  <div class="form-group"> 
+                    @foreach ($stages as $stage)  
+                      <div class="form-group"> 
+                        {{$stage->name}} 
+                      </div>
+                    @endforeach
+                  </div>  
+                  <div >
+                    <button type="submit" class="btn btn-warning btn-block waves-effect waves-float waves-light" data-toggle="modal" data-target="#stage"> اضافة مرحلة </button> 
                   </div> 
                 </div>   
               </div>  
@@ -74,7 +74,7 @@
     </section> 
   </div>
  
-  <div class="col-md-4">
+  <div class="col-md-6">
     <section class="app-user-edit">
       <div class="card">
         <div class="card-body"> 
@@ -86,18 +86,36 @@
                     <section id="divider-text-position" style="width: 98%; margin: auto;">
                       <div class="row">
                         <div class="col-md-12"> 
-                            <div class="divider divider-left divider-danger">
-                              <div class="divider-text text-danger">الفصول الدراسية</div>
+                            <div class="divider divider-left divider-info">
+                              <div class="divider-text text-info">الفصول الدراسية</div>
                             </div>   
                         </div>
                       </div>
                     </section> 
+                  
+                  </div>  
                 
-                    <div class="form-group">  
-                    </div>  
+                  <div class="form-group"> 
+                    @foreach ($stages as $stage)  
+                      <div class="form-group">   
+                          <p class="text-info">{{$stage->name}}</p>   
+
+                          <div class="row">
+                            @forelse ($stage->classrooms as $classroom) 
+                                <div class="col-md-6"> 
+                                  <p>
+                                    -- {{$classroom->classroom}} 
+                                  </p> 
+                                </div>
+                            @empty 
+                              -------
+                            @endforelse    
+                          </div> 
+                      </div>  
+                    @endforeach
                   </div>  
                   <div class="col-12 d-flex flex-sm-row flex-column mt-2">
-                    <button type="submit" id="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">اضافة مرحلة </button> 
+                    <button type="submit"  class="btn btn-info btn-block waves-effect waves-float waves-light" data-toggle="modal" data-target="#classroom">اضافة صف دراسي </button> 
                   </div> 
                 </div>   
               </div>  
@@ -106,10 +124,158 @@
         </div>
       </div>
     </section> 
-  </div>
+  </div> 
+ 
 </div>
  
  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <!-- Modal stage -->
+   <div class="modal fade text-left" id="stage" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true" >
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title text-warning" id="myModalLabel17">أضافة مرحلة دراسية</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+         <div class="modal-body">   
+           <div class="row">   
+             <div class="col-12">
+               <div class="card"> 
+                 <div class="card-body">
+                   <form action="#" class="invoice-repeater" id="form_stage"> 
+                     <input type="hidden" id="url" value="/stages">   
+                       <div class="row d-flex">     
+                         <div class="col-md-12 col-12">
+                           <div class="form-group"> 
+                            <label for="status2" class="text-warning"> الاسم</label>
+                             <input type="text" class="form-control" name="name" value="" placeholder="مثال: المرحلة الابتدائية" required/>
+                             <span id="name_error" class="form-text text-warning small_error"> </span> 
+                           </div>
+                         </div>   
+                       </div>   
+                     <hr /> 
+                     <div class="row">
+                       <div class="col-12">  
+                         <button class="btn btn-icon btn-warning" id="stage_submit" type="submit"> 
+                           <span>اضافة</span>
+                         </button>
+                       </div>
+                     </div> 
+                   </form>
+                 </div>
+               </div>
+             </div> 
+           </div> 
+         </div> 
+      </div>
+    </div>
+   </div> 
+    <!-- Modal stage-->
+
+ <!-- Modal classroom -->
+ <div class="modal fade text-left" id="classroom" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true" >
+  <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title text-info" id="myModalLabel17">أضافة مرحلة دراسية</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+       <div class="modal-body">   
+         <div class="row">   
+           <div class="col-12">
+             <div class="card"> 
+               <div class="card-body">
+                 <form action="#" class="invoice-repeater" id="form_classroom" > 
+                   <input type="hidden" id="classrooms_url" value="/classrooms">   
+                     <div class="row d-flex">      
+                      <div class="col-md-12 col-12">
+                        <div class="form-group">
+                         <label for="status2" class="text-info">المرحلة الدراسية</label>
+                         <select class="form-control" name="stage_id" > 
+                           @foreach ($stages as $stage)  
+                             <option value="{{$stage->id}}">{{$stage->name}}</option> 
+                           @endforeach
+                         </select>
+                       </div> 
+                      </div>     
+                      <div class="col-md-12 col-12">
+                       <div class="form-group"> 
+                        <label for="status3" class="text-info">الصف الدراسي</label>
+                         <input type="text" class="form-control" name="classroom" value="" placeholder="مثال:  الصف الاول الابتدائي" />
+                         <span id="classroom_error" class="form-text text-info small_error"> </span> 
+                       </div>
+                      </div>    
+                      
+                     </div>   
+                   <hr /> 
+                   <div class="row">
+                     <div class="col-12">  
+                       <button class="btn btn-icon btn-info" id="classroom_submit" type="submit"> 
+                         <span>اضافة</span>
+                       </button>
+                     </div>
+                   </div> 
+                 </form>
+               </div>
+             </div>
+           </div> 
+         </div> 
+       </div> 
+    </div>
+  </div>
+ </div> 
+  <!-- Modal classroom -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 @endsection
 
 
@@ -159,56 +325,17 @@
  
       $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
 
-      $('#year').on('change',function(e) {
-           //$("#form").find('input[type=text]').val(''); 
-              $("form").each(function(){
-               $(this).find('input[type=number]').val(''); 
-              });
-          var id = e.target.value; 
-          console.log(id);
-            // $.ajax({ 
-            //   type:"get",
-            //   data: {
-            //   id: id
-            //   },
-            //   success:function (data) { 
-            //     $('#form').empty();
-            //     $.each(data,function(index,zone){
-            //       $('#form').append('<option value="'+zone.num+'">المنطقة رقم: '+zone.num+'</option>');
-            //     })   
-            //     $('#to').empty();
-            //     $.each(data,function(index,zone){
-            //       $('#to').append('<option value="'+zone.num+'">المنطقة رقم: '+zone.num+'</option>');
-            //     })
-            //   }
-            // })
- 
-        }); 
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
   
-  // update setting
- $(document).on('click', '#edit', function (e) {
+
+
+
+
+   
+  $(document).on('click', '#stage_submit', function (e) {
       e.preventDefault();
       $(".small_error").text('');
       var url = $("#url").val(); 
-      var formData = new FormData($('#form')[0]);
- 
+      var formData = new FormData($('#form_stage')[0]); 
       $.ajax({
           type: 'post',
           enctype: 'multipart/form-data',
@@ -217,8 +344,7 @@
           processData: false,
           contentType: false,
           cache: false,
-          success: function (data) {
- 
+          success: function (data) { 
               if (data.status == 442){
                 $.each(data.errors, function (key, val) {
                   var newchar = '_'
@@ -226,17 +352,17 @@
                   $("#" + str + "_error").text(val[0]); 
                 });
               }else{ 
-                  $("#large").modal('toggle'); 
+                  $("#modal-block").modal('toggle'); 
                   toastr['success'](
-                        'تم تعديل الاعدادات بنجاح ',
-                        ' الاعدادات الرئيسية ' ,
+                        'تم اضافة مرحلة دراسية بنجاح ',
+                        ' المراحل الدراسية ' ,
                         {
                           closeButton: true,
                           tapToDismiss: false, 
                           positionClass: 'toast-top-right',
                           rtl: 'rtl'
                         }
-                      );  
+                      );    
                   setInterval(function(){
                     window.location.reload(1);
                   }, 3000);
@@ -246,8 +372,55 @@
           }
       });
   });
-  
+ 
+
+
+   
+  $(document).on('click', '#classroom_submit', function (e) {
+      e.preventDefault();
+      $(".small_error").text('');
+      var url = $("#classrooms_url").val(); 
+      var formData = new FormData($('#form_classroom')[0]); 
+      $.ajax({
+          type: 'post',
+          enctype: 'multipart/form-data',
+          url: url,
+          data: formData,
+          processData: false,
+          contentType: false,
+          cache: false,
+          success: function (data) { 
+              if (data.status == 442){
+                $.each(data.errors, function (key, val) {
+                  var newchar = '_'
+                  var str = key.split('.').join(newchar); 
+                  $("#" + str + "_error").text(val[0]); 
+                });
+              }else{ 
+                  $("#modal-block").modal('toggle'); 
+                  toastr['success'](
+                        'تم اضافة فصل دراسي بنجاح ',
+                        ' الفصول الدراسية ' ,
+                        {
+                          closeButton: true,
+                          tapToDismiss: false, 
+                          positionClass: 'toast-top-right',
+                          rtl: 'rtl'
+                        }
+                      );    
+                  setInterval(function(){
+                    window.location.reload(1);
+                  }, 3000);
+              }
+          }, error: function (xhr) {
+
+          }
+      });
+  });
+ 
+
  
   </script>   
 
 @endsection
+ 

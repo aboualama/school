@@ -76,7 +76,7 @@
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="role"> الطالبات</label> 
-                              <input type="number" class="form-control" name="students" id="students" placeholder="{{$record->settings->users}}" disabled> 
+                              <input type="number" class="form-control" name="students" id="students" placeholder="{{\App\Models\StudentCount::where('year_id', $defaultyear->id)->sum('count')}}" disabled> 
                             </div>
                           </div>   
                           <div class="col-md-4">
@@ -296,16 +296,12 @@ $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('conten
 
 
 
-  
-  // update setting
+   
  $(document).on('click', '#submit', function (e) {
       e.preventDefault();
       $(".small_error").text('');
       var url = $("#url").val(); 
-      var formData = new FormData($('#form')[0]);
-
-      var id = $("#year").val();
-      console.log(formData);
+      var formData = new FormData($('#form')[0]); 
       $.ajax({
           type: 'post',
           enctype: 'multipart/form-data',

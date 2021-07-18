@@ -14,15 +14,14 @@ class StageSeeder extends Seeder
      */
     public function run()
     {
-        Stage::create([
-          'name' => 'المرحلة الابتدائية', 
-        ]);
-        Stage::create([
-          'name' => 'المرحلة الاعدادية', 
-        ]);
-        Stage::create([
-          'name' => 'المرحلة الثانوية', 
-        ]);
+        $arr =['المرحلة الابتدائية','المرحلة الاعدادية', 'المرحلة الثانوية'];
+
+        for($i = 0 ; $i < 3 ; $i++)
+        { 
+          Stage::create([
+            'name' => $arr[$i], 
+          ]); 
+        } 
     }
 }
   

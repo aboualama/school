@@ -44,7 +44,7 @@
                           <div class="col-md-4">
                             <div class="form-group">
                               <label for="role"> الطالبات</label> 
-                              <input type="number" class="form-control" name="students" id="students" placeholder="{{$record->settings->users}}" disabled>
+                              <input type="number" class="form-control" name="students" id="students" placeholder="{{\App\Models\StudentCount::where('year_id', $record->id)->sum('count')}}" disabled>
                               <span id="students_error" class="form-text text-danger small_error"> </span> 
                             </div>
                           </div>   

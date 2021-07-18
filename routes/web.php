@@ -22,6 +22,7 @@ use  App\Http\Controllers\Dashboard\UserController;
 use App\Http\Controllers\Dashboard\SettingController; 
 use App\Http\Controllers\Dashboard\YearController; 
 use App\Http\Controllers\Dashboard\StageController; 
+use App\Http\Controllers\Dashboard\ClassRoomController; 
 
 /*
 |--------------------------------------------------------------------------
@@ -69,6 +70,13 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
 
   Route::get('stages', [StageController::class,'index'])->name('app-stages');
+  Route::post('stages', [StageController::class,'store'])->name('add-stage');
+
+  Route::get('classrooms', [ClassRoomController::class,'index'])->name('app-classrooms');
+  Route::post('classrooms', [ClassRoomController::class,'store'])->name('add-classrooms');
+  
+  Route::get('students', [ClassRoomController::class,'students'])->name('app-students');
+  Route::post('students-count', [ClassRoomController::class,'students_count'])->name('students-count');
 
 
 
@@ -77,6 +85,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
 
 
+  
 
 
 

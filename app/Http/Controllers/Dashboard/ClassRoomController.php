@@ -2,85 +2,93 @@
 
 namespace App\Http\Controllers\Dashboard; 
 
+use App\Models\Year;
+use App\Models\Stage;
 use App\Models\ClassRoom;
+use App\Models\StudentCount;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class ClassRoomController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
-    {
-        //
-    }
+{ 
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
+        $record = new ClassRoom;  
+        $record->create($request->all()); 
     }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\ClassRoom  $classRoom
-     * @return \Illuminate\Http\Response
-     */
-    public function show(ClassRoom $classRoom)
-    {
-        //
+  
+    
+    public function students()
+    { 
+        $stages    = Stage::get(); 
+        $classrooms    = ClassRoom::get();  
+        $pageConfigs = ['pageHeader' => false];
+        return view('/app/students/count_students', ['pageConfigs' => $pageConfigs, 'stages' => $stages, 'classrooms' => $classrooms]); 
     }
+    
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\ClassRoom  $classRoom
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(ClassRoom $classRoom)
-    {
-        //
+    public function students_count(Request $request)
+    { 
+        
+        $rules = $this->rules(); 
+        $messages = $this->messages(); 
+
+        $validator = Validator::make($request->all(), $rules, $messages);
+
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(), 'status' => 442]);
+        }
+
+        $records = StudentCount::where('year_id', $request->year_id)->get();
+ 
+        foreach($records as $record){ 
+            $record->delete();
+        }
+
+        foreach($request->classroom as $i => $class){ 
+            $newrecord                  = new StudentCount();
+            $newrecord['year_id']       = $request->year_id;
+            $newrecord['class_room_id'] = $class;
+            $newrecord['count']         = $request->count[$i];
+            $newrecord->save();
+        } 
+  
     }
+ 
+ 
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\ClassRoom  $classRoom
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, ClassRoom $classRoom)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\ClassRoom  $classRoom
-     * @return \Illuminate\Http\Response
-     */
     public function destroy(ClassRoom $classRoom)
     {
         //
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+     
+    public function rules()
+    {
+        $basicRule = [  
+            'count.*'  => 'required', 
+            ];
+        return $basicRule;
+    }
+
+    public function messages()
+    {
+        $basicMessage =  [
+            'count.*.required' => ' يجب ادخال  عدد الطالبات ', 
+            ]; 
+        return  $basicMessage;
     }
 }
