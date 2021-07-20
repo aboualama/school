@@ -8,4 +8,5 @@ use Illuminate\Database\Eloquent\Model;
 class CustodyType extends Model
 {
     use HasFactory;
+    protected $fillable =  ['category_id', 'name'];
 }

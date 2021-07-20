@@ -21,7 +21,9 @@ class DatabaseSeeder extends Seeder
         $this->call(StageSeeder::class); 
         $this->call(ClassRoomSeeder::class); 
         $this->call(StudentCountSeeder::class); 
+        $this->call(CategorySeeder::class); 
+        $this->call(CustodyTypeSeeder::class); 
 
         
     }
-} 
+}  

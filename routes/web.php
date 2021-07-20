@@ -18,10 +18,11 @@ use App\Http\Controllers\MiscellaneousController;
 
 use App\Http\Controllers\UserInterfaceController;
 use App\Http\Controllers\AuthenticationController;
-use  App\Http\Controllers\Dashboard\UserController;   
-use App\Http\Controllers\Dashboard\SettingController; 
 use App\Http\Controllers\Dashboard\YearController; 
 use App\Http\Controllers\Dashboard\StageController; 
+use  App\Http\Controllers\Dashboard\UserController;   
+use App\Http\Controllers\Dashboard\CategoryController;
+use App\Http\Controllers\Dashboard\SettingController; 
 use App\Http\Controllers\Dashboard\ClassRoomController; 
 
 /*
@@ -80,13 +81,16 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
 
 
+  Route::get('categories', [CategoryController::class,'index'])->name('app-categories'); 
 
+  Route::get('custodies', [CategoryController::class,'custodies'])->name('app-custodies'); 
 
+  Route::get('get-type', [CategoryController::class,'get_type'])->name('get-type'); 
+  Route::get('get-type-form', [CategoryController::class,'get_type_form'])->name('get-type-form'); 
 
-
+ 
 
   
-
 
 
 

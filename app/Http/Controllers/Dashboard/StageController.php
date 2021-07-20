@@ -13,8 +13,7 @@ class StageController extends Controller
 { 
     
     public function index()
-    {
-        $year      = Year::where('default', 1)->first();
+    { 
         $stages    = Stage::get(); 
         $classrooms    = ClassRoom::get();  
         $pageConfigs = ['pageHeader' => false];

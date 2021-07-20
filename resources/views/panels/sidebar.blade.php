@@ -70,7 +70,7 @@ $configData = Helper::applClasses();
 
       <li class="nav-item {{ Route::currentRouteName() === ''  ? 'active' : '' }} {{ $custom_classes }}">
         <a href="javascript:void(0)" class="d-flex align-items-center" target="_self">
-          <i data-feather="settings"></i>
+          <i data-feather="layers"></i>
           <span class="menu-title text-truncate">المراحل الدراسية</span> 
         </a>  
         <ul class="menu-content"> 
@@ -88,172 +88,74 @@ $configData = Helper::applClasses();
           </li>  
         </ul> 
       </li>
+  
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-      
-
-
-{{-- 
       <li class="nav-item {{ Route::currentRouteName() === ''  ? 'active' : '' }} {{ $custom_classes }}">
         <a href="javascript:void(0)" class="d-flex align-items-center" target="_self">
-          <i data-feather="user"></i>
-          <span class="menu-title text-truncate">المستخدمين</span> 
+          <i data-feather="command"></i>
+          <span class="menu-title text-truncate">العهدة المدرسية</span> 
         </a>  
         <ul class="menu-content"> 
-          <li class="{{ Route::currentRouteName() === "user-list"  ? 'active' : '' }}">
-            <a href="/user/list" class="d-flex align-items-center" target="_self"> 
-              <i data-feather="circle"></i> 
-              <span class="menu-item text-truncate">list</span>
+          <li class="nav-item {{ Route::currentRouteName() === "app-categories" ? 'active' : '' }} {{ $custom_classes }}">
+            <a href="/categories" class="d-flex align-items-center" target="_self">
+              <i data-feather="circle"></i>
+              <span class="menu-title text-truncate">الاقسام والانواع  </span> 
             </a> 
           </li> 
-          <li class="{{ Route::currentRouteName() === "user-view"  ? 'active' : '' }}">
-            <a href="/user/view" class="d-flex align-items-center" target="_self"> 
-              <i data-feather="circle"></i> 
-              <span class="menu-item text-truncate">view</span>
+          <li class="nav-item {{ Route::currentRouteName() === "app-custodies" ? 'active' : '' }} {{ $custom_classes }}">
+            <a href="/custodies" class="d-flex align-items-center" target="_self">
+              <i data-feather="circle"></i>
+              <span class="menu-title text-truncate">اضافة عهدة</span> 
             </a> 
-          </li> 
-          <li class="{{ Route::currentRouteName() === "user-edit"  ? 'active' : '' }}">
-            <a href="/user/edit" class="d-flex align-items-center" target="_self"> 
-              <i data-feather="circle"></i> 
-              <span class="menu-item text-truncate">edit</span>
-            </a> 
-          </li> 
+          </li>  
         </ul> 
       </li>
- 
- 
 
-      <li class="nav-item {{ Route::currentRouteName() === "" ? 'active' : '' }} {{ $custom_classes }}"> 
-        <a href="javascript:void(0)" class="d-flex align-items-center" target="_self">
-          <i data-feather="map-pin"></i>
-          <span class="menu-title text-truncate">الدول</span> 
-        </a>  
 
-        <ul class="menu-content"> 
-          <li class="{{ Route::currentRouteName() === "country-add"  ? 'active' : '' }}">
-            <a href="/country/add" class="d-flex align-items-center" target="_self"> 
-              <i data-feather="circle"></i> 
-              <span class="menu-item text-truncate">اضافة دولة  </span>
-            </a> 
-          </li> 
-          <li class="{{ Route::currentRouteName() === "country-list"  ? 'active' : '' }}">
-            <a href="/country/list" class="d-flex align-items-center" target="_self"> 
-              <i data-feather="circle"></i> 
-              <span class="menu-item text-truncate">قائمة الدول</span>
-            </a> 
-          </li> 
-          <li class="{{ Route::currentRouteName() === "country-view"  ? 'active' : 'disabled' }}" >
-            <a href="#" class="d-flex align-items-center" target="_self"> 
-              <i data-feather="{{ Route::currentRouteName() === "country-view"  ? 'eye' : 'eye-off' }}"></i> 
-              <span class="menu-item text-truncate">عرض وتعديل دولة</span>
-            </a> 
-          </li>  
-        </ul>  
-      </li>
- 
- 
 
-      <li class="nav-item {{ Route::currentRouteName() === "" ? 'active' : '' }} {{ $custom_classes }}"> 
-        <a href="javascript:void(0)" class="d-flex align-items-center" target="_self">
-          <i data-feather="truck"></i>
-          <span class="menu-title text-truncate">شركات الشحن</span> 
-        </a>  
 
-        <ul class="menu-content"> 
-          <li class="{{ Route::currentRouteName() === "company-add"  ? 'active' : '' }}">
-            <a href="/company/add" class="d-flex align-items-center" target="_self"> 
-              <i data-feather="circle"></i> 
-              <span class="menu-item text-truncate">اضافة شركة جديدة</span>
-            </a> 
-          </li> 
-          <li class="{{ Route::currentRouteName() === "company-list"  ? 'active' : '' }}">
-            <a href="/company/list" class="d-flex align-items-center" target="_self"> 
-              <i data-feather="circle"></i> 
-              <span class="menu-item text-truncate">قائمة الشركات</span>
-            </a> 
-          </li> 
-          <li class="{{ Route::currentRouteName() === "company-view"  ? 'active' : 'disabled' }}" >
-            <a href="#" class="d-flex align-items-center" target="_self"> 
-              <i data-feather="{{ Route::currentRouteName() === "company-view"  ? 'eye' : 'eye-off' }}"></i> 
-              <span class="menu-item text-truncate">عرض الشركة</span>
-            </a> 
-          </li>  
-        </ul>  
-      </li>
- 
 
-      <li class="nav-item {{ Route::currentRouteName() === "" ? 'active' : '' }} {{ $custom_classes }}"> 
-        <a href="javascript:void(0)" class="d-flex align-items-center" target="_self">
-          <i data-feather="dollar-sign"></i>
-          <span class="menu-title text-truncate">التسعير</span> 
-        </a>  
 
-        <ul class="menu-content">  
-          <li class="nav-item {{ Route::currentRouteName() === "price-list-add" ? 'active' : '' }} {{ $custom_classes }}">
-            <a href="/add_price_list" class="d-flex align-items-center" target="_self">
-              <i data-feather="circle"></i>
-              <span class="menu-title text-truncate">اضافة قائمة اسعار </span> 
-            </a> 
-          </li>
-    
-          <li class="nav-item {{ Route::currentRouteName() === "get-price" ? 'active' : '' }} {{ $custom_classes }}">
-            <a href="/get_price" class="d-flex align-items-center" target="_self">
-              <i data-feather="circle"></i>
-              <span class="menu-title text-truncate">طلب سعر  </span> 
-            </a> 
-          </li>
-        </ul>  
-      </li> --}}
 
-      {{-- <li class="nav-item {{ Route::currentRouteName() === "app-todo" ? 'active' : '' }} {{ $custom_classes }}">
-        <a href="/app/todo" class="d-flex align-items-center" target="_self">
-          <i data-feather="check-square"></i>
-          <span class="menu-title text-truncate">Todo</span> 
-        </a> 
-      </li> --}}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+       
 
 
     </ul>

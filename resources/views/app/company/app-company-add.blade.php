@@ -217,3 +217,51 @@
  
   </script>
 @endsection
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// $('#company').on('change',function(e) {
+  //       var id = e.target.value;
+
+  //       if (id == 0){
+  //         $('#section_inputs').fadeOut(); 
+
+  //       }else{
+
+  //         $('#section_inputs').fadeIn(); 
+  //         $.ajax({
+  //           url:"{{ route('get-zone') }}",
+  //           type:"get",
+  //           data: {
+  //           id: id
+  //           },
+  //           success:function (data) { 
+  //             $('#form').empty();
+  //             $.each(data,function(index,zone){
+  //               $('#form').append('<option value="'+zone.num+'">المنطقة رقم: '+zone.num+'</option>');
+  //             })   
+  //             $('#to').empty();
+  //             $.each(data,function(index,zone){
+  //               $('#to').append('<option value="'+zone.num+'">المنطقة رقم: '+zone.num+'</option>');
+  //             })
+  //           }
+  //         })
+
+  //       }
+  //     }); 

@@ -15,7 +15,9 @@ class CreateCustodyTypesTable extends Migration
     {
         Schema::create('custody_types', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->timestamps(); 
+			$table->string('name');
+			$table->foreignId('category_id')->constrained();
         });
     }
 

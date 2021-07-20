@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Dashboard; 
 
 use App\Models\Category;
+use App\Models\CustodyType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
@@ -14,73 +15,79 @@ class CategoryController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        //
+    { 
+        $categories    = Category::get();  
+        $pageConfigs = ['pageHeader' => false];
+        return view('/app/categories/app_categories', ['pageConfigs' => $pageConfigs, 'categories' => $categories]); 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+    public function get_type(Request $request)
     {
-        //
+        $types = CustodyType::where('category_id', $request->id)->get(); 
+        return $types;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function get_type_form(Request $request)
     {
-        //
+        $arr1 = ['1', '2', '3', '4']; 
+        $arr2 = ['5', '6', '7', '8']; 
+        $arr3 = ['9', '10', '11', '12']; 
+
+        $type = $request->id; 
+
+        switch ($type) {
+            case in_array($type, $arr1):
+                $form = "36";
+                break;
+            case in_array($type, $arr2):
+                $form = "37";
+                break;
+            case in_array($type, $arr3):
+                $form = "38";  
+                break;
+            default:
+                $form = "38";  
+        }
+
+        $pageConfigs = ['pageHeader' => false];
+        return view('/app/categories/form/' . $form , ['pageConfigs' => $pageConfigs]); 
+    }
+    
+
+
+    public function custodies()
+    { 
+        $categories    = Category::get();  
+        $pageConfigs = ['pageHeader' => false];
+        return view('/app/categories/custodies', ['pageConfigs' => $pageConfigs, 'categories' => $categories]); 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Category $category)
+
+
+
+
+ 
+    public function test()
     {
-        //
+        // in_array("Irix", $os)
+        $categories    = Category::get();  
+
+        switch ($categories) {
+            case 0:
+                $ddd = "i equals 0";
+                break;
+            case 1:
+                $ddd = "i equals 0";
+                break;
+            case 2:
+                $ddd = "i equals 0";   
+                break;
+        }
+
+
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Category $category)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Category $category)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Category  $category
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Category $category)
-    {
-        //
-    }
+    
 }
