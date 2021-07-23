@@ -56,14 +56,14 @@
                   </div>  
                 
                   <div class="form-group"> 
-                    @foreach ($categories as $category)  
+                    @foreach ($records as $record)  
                       <div class="form-group"> 
-                        {{$category->name}} 
+                        {{$record->type}} 
                       </div>
                     @endforeach
                   </div>  
                   <div >
-                    <button type="submit" class="btn btn-secondary btn-block waves-effect waves-float waves-light" data-toggle="modal" data-target="#category">  اضافة قسم جديد </button> 
+                    <button type="submit" class="btn btn-secondary btn-block waves-effect waves-float waves-light" data-toggle="modal" data-target="#record">  اضافة قسم جديد </button> 
                   </div> 
                 </div>   
               </div>  
@@ -96,15 +96,15 @@
                   </div>  
                 
                   <div class="form-group"> 
-                    @foreach ($categories as $category)  
+                    @foreach ($records as $record)  
                       <div class="form-group">   
-                          <p class="text-info">{{$category->name}}</p>   
+                          <p class="text-info">{{$record->type}}</p>   
 
                           <div class="row">
-                            @forelse ($category->types as $type) 
+                            @forelse ($record->types as $type) 
                                 <div class="col-md-6"> 
                                   <p>
-                                    -- {{$type->name}} 
+                                    -- {{$type->title}} 
                                   </p> 
                                 </div>
                             @empty 
@@ -143,8 +143,8 @@
 
 
 
-   <!-- Modal category -->
-   <div class="modal fade text-left" id="category" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true" >
+   <!-- Modal record -->
+   <div class="modal fade text-left" id="record" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true" >
     <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -158,21 +158,21 @@
              <div class="col-12">
                <div class="card"> 
                  <div class="card-body">
-                   <form action="#" class="invoice-repeater" id="form_category"> 
-                     <input type="hidden" id="url" value="/categories">   
+                   <form action="#" class="invoice-repeater" id="form_record"> 
+                     <input type="hidden" id="url" value="/records">   
                        <div class="row d-flex">     
                          <div class="col-md-12 col-12">
                            <div class="form-group"> 
-                            <label for="status2" class="text-secondary"> الاسم</label>
-                             <input type="text" class="form-control" name="name" value="" placeholder="مثال: العهدة المستديمة " required/>
-                             <span id="name_error" class="form-text text-secondary small_error"> </span> 
+                            <label for="type" class="text-secondary"> النوع</label>
+                             <input type="text" class="form-control" name="type" value="" placeholder="مثال: العهدة المستديمة " required/>
+                             <span id="type_error" class="form-text text-secondary small_error"> </span> 
                            </div>
                          </div>   
                        </div>   
                      <hr /> 
                      <div class="row">
                        <div class="col-12">  
-                         <button class="btn btn-icon btn-secondary" id="category_submit" type="submit"> 
+                         <button class="btn btn-icon btn-secondary" id="record_submit" type="submit"> 
                            <span>اضافة</span>
                          </button>
                        </div>
@@ -186,7 +186,7 @@
       </div>
     </div>
    </div> 
-    <!-- Modal category-->
+    <!-- Modal record-->
 
  <!-- Modal type -->
  <div class="modal fade text-left" id="type" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true" >
@@ -209,9 +209,9 @@
                       <div class="col-md-12 col-12">
                         <div class="form-group">
                          <label for="status2" class="text-success">أقسام العهدة </label>
-                         <select class="form-control" name="category_id" required> 
-                           @foreach ($categories as $category)  
-                             <option value="{{$category->id}}">{{$category->name}}</option> 
+                         <select class="form-control" name="record_id" required> 
+                           @foreach ($records as $record)  
+                             <option value="{{$record->id}}">{{$record->type}}</option> 
                            @endforeach
                          </select>
                        </div> 
@@ -331,11 +331,11 @@
 
 
    
-  $(document).on('click', '#category_submit', function (e) {
+  $(document).on('click', '#record_submit', function (e) {
       e.preventDefault();
       $(".small_error").text('');
       var url = $("#url").val(); 
-      var formData = new FormData($('#form_category')[0]); 
+      var formData = new FormData($('#form_record')[0]); 
       $.ajax({
           type: 'post',
           enctype: 'multipart/form-data',
@@ -352,7 +352,7 @@
                   $("#" + str + "_error").text(val[0]); 
                 });
               }else{ 
-                  $("#category").modal('toggle'); 
+                  $("#record").modal('toggle'); 
                   toastr['success'](
                         'تم اضافة قسم جديد بنجاح ',
                         ' أقسام العهدة  ' ,

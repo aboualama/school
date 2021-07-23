@@ -16,6 +16,8 @@ class CreateSchoolRecordTypesTable extends Migration
         Schema::create('school_record_types', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
+			$table->string('title'); 
+			$table->foreignId('school_record_id')->constrained();
         });
     }
 

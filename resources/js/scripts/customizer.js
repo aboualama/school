@@ -87,8 +87,8 @@
     $('.horizontal-menu .horizontal-menu-wrapper.header-navbar').css('background', 'inherit');
   });
 
-  // Default Skin Selected Based on Current Layout
-  var layout = html.data('layout');
+  // Default Skin Selected Based on Current Layout 
+  var layout = localStorage.getItem('body-layout') ?? html.data('layout');
   $(".layout-name[data-layout='" + layout + "']").prop('checked', true);
 
   collapseSidebar.on('click', function () {

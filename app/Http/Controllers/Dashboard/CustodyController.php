@@ -2,85 +2,57 @@
 
 namespace App\Http\Controllers\Dashboard; 
 
+use App\Models\Year;
 use App\Models\Custody;
+use App\Models\Category;
+use App\Models\CustodyType;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
 class CustodyController extends Controller
-{
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function index()
+{  
+
+    public function custodies()
     {
-        //
+        $allyears    = Year::get();
+        $categories    = Category::get();  
+        $pageConfigs = ['pageHeader' => false];
+        return view('/app/categories/custodies', ['pageConfigs' => $pageConfigs, 'categories' => $categories, 'allyears' => $allyears]);  
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+
+
+    public function get_type(Request $request)
     {
-        //
+        $types = CustodyType::where('category_id', $request->id)->get(); 
+        return $types;
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+
+    public function get_type_form(Request $request)
     {
-        //
+        $arr1 = ['1', '2', '3', '4']; 
+        $arr2 = ['5', '6', '7', '8']; 
+        $arr3 = ['9', '10', '11', '12']; 
+
+        $type = $request->type_id; 
+        $category = $request->category_id; 
+
+        switch ($type) {
+            case in_array($type, $arr1):
+                $form = "36";
+                break;
+            case in_array($type, $arr2):
+                $form = "37";
+                break;
+            case in_array($type, $arr3):
+                $form = "38";  
+                break;
+            default: 
+                $form = ($category == 1) ? "39" : "40";  
+        }
+  
+        return view('/app/categories/form/' . $form); 
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Custody  $custody
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Custody $custody)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Custody  $custody
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Custody $custody)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Custody  $custody
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Custody $custody)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Custody  $custody
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Custody $custody)
-    {
-        //
-    }
 }

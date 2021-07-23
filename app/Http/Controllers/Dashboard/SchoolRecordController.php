@@ -4,83 +4,44 @@ namespace App\Http\Controllers\Dashboard;
 
 use App\Models\SchoolRecord;
 use Illuminate\Http\Request;
+use App\Models\SchoolRecordType;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Validator;
 
 class SchoolRecordController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
+
+
     public function index()
-    {
-        //
+    { 
+        $records    = SchoolRecord::get();  
+        $pageConfigs = ['pageHeader' => false];
+        return view('/app/records/app_records', ['pageConfigs' => $pageConfigs, 'records' => $records]); 
     }
+    
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function store_category(Request $request)
     {
-        //
-    }
+         
+        $validator = Validator::make($request->all(), ['type' => 'required'] , ['type.required' => ' يجب ادخال  نوع السجل ']);  
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(), 'status' => 442]);
+        }
+         $record = new SchoolRecord;  
+         $record->create($request->all()); 
+    } 
+  
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\SchoolRecord  $schoolRecord
-     * @return \Illuminate\Http\Response
-     */
-    public function show(SchoolRecord $schoolRecord)
+    public function store_type(Request $request)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\SchoolRecord  $schoolRecord
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(SchoolRecord $schoolRecord)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\SchoolRecord  $schoolRecord
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, SchoolRecord $schoolRecord)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\SchoolRecord  $schoolRecord
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(SchoolRecord $schoolRecord)
-    {
-        //
-    }
+         
+        $validator = Validator::make($request->all(), ['name' => 'required'] , ['name.required' => ' يجب ادخال  الاسم ']);  
+        if ($validator->fails()) {
+            return response()->json(['errors' => $validator->errors(), 'status' => 442]);
+        }
+         $record = new SchoolRecordType;  
+         $record->create($request->all()); 
+    } 
 }

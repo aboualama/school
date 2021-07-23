@@ -23,7 +23,10 @@ class DatabaseSeeder extends Seeder
         $this->call(StudentCountSeeder::class); 
         $this->call(CategorySeeder::class); 
         $this->call(CustodyTypeSeeder::class); 
+        $this->call(SchoolRecordSeeder::class); 
+        $this->call(SchoolRecordTypeSeeder::class); 
 
         
     }
 }  
+  

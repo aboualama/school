@@ -1,5 +1,5 @@
 <?php
-
+ 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AppsController;
 use App\Http\Controllers\CardsController;
@@ -12,18 +12,20 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ExtensionController;
 use App\Http\Controllers\ComponentsController;
 use App\Http\Controllers\PageLayoutController;
+
+
+
 use App\Http\Controllers\MiscellaneousController;
-
-
-
 use App\Http\Controllers\UserInterfaceController;
 use App\Http\Controllers\AuthenticationController;
 use App\Http\Controllers\Dashboard\YearController; 
 use App\Http\Controllers\Dashboard\StageController; 
 use  App\Http\Controllers\Dashboard\UserController;   
 use App\Http\Controllers\Dashboard\CategoryController;
+use App\Http\Controllers\Dashboard\CustodyController; 
 use App\Http\Controllers\Dashboard\SettingController; 
 use App\Http\Controllers\Dashboard\ClassRoomController; 
+use App\Http\Controllers\Dashboard\SchoolRecordController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,38 +63,53 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
   
   Route::get('years', [YearController::class,'index'])->name('app-years');
-  Route::post('years', [YearController::class,'store'])->name('edit-years'); 
+  Route::get('add-setting', [YearController::class,'add_setting']);   
   Route::get('edit-setting/{id}', [YearController::class,'edit_setting']); 
-  Route::get('add-setting', [YearController::class,'add_setting']);  
-  Route::post('edit-other-settings', [YearController::class,'edit_other_setting']); 
-  Route::post('add-other-settings', [YearController::class,'add_other_setting']); 
+  Route::post('other-settings', [YearController::class,'add_update_setting']);  
 
    
 
 
   Route::get('stages', [StageController::class,'index'])->name('app-stages');
-  Route::post('stages', [StageController::class,'store'])->name('add-stage');
+  Route::post('stages', [StageController::class,'store_stage'])->name('add-stage');
+  Route::post('classrooms', [StageController::class,'store_classroom'])->name('add-classroom');
 
-  Route::get('classrooms', [ClassRoomController::class,'index'])->name('app-classrooms');
-  Route::post('classrooms', [ClassRoomController::class,'store'])->name('add-classrooms');
   
   Route::get('students', [ClassRoomController::class,'students'])->name('app-students');
   Route::post('students-count', [ClassRoomController::class,'students_count'])->name('students-count');
 
-
+  
 
   Route::get('categories', [CategoryController::class,'index'])->name('app-categories'); 
+  Route::post('categories', [CategoryController::class,'store_category'])->name('add-category');
+  Route::post('types', [CategoryController::class,'store_type'])->name('add-type');
 
-  Route::get('custodies', [CategoryController::class,'custodies'])->name('app-custodies'); 
 
-  Route::get('get-type', [CategoryController::class,'get_type'])->name('get-type'); 
-  Route::get('get-type-form', [CategoryController::class,'get_type_form'])->name('get-type-form'); 
+  Route::get('custodies', [CustodyController::class,'custodies'])->name('app-custodies');  
+  Route::get('get-type', [CustodyController::class,'get_type'])->name('get-type'); 
+  Route::get('get-type-form', [CustodyController::class,'get_type_form'])->name('get-type-form'); 
 
  
 
+ 
+  Route::get('records', [SchoolRecordController::class,'index'])->name('app-records'); 
+  Route::post('records', [SchoolRecordController::class,'store_category'])->name('add-record');
+  Route::post('recordtypes', [SchoolRecordController::class,'store_type'])->name('add-recordtype');
+
+
+
+
+  // Route::post('years', [YearController::class,'store'])->name('edit-years'); 
+
+  // Route::get('classrooms', [ClassRoomController::class,'index'])->name('app-classrooms');
+
+
+
+
+
+
+
   
-
-
 
 
 

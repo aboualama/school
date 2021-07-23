@@ -15,10 +15,12 @@ class CreateCustodiesTable extends Migration
     {
         Schema::create('custodies', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+            $table->timestamps(); 
 			$table->integer('item_no')->nullable();
+			$table->string('item_name')->nullable();
 			$table->string('item_des', 255)->nullable();
-			$table->enum('item_status', ['bad', 'good'])->nullable();
+			$table->string('item_status')->nullable();
+			$table->string('item_type')->nullable();
 			$table->integer('quantity')->nullable(); 
 			$table->date('insert_date')->nullable();
 			$table->integer('notebook_no');
@@ -29,7 +31,6 @@ class CreateCustodiesTable extends Migration
 			$table->string('record_description')->nullable();
 			$table->string('notes')->nullable();
 			$table->integer('serial_number')->nullable();
-			$table->string('custody_name')->nullable();
 			$table->string('received_date')->nullable();
 			$table->string('received_signature')->nullable();
 			$table->string('recipient_signature')->nullable();

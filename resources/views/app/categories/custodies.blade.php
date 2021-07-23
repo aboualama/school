@@ -6,70 +6,66 @@
 
 @section('vendor-style')  
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.min.css')) }}">  
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/pickers/pickadate/pickadate.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('vendors/css/pickers/flatpickr/flatpickr.min.css')) }}">
 @endsection
 
 @section('page-style') 
   <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">   
+  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-flat-pickr.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-pickadate.css')) }}"> 
+  
 @endsection 
- 
- 
+  
 
 @section('content') 
    
-   
+    
 <section class="app-user-edit">
   <div class="card">
     <div class="card-body">
  
       <div class="tab-content">
         <!-- Account Tab starts -->
-        <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel">
-        
-            <div class="row"> 
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="status">اقسام العهدة</label>
-                  <select class="form-control" name="category_id" id="category" > 
-                    <option >.........  </option>
-                    @foreach ($categories as $category) 
-                      <option value="{{$category->id}}">{{$category->name}}</option> 
-                    @endforeach
-                  </select>
-                </div> 
+        <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel"> 
+          <div class="row">
+            <div class="col-md-12 col-12">
+              <div class="form-group">
+                <label for="status"> العام الدراسي </label>
+                <select class="form-control" name="defaultyear_id" id="defaultyear" >
+                  <option  value="0">----</option>
+                  @foreach ($allyears as $year) 
+                    <option value="{{$year->id}}" {{($year->year  == $defaultyear->year) ? 'selected' : '' }}>{{$year->year}}</option> 
+                  @endforeach
+                </select>
               </div> 
-
-              <div class="col-md-12">
-                <div class="form-group">
-                  <label for="role">نوع العهدة</label>
-                  <select class="form-control" name="type" id="type"> 
-                    <option >اختار نوع العهدة</option>
-                  </select>
-                </div> 
-              </div> 
-
- 
-
-
-                 
-              <div class="col-md-12"  id="section_inputs">  
- 
-              
-              </div>   
-    
-              <div class="col-12 d-flex flex-sm-row flex-column mt-2"> 
-                        
-                <button type="button" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1 add"> 
-                  <i data-feather="plus" class="mr-25"></i>
-                  <span>أضافة</span>
-                </button> 
-                        
-                <button type="button" class="btn btn-success mb-1 mb-sm-0 mr-0 mr-sm-1 edit"> 
-                  <i data-feather="edit" class="mr-25"></i>
-                  <span>تعديل</span>
-                </button> 
-              </div>
-              
             </div> 
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="status">نوع العهدة</label>
+                <select class="form-control" name="category_id" id="category" > 
+                  <option >.........  </option>
+                  @foreach ($categories as $category) 
+                    <option value="{{$category->id}}">{{$category->name}}</option> 
+                  @endforeach
+                </select>
+              </div> 
+            </div> 
+
+            <div class="col-md-6">
+              <div class="form-group">
+                <label for="role"> العهدة</label>
+                <select class="form-control" name="type" id="type"> 
+                  <option > اختار نوع العهدة اولا</option>
+                </select>
+              </div> 
+            </div> 
+ 
+            <div class="col-md-12"  id="section_forms">   
+            </div>    
+            
+          </div> 
         </div> 
  
  
@@ -77,29 +73,28 @@
     </div>
   </div>
 </section>
-
-
+ 
+  
   
 @endsection
 
 
+ 
 
-
-
-
-
-
-@section('vendor-script') 
-  <!-- toastr -->
+@section('vendor-script')  
   <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script> 
+  <script src="{{ asset(mix('vendors/js/pickers/pickadate/picker.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/pickers/pickadate/picker.date.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/pickers/pickadate/picker.time.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/pickers/pickadate/legacy.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
 @endsection 
 
 @section('page-script') 
+<script src="{{ asset(mix('js/scripts/forms/pickers/form-pickers.js')) }}"></script> 
+
 <script>
-
-
-
-
+ 
  
 $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
 
@@ -122,44 +117,30 @@ $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('conten
     });
   });
 
- 
- 
+  
+
+    
  // change type
  $('#type').on("change", function (e) {
     e.stopPropagation();
-    var id = $('#type').val();
+    var category_id = $('#category').val();
+    var type_id = $('#type').val();
     $.ajax({
       type: 'GET',
-      data: { id: id },
+      data: { 
+        type_id: type_id , 
+        category_id: category_id
+      },
       url: '/get-type-form/',
       success: function (data) {  
-            $('#section_inputs').html(data);
+            $('#section_forms').html(data);
       }
     });
   });
- 
+  
   
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+ 
 
 
   </script>   

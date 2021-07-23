@@ -89,6 +89,7 @@ $configData = Helper::applClasses();
         </ul> 
       </li>
   
+ 
 
       <li class="nav-item {{ Route::currentRouteName() === ''  ? 'active' : '' }} {{ $custom_classes }}">
         <a href="javascript:void(0)" class="d-flex align-items-center" target="_self">
@@ -114,6 +115,16 @@ $configData = Helper::applClasses();
 
 
 
+
+  
+      <ul class="menu-content"> 
+        <li class="nav-item {{ Route::currentRouteName() === "app-records" ? 'active' : '' }} {{ $custom_classes }}">
+          <a href="/records" class="d-flex align-items-center" target="_self">
+            <i data-feather="circle"></i>
+            <span class="menu-title text-truncate"> السجلات المدرسية  </span> 
+          </a> 
+        </li>   
+      </ul> 
 
 
 

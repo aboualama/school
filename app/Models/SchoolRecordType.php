@@ -8,4 +8,6 @@ use Illuminate\Database\Eloquent\Model;
 class SchoolRecordType extends Model
 {
     use HasFactory;
+    protected $fillable = ['title', 'school_record_id']; 
 }
+ 

@@ -21,12 +21,19 @@ class StageController extends Controller
     }
     
 
-    public function store(Request $request)
+    public function store_stage(Request $request)
     {
          $record = new Stage;  
          $record->create($request->all()); 
     } 
   
+
+    public function store_classroom(Request $request)
+    {
+        $record = new ClassRoom;  
+        $record->create($request->all()); 
+    }
+
 
     public function update(Request $request, ClassRoom $classRoom)
     {

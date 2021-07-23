@@ -10,7 +10,7 @@
           <form id="form" class="form-validate">
 
             
-            <input type="hidden" value="add-other-settings" id="url"> 
+            <input type="hidden" value="other-settings" id="url"> 
 
             <div class="row">
 

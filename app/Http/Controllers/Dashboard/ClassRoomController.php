@@ -11,13 +11,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 
 class ClassRoomController extends Controller
-{ 
-
-    public function store(Request $request)
-    {
-        $record = new ClassRoom;  
-        $record->create($request->all()); 
-    }
+{  
   
     
     public function students()
@@ -57,24 +51,11 @@ class ClassRoomController extends Controller
   
     }
  
+  
+
+
+
  
-
-    public function destroy(ClassRoom $classRoom)
-    {
-        //
-    }
-
-
-
-
-
-
-
-
-
-
-
-
      
     public function rules()
     {
