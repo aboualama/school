@@ -10,7 +10,8 @@
 function confirmrow(i) {
   var modal = $('.confirm').data("route");
   var C_modal = $('.confirm').data("a_name");
-  var td = $('.confirmrow_' + i);
+  var row = $('.confirmrow_' + i);
+  var parent = $('.confirmparent_' + i);
     Swal.fire({
       title: 'هل انت متاكد من حذف ' + C_modal ,
       text: "لا يمكن استرجاع ما تم حذفه!",
@@ -30,7 +31,8 @@ function confirmrow(i) {
           method: "DELETE",
           success: function (data) {
             toastr['success']( 'تم حذف ' + C_modal + '  بنجاح ', C_modal , {closeButton: true, tapToDismiss: false,  positionClass: 'toast-top-right', rtl: 'rtl'});  
-            td.fadeOut();
+            row.fadeOut();
+            parent.fadeOut();
           },
           error: function (data) {
             console.log('Error:');

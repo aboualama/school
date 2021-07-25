@@ -91,7 +91,7 @@
                   </div>     
                   <div class="form-group"> 
                     @foreach ($categories as $category)  
-                      <div class="form-group">   
+                      <div class="form-group confirmparent_{{$category->id}}">   
                           <p class="text-danger">{{$category->name}}</p>    
                           <div class="row">
                             @forelse ($category->types as $type) 

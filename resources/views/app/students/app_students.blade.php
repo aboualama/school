@@ -90,7 +90,7 @@
                   </div>   
                   <div class="form-group"> 
                     @foreach ($stages as $stage)  
-                      <div class="form-group">   
+                      <div class="form-group confirmparent_{{$stage->id}}">    
                           <p class="text-danger">{{$stage->name}}</p>    
                           <div class="row">
                             @forelse ($stage->classrooms as $classroom) 

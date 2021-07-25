@@ -80,9 +80,10 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
   Route::get('custodies', [CustodyController::class,'custodies'])->name('app-custodies');  
   Route::get('get-type', [CustodyController::class,'get_type'])->name('get-type'); 
   Route::get('get-type-form', [CustodyController::class,'get_type_form'])->name('get-type-form'); 
+  Route::get('get-record-type', [CustodyController::class,'get_record_type'])->name('get-record-type'); 
 
    
-
+  
 
 
 

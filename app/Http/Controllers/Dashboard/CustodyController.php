@@ -7,6 +7,7 @@ use App\Models\Custody;
 use App\Models\Category;
 use App\Models\CustodyType;
 use Illuminate\Http\Request;
+use App\Models\SchoolRecordType;
 use App\Http\Controllers\Controller;
 
 class CustodyController extends Controller
@@ -27,7 +28,6 @@ class CustodyController extends Controller
         $types = CustodyType::where('category_id', $request->id)->get(); 
         return $types;
     }
-
 
     public function get_type_form(Request $request)
     {
@@ -55,4 +55,13 @@ class CustodyController extends Controller
         return view('/app/categories/form/' . $form); 
     }
 
+    public function get_record_type(Request $request)
+    {       
+        $types = SchoolRecordType::where('school_record_id', $request->school_record_id)->get(); 
+        return $types;
+    }
+    
+
 }
+
+ 

@@ -93,7 +93,7 @@
                     </div>   
                     <div class="form-group"> 
                       @foreach ($records as $record)  
-                        <div class="form-group">   
+                        <div class="form-group confirmparent_{{$record->id}}">  
                             <p class="text-danger">{{$record->type}}</p>    
                             <div class="row">
                               @forelse ($record->types as $type) 

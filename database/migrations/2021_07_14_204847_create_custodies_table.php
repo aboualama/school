@@ -23,7 +23,7 @@ class CreateCustodiesTable extends Migration
 			$table->string('item_type')->nullable();
 			$table->integer('quantity')->nullable(); 
 			$table->date('insert_date')->nullable();
-			$table->integer('notebook_no');
+			$table->integer('notebook_no')->nullable();
 			$table->integer('notebook_name')->nullable();
 			$table->string('unit')->nullable();
 			$table->integer('shortage')->nullable();

@@ -11,9 +11,7 @@
 @endsection
 
 @section('page-style') 
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">   
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-flat-pickr.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-pickadate.css')) }}"> 
+  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">    
   
 @endsection 
   
@@ -81,22 +79,23 @@
 
  
 
+ 
+
 @section('vendor-script')  
-  <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script> 
-  <script src="{{ asset(mix('vendors/js/pickers/pickadate/picker.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/pickers/pickadate/picker.date.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/pickers/pickadate/picker.time.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/pickers/pickadate/legacy.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
+<script src="{{ asset(mix('vendors/js/pickers/pickadate/picker.js')) }}"></script>
+<script src="{{ asset(mix('vendors/js/pickers/pickadate/picker.date.js')) }}"></script>
+<script src="{{ asset(mix('vendors/js/pickers/pickadate/picker.time.js')) }}"></script>
+<script src="{{ asset(mix('vendors/js/pickers/pickadate/legacy.js')) }}"></script>
+<script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
+  <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>  
 @endsection 
 
-@section('page-script') 
-<script src="{{ asset(mix('js/scripts/forms/pickers/form-pickers.js')) }}"></script> 
+@section('page-script')  
 
 <script>
  
  
-$.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
+  $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
 
  
  // change category
@@ -117,11 +116,9 @@ $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('conten
     });
   });
 
-  
-
-    
+   
  // change type
- $('#type').on("change", function (e) {
+  $('#type').on("change", function (e) {
     e.stopPropagation();
     var category_id = $('#category').val();
     var type_id = $('#type').val();
@@ -137,13 +134,11 @@ $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('conten
       }
     });
   });
-  
-  
+    
 
+</script>   
  
 
-
-  </script>   
 
 @endsection
  

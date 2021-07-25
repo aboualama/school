@@ -1,20 +1,18 @@
 
-  
    
-  <form id="form" >
- 
-    <input type="hidden" value="custodies" id="form_url"> 
+  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-flat-pickr.css')) }}">
+  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-pickadate.css')) }}">
 
-    <div class="row">
-  
-    
+
+  <form id="form" > 
+    <input type="hidden" value="custodies" id="form_url">  
+    <div class="row"> 
       <div class="col-12">
         <div class="form-group">
           <label for="item_des">الوصف</label>
           <textarea class="form-control " id="item_des" name="item_des" rows="5" placeholder="اضافة وصف الصنف"></textarea> 
         </div>
-      </div>  
-
+      </div>   
       <div class="col-md-12"> 
         <div class="row">  
           <div class="col-md-6">
@@ -36,8 +34,7 @@
             </div>
           </div>     
         </div> 
-      </div> 
-
+      </div>  
       <div class="col-md-12"> 
         <div class="row">  
           <div class="col-md-6">
@@ -53,20 +50,19 @@
             </div>
           </div>     
         </div> 
-      </div>  
-
- 
-
-        <div class="col-12 ">
-          <button type="button" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">   
-            <span>أضافة</span>
-          </button> 
-        </div>
-    </div>
-     
+      </div>    
+      <div class="col-12 ">
+        <button type="button" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">   
+          <span>أضافة</span>
+        </button> 
+      </div>
+    </div> 
   </form> 
 
+  
+  <script src="{{ asset(mix('js/scripts/forms/pickers/form-pickers.js')) }}"></script>
 
+  
 {{-- https://github.com/balbarak/bootstrap-hijri-datepicker --}}
 
 {{-- F:\projects\School\App\public\css\hijri.css --}}

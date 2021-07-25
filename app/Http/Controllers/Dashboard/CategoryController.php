@@ -55,8 +55,8 @@ class CategoryController extends Controller
 
     public function delete_type($id)
     { 
-         $record = CustodyType::find($id);  
-         $record->delete(); 
+        $record = CustodyType::find($id);  
+        $record->delete(); 
     } 
     
 }
