@@ -20,7 +20,7 @@
           </div>
         </div> 
 
-        <h2 class="brand-text text-primary mb-2 mt-2 text-center">مدرسة {{$settings->name}}</h2>
+        <h2 class="brand-text text-primary mb-2 mt-2 text-center"> {{$settings->name}}</h2>
         <h4 class="card-title mb-1">مرحبا بعودتك من جديد! 👋</h4>
         <p class="card-text mb-2">برجاء التاكد من ادخال البيانات بشكل صحيح</p>
 

@@ -2,14 +2,11 @@
 
 <section class="app-user-edit">
   <div class="card">
-    <div class="card-body">
-
+    <div class="card-body"> 
       <div class="tab-content"> 
         <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel">
  
-          <form id="form" class="form-validate">
-
-            
+          <form id="form" class="form-validate"> 
             <input type="hidden" value="other-settings" id="url">
             <input type="hidden" class="form-control" value="{{ $record->id }}" name="year_id" > 
             
@@ -129,22 +126,21 @@
                       </div>  
                     </div> 
                   </div>
-                </div> 
+                </div>   
 
-  
-
-                <div class="col-12 d-flex flex-sm-row flex-column mt-2"> 
-                  <button type="submit" id="submit" class="btn btn-success mb-1 mb-sm-0 mr-0 mr-sm-1">تعديل</button>
-                </div>
-
-              </div>
-
-
+                <hr /> 
+                <div class="row">
+                  <div class="col-12">  
+                    <button class="btn btn-icon btn-success" id="submit" type="submit"> 
+                     <i data-feather="plus"></i>
+                      <span>تعديل</span>
+                    </button>
+                  </div>
+                </div>   
+              </div> 
             </div>
           </form> 
-        </div> 
-
-
+        </div>  
       </div>
     </div>
   </div>

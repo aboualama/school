@@ -103,6 +103,12 @@ $configData = Helper::applClasses();
               <span class="menu-title text-truncate">الاقسام والانواع  </span> 
             </a> 
           </li> 
+          <li class="nav-item {{ Route::currentRouteName() === "app-records" ? 'active' : '' }} {{ $custom_classes }}">
+            <a href="/records" class="d-flex align-items-center" target="_self">
+              <i data-feather="circle"></i>
+              <span class="menu-title text-truncate"> السجلات المدرسية  </span> 
+            </a> 
+          </li> 
           <li class="nav-item {{ Route::currentRouteName() === "app-custodies" ? 'active' : '' }} {{ $custom_classes }}">
             <a href="/custodies" class="d-flex align-items-center" target="_self">
               <i data-feather="circle"></i>
@@ -114,17 +120,7 @@ $configData = Helper::applClasses();
 
 
 
-
-
-  
-      <ul class="menu-content"> 
-        <li class="nav-item {{ Route::currentRouteName() === "app-records" ? 'active' : '' }} {{ $custom_classes }}">
-          <a href="/records" class="d-flex align-items-center" target="_self">
-            <i data-feather="circle"></i>
-            <span class="menu-title text-truncate"> السجلات المدرسية  </span> 
-          </a> 
-        </li>   
-      </ul> 
+ 
 
 
 

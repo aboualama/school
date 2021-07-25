@@ -44,9 +44,9 @@ class CreateCustodiesTable extends Migration
 			$table->string('publisher')->nullable();
 			$table->string('place_of_publication')->nullable();
 			$table->string('date_of_publication')->nullable(); 
-			$table->foreignId('years_id')->constrained();
-			$table->foreignId('custody_type_id')->constrained();
-			$table->foreignId('school_record_type_id')->constrained();
+			$table->foreignId('years_id')->constrained()->onUpdate('cascade')->onDelete('cascade'); 
+			$table->foreignId('custody_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade'); 
+			$table->foreignId('school_record_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade'); 
         });
     }
 

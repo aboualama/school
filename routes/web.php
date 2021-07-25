@@ -25,18 +25,9 @@ use App\Http\Controllers\Dashboard\CategoryController;
 use App\Http\Controllers\Dashboard\CustodyController; 
 use App\Http\Controllers\Dashboard\SettingController; 
 use App\Http\Controllers\Dashboard\ClassRoomController; 
+use App\Http\Controllers\Dashboard\OtherSettingController;
 use App\Http\Controllers\Dashboard\SchoolRecordController;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+ 
 
 Auth::routes(['verify' => true , 'register' => false]);
 
@@ -47,54 +38,50 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
   // Main Page Route 
   Route::get('/', [DashboardController::class,'dashboardAnalytics'])->name('dashboard-analytics');
-  
-  Route::get('user/list', [UserController::class,'user_list'])->name('user-list');
-  Route::get('user/list/data', [UserController::class,'getusers'])->name('user-datatables');  // note in controller
-  Route::get('user/view', [UserController::class,'user_view'])->name('user-view');
-  Route::get('user/edit', [UserController::class,'user_edit'])->name('user-edit'); 
- 
-  
-
+   
+  // Setting Route 
   Route::get('settings', [SettingController::class,'index'])->name('app-settings');
   Route::post('settings', [SettingController::class,'update'])->name('edit-settings');
   Route::get('set-default-year/{id}', [SettingController::class,'set_default_year'])->name('set-default-year');
   Route::get('change-year/{id}', [SettingController::class,'change_year'])->name('change-year');
-
-
   
+  // Year And Other Setting Route 
   Route::get('years', [YearController::class,'index'])->name('app-years');
-  Route::get('add-setting', [YearController::class,'add_setting']);   
-  Route::get('edit-setting/{id}', [YearController::class,'edit_setting']); 
-  Route::post('other-settings', [YearController::class,'add_update_setting']);  
-
-   
-
-
+  Route::get('add-setting', [OtherSettingController::class,'add_setting']);   
+  Route::get('edit-setting/{id}', [OtherSettingController::class,'edit_setting']); 
+  Route::post('other-settings', [OtherSettingController::class,'add_update_setting']);  
+  
+  // Stage And Classroom Route 
   Route::get('stages', [StageController::class,'index'])->name('app-stages');
   Route::post('stages', [StageController::class,'store_stage'])->name('add-stage');
   Route::post('classrooms', [StageController::class,'store_classroom'])->name('add-classroom');
-
-  
+  Route::delete('stage/{id}', [StageController::class,'delete_stage'])->name('delete-stage');
+  Route::delete('classroom/{id}', [StageController::class,'delete_classroom'])->name('delete-classroom');
+ 
+  // Students Count Route 
   Route::get('students', [ClassRoomController::class,'students'])->name('app-students');
   Route::post('students-count', [ClassRoomController::class,'students_count'])->name('students-count');
-
-  
-
+ 
+  // Category And Type Route 
   Route::get('categories', [CategoryController::class,'index'])->name('app-categories'); 
   Route::post('categories', [CategoryController::class,'store_category'])->name('add-category');
   Route::post('types', [CategoryController::class,'store_type'])->name('add-type');
+  Route::delete('category/{id}', [CategoryController::class,'delete_category'])->name('delete-category');
+  Route::delete('type/{id}', [CategoryController::class,'delete_type'])->name('delete-type');
 
+  // SchoolRecord And SchoolRecordType Route 
+  Route::get('records', [SchoolRecordController::class,'index'])->name('app-records'); 
+  Route::post('records', [SchoolRecordController::class,'store_record'])->name('add-record');
+  Route::post('recordtypes', [SchoolRecordController::class,'store_recordtype'])->name('add-recordtype');
+  Route::delete('record/{id}', [SchoolRecordController::class,'delete_record'])->name('delete-record');
+  Route::delete('recordtype/{id}', [SchoolRecordController::class,'delete_recordtype'])->name('delete-recordtype');
 
+  // Custodies Route 
   Route::get('custodies', [CustodyController::class,'custodies'])->name('app-custodies');  
   Route::get('get-type', [CustodyController::class,'get_type'])->name('get-type'); 
   Route::get('get-type-form', [CustodyController::class,'get_type_form'])->name('get-type-form'); 
 
- 
-
- 
-  Route::get('records', [SchoolRecordController::class,'index'])->name('app-records'); 
-  Route::post('records', [SchoolRecordController::class,'store_category'])->name('add-record');
-  Route::post('recordtypes', [SchoolRecordController::class,'store_type'])->name('add-recordtype');
+   
 
 
 
@@ -113,6 +100,12 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
 
 
+  
+  Route::get('user/list', [UserController::class,'user_list'])->name('user-list');
+  Route::get('user/list/data', [UserController::class,'getusers'])->name('user-datatables');  // note in controller
+  Route::get('user/view', [UserController::class,'user_view'])->name('user-view');
+  Route::get('user/edit', [UserController::class,'user_edit'])->name('user-edit'); 
+ 
 
   
 

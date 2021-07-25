@@ -34,35 +34,30 @@
 @section('content') 
 
 
-      
-      <div class="card">
-        <h5 class="card-header"></h5>
-        <div class="d-flex justify-content-between align-items-center mx-50 row pt-0 pb-2"> 
-          <div class="col-md-4 user_status">
-            <h5>تاريخ اليوم</h5>
-            {{$fulldate}}
-          </div>
-          <div class="col-md-4 user_status">
-            <div class="form-group">
-              <label for="status">تعيين عام دراسي افتراضي</label>
-              <select class="form-control" name="defaultyear_id" id="defaultyear" >
-                <option  value="0">----</option>
-                @foreach ($allyears as $year) 
-                  <option value="{{$year->id}}" {{($year->year  == $defaultyear->year) ? 'selected' : '' }}>{{$year->year}}</option> 
-                @endforeach
-              </select>
-            </div> 
-          </div>
-        </div>
+
+<div class="card">
+  <h5 class="card-header"></h5>
+  <div class="d-flex justify-content-between align-items-center mx-50 row pt-0 pb-2"> 
+    <div class="col-md-4 user_status">
+      <h5>تاريخ اليوم</h5>
+      {{$fulldate}}
+    </div>
+    <div class="col-md-4 user_status">
+      <div class="form-group">
+        <label for="status">تعيين عام دراسي افتراضي</label>
+        <select class="form-control" name="defaultyear_id" id="defaultyear" >
+          <option  value="0">----</option>
+          @foreach ($allyears as $year) 
+            <option value="{{$year->id}}" {{($year->year  == $defaultyear->year) ? 'selected' : '' }}>{{$year->year}}</option> 
+          @endforeach
+        </select>
       </div> 
+    </div>
+  </div>
+</div> 
 
 
-
-
-
-
-
-
+ 
 
 <div class="row">
   <div class="col-12">
@@ -73,7 +68,7 @@
       <div class="card-body">
         <section id="accordion-with-margin">
           <div class="row d-flex">  
-            <div class="col-md-2 col-2" style="margin: 10px auto;">
+            <div class="col-md-12 col-12" style="margin: 10px auto;">
               <div class="form-group">   
                 <img class="img-fluid rounded" src="{{asset('uploads/image/setting/')}}/{{$setting->logo}}" style="max-width: 200px; max-height: 200px; display: block; margin: 0 auto;" /> 
               </div>
@@ -141,42 +136,38 @@
           </div>  
 
          
-          <hr style="width:50%"> 
-
-      <div class="col-md-1 col-12" style="margin: 10px auto;">
-        <div class="form-group"> 
-          <div class="input-group-append" id="button-addon2">  
-            <!-- Button trigger modal -->
-            <button type="button" class="btn btn-block btn-outline-primary" data-toggle="modal" data-target="#large"> 
-              <i data-feather="edit" class="mr-25"></i>
-              <span>تعديل</span>
-            </button> 
-          </div>
-        </div>
-      </div> 
+          <hr style="width:50%">  
+          <div class="col-md-1 col-12" style="margin: 10px auto;">
+            <div class="form-group"> 
+              <div class="input-group-append" id="button-addon2">  
+                <!-- Button trigger modal -->
+                <button type="button" class="btn btn-block btn-outline-primary" data-toggle="modal" data-target="#large"> 
+                  <i data-feather="edit" class="mr-25"></i>
+                  <span>تعديل</span>
+                </button> 
+              </div>
+            </div>
+          </div> 
         </section>
       </div>
     </div>
   </div>
 </div>
+ 
 
 
 
-
-
-
-   <!-- Modal -->
+  <!-- Modal -->
   <div class="modal fade text-left" id="large" tabindex="-1" role="dialog" aria-labelledby="myModalLabel17" aria-hidden="true" >
-   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-     <div class="modal-content">
-       <div class="modal-header">
-         <h4 class="modal-title" id="myModalLabel17">تعديل   {{$setting->name}}</h4>
-         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-           <span aria-hidden="true">&times;</span>
-         </button>
-       </div>
-        <div class="modal-body">  
-
+    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title" id="myModalLabel17">تعديل   {{$setting->name}}</h4>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">   
           <div class="row">  
             <!-- setting   -->
             <div class="col-12">
@@ -187,11 +178,10 @@
                 <div class="card-body">
                   <form action="#" class="invoice-repeater" id="form" enctype="multipart/form-data">
                     @csrf 
-                    
+                  
                     <input type="hidden" id="url" value="/settings"> 
-            
-                    <div class="row d-flex"> 
-            
+          
+                    <div class="row d-flex">  
                       <div class="media mb-2 col-md-12 col-12">
                         <img src="{{asset('uploads/image/setting/'. $setting->logo)}}" id="users-picture"  alt="users avatar" class="user-avatar users-avatar-shadow rounded mr-2 my-25 cursor-pointer" height="90" width="90">
                         <div class="media-body mt-50">
@@ -211,78 +201,69 @@
                           </div>
                           <span id="image_error" class="form-text text-danger small_error"> </span> 
                         </div>
+                    </div> 
+                    <div class="row d-flex">   
+                      <div class="col-md-12 col-12">
+                        <div class="form-group">
+                          <label for="itemname">أسم المدرسة</label>
+                          <input type="text" class="form-control" id="itemname" name="name" value="{{$setting->name}}" placeholder="أسم المدرسة" />
+                          <span id="name_error" class="form-text text-danger small_error"> </span> 
+                        </div>
+                      </div> 
+
+                      <div class="col-md-12 col-12">
+                        <div class="form-group">
+                          <label for="itemname">مديرة المدرسة</label>
+                          <input type="text" class="form-control" id="itemname" name="manger" value="{{$setting->manger}}" placeholder="مديرة المدرسة" disabled />
+                          <span id="manger_error" class="form-text text-danger small_error"> </span> 
+                        </div>
+                      </div> 
+
+                      <div class="col-md-6 col-6">
+                        <div class="form-group">
+                          <label for="itemname">هاتف المدرسة </label>  
+                          <input type="text" class="form-control" id="itemphone" name="phone" value="{{$setting->phone}}" placeholder="هاتف المدرسة" />
+                          <span id="phone_error" class="form-text text-danger small_error"> </span> 
+                        </div>
                       </div>
-            
-                      <div class="row d-flex">  
-
-                        <div class="col-md-12 col-12">
+                      <div class="col-md-6 col-6">
+                        <div class="form-group">
+                          <label for="itemname">جوال المدرسة </label>  
+                          <input type="text" class="form-control" id="itemcell" name="cell" value="{{$setting->cell}}" placeholder="جوال المدرسة " />
+                          <span id="cell_error" class="form-text text-danger small_error"> </span> 
+                        </div>
+                      </div> 
+                      <div class="col-md-12 col-12">
+                        <div class="form-group">
+                          <label for="itemzone">البريد الاليكتروني</label>  
+                          <input type="text" class="form-control" id="itememail" name="email" value="{{$setting->email}}" placeholder="البريد الاليكتروني" />
+                          <span id="email_error" class="form-text text-danger small_error"> </span> 
+                        </div>
+                        </div>   
+                        <div class="col-12">
                           <div class="form-group">
-                            <label for="itemname">أسم المدرسة</label>
-                            <input type="text" class="form-control" id="itemname" name="name" value="{{$setting->name}}" placeholder="أسم المدرسة" />
-                            <span id="name_error" class="form-text text-danger small_error"> </span> 
-                          </div>
-                        </div> 
-
-                        <div class="col-md-12 col-12">
-                          <div class="form-group">
-                            <label for="itemname">مديرة المدرسة</label>
-                            <input type="text" class="form-control" id="itemname" name="manger" value="{{$setting->manger}}" placeholder="مديرة المدرسة" disabled />
-                            <span id="manger_error" class="form-text text-danger small_error"> </span> 
-                          </div>
-                        </div> 
-
-                        <div class="col-md-6 col-6">
-                          <div class="form-group">
-                            <label for="itemname">هاتف المدرسة </label>  
-                            <input type="text" class="form-control" id="itemphone" name="phone" value="{{$setting->phone}}" placeholder="هاتف المدرسة" />
-                            <span id="phone_error" class="form-text text-danger small_error"> </span> 
+                            <label for="exampleFormControlTextarea1">الرسالة</label>
+                            <textarea class="form-control CKeditor " id="exampleFormControlTextarea1" name="message" rows="3" placeholder="الرسالة">{{$setting->message}}</textarea>
+                            <span id="message_error" class="form-text text-danger small_error"> </span> 
                           </div>
                         </div>
-                        <div class="col-md-6 col-6">
+                  
+                        <div class="col-12">
                           <div class="form-group">
-                            <label for="itemname">جوال المدرسة </label>  
-                            <input type="text" class="form-control" id="itemcell" name="cell" value="{{$setting->cell}}" placeholder="جوال المدرسة " />
-                            <span id="cell_error" class="form-text text-danger small_error"> </span> 
+                            <label for="exampleFormControlTextarea2">الرؤية</label>
+                            <textarea class="form-control CKeditor " id="exampleFormControlTextarea2" name="vision" rows="3" placeholder="الرؤية">{{$setting->vision}}</textarea>
+                            <span id="vision_error" class="form-text text-danger small_error"> </span> 
                           </div>
-                        </div> 
-                        <div class="col-md-12 col-12">
-                          <div class="form-group">
-                            <label for="itemzone">البريد الاليكتروني</label>  
-                            <input type="text" class="form-control" id="itememail" name="email" value="{{$setting->email}}" placeholder="البريد الاليكتروني" />
-                            <span id="email_error" class="form-text text-danger small_error"> </span> 
-                          </div>
-                        </div>  
-             
-                       
-                          <div class="col-12">
-                            <div class="form-group">
-                              <label for="exampleFormControlTextarea1">الرسالة</label>
-                              <textarea class="form-control CKeditor " id="exampleFormControlTextarea1" name="message" rows="3" placeholder="الرسالة">{{$setting->message}}</textarea>
-                              <span id="message_error" class="form-text text-danger small_error"> </span> 
-                            </div>
-                          </div>
+                        </div>
                     
-                          <div class="col-12">
-                            <div class="form-group">
-                              <label for="exampleFormControlTextarea2">الرؤية</label>
-                              <textarea class="form-control CKeditor " id="exampleFormControlTextarea2" name="vision" rows="3" placeholder="الرؤية">{{$setting->vision}}</textarea>
-                              <span id="vision_error" class="form-text text-danger small_error"> </span> 
-                            </div>
+                        <div class="col-12">
+                          <div class="form-group">
+                            <label for="exampleFormControlTextarea3">الاهداف</label>
+                            <textarea class="form-control CKeditor" id="exampleFormControlTextarea3" name="goals" rows="3" placeholder="الاهداف">{{$setting->goals}}</textarea>
+                            <span id="message_error" class="form-text text-danger small_error"> </span> 
                           </div>
-                      
-                          <div class="col-12">
-                            <div class="form-group">
-                              <label for="exampleFormControlTextarea3">الاهداف</label>
-                              <textarea class="form-control CKeditor" id="exampleFormControlTextarea3" name="goals" rows="3" placeholder="الاهداف">{{$setting->goals}}</textarea>
-                              <span id="message_error" class="form-text text-danger small_error"> </span> 
-                            </div>
-                          </div>  
-
-
-
-
-                      </div>  
-       
+                        </div>    
+                      </div>   
                     </div> 
                     <hr /> 
                     <div class="row">
@@ -292,19 +273,17 @@
                           <span>تعديل</span>
                         </button>
                       </div>
-                    </div>
-          
+                    </div> 
                   </form>
                 </div>
               </div>
-            </div>
-            <!-- /Setting  -->
+            </div> 
           </div> 
         </div> 
-     </div>
-   </div>
+      </div>
+    </div>
   </div> 
-   <!-- Modal -->
+  <!-- Modal -->
 
 
 
@@ -314,76 +293,41 @@
 @endsection
 
 
-@section('vendor-script')
-  {{-- vendor files --}}
-  <script src="{{ asset(mix('vendors/js/tables/datatable/jquery.dataTables.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.bootstrap4.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.responsive.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/responsive.bootstrap4.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.checkboxes.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/datatables.buttons.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/jszip.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/pdfmake.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/vfs_fonts.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/buttons.html5.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/buttons.print.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/tables/datatable/dataTables.rowGroup.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/pickers/flatpickr/flatpickr.min.js')) }}"></script>
-  
-
-  
-  <!-- toastr -->
-  <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>
-  <!-- form-repeater -->
-  <script src="{{ asset(mix('vendors/js/forms/repeater/jquery.repeater.min.js')) }}"></script>
-  <script src="{{ asset(mix('vendors/js/forms/select/select2.full.min.js')) }}"></script>
-
-  <script src="{{ asset(mix('js/scripts/pages/app-user-edit.js')) }}"></script>
-
-
-  <!-- ckeditor -->
-  {{-- <script src="//cdn.ckeditor.com/4.16.1/full/ckeditor.js"></script> --}}
-
-
+@section('vendor-script')   
+  <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>  
 @endsection 
 
  
 
 
-@section('page-script')
-  {{-- Page js files --}} 
-  
-  
-  <script>
-  
- 
-
-
+@section('page-script') 
+  <script src="{{ asset(mix('js/scripts/pages/app-user-edit.js')) }}"></script>
+  <script> 
  
   //  set default year
-  $('#defaultyear').on('change',function(e) { 
-        var id = $(this).val(); 
-          $.ajax({ 
-            type:"get",
-            url: '/set-default-year/' + id, 
-            data: { id: id },
-            success:function (data) { 
-              toastr['success'](
-                      'تم تعيين العام الدراسي الافتراضي بنجاح ',
-                      ' الاعدادات  ' ,
-                      {
-                        closeButton: true,
-                        tapToDismiss: false, 
-                        positionClass: 'toast-top-right',
-                        rtl: 'rtl'
-                      }
-                    ); 
-              // setInterval(function(){
-              //   window.location.reload(1);
-              // }, 3000);
-            }
-          }) 
-      }); 
+    $('#defaultyear').on('change',function(e) { 
+      var id = $(this).val(); 
+        $.ajax({ 
+          type:"get",
+          url: '/set-default-year/' + id, 
+          data: { id: id },
+          success:function (data) { 
+            toastr['success'](
+                    'تم تعيين العام الدراسي الافتراضي بنجاح ',
+                    ' الاعدادات  ' ,
+                    {
+                      closeButton: true,
+                      tapToDismiss: false, 
+                      positionClass: 'toast-top-right',
+                      rtl: 'rtl'
+                    }
+                  ); 
+            // setInterval(function(){
+            //   window.location.reload(1);
+            // }, 3000);
+          }
+        }) 
+    }); 
 
 
 
@@ -391,7 +335,7 @@
 
   
   // update setting
- $(document).on('click', '#edit', function (e) {
+    $(document).on('click', '#edit', function (e) {
       e.preventDefault();
       $(".small_error").text('');
       var url = $("#url").val(); 
@@ -425,15 +369,8 @@
                           positionClass: 'toast-top-right',
                           rtl: 'rtl'
                         }
-                      ); 
-                    // $(".form-control").val('');
-                    // $(".user-avatar").val(''); 
-                    // $("#users-picture").attr("src","{{asset('images/logo/img.png')}}");
-                    $("#large").modal('toggle');
-                    // $("#name").text(data.name); 
-                    // $("#phone").text(data.phone); 
-                    // $("#zones").text(data.zones.length); 
-                    // $("#option").text(data.option);  
+                      );  
+                    $("#large").modal('toggle'); 
               }
           }, error: function (xhr) {
 

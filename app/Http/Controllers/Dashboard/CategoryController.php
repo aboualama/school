@@ -43,7 +43,20 @@ class CategoryController extends Controller
         }
          $record = new CustodyType;  
          $record->create($request->all()); 
+    }  
+
+
+    public function delete_category($id) 
+    {
+        $record = Category::find($id);  
+        $record->delete(); 
     } 
- 
+
+
+    public function delete_type($id)
+    { 
+         $record = CustodyType::find($id);  
+         $record->delete(); 
+    } 
     
 }

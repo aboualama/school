@@ -5,15 +5,11 @@
       <div class="tab-content">
 
          <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel">
-
-           
-          <form id="form" class="form-validate">
-
-            
+ 
+          <form id="form" class="form-validate"> 
             <input type="hidden" value="other-settings" id="url"> 
 
-            <div class="row">
-
+            <div class="row"> 
               <div class="col-md-12">
                 <div class="form-group">
                   <label for="status">العام الدراسي</label>
@@ -138,24 +134,22 @@
                       </div>
                     </div>
                   </div>
-                </div>
+                </div> 
 
- 
+                <hr /> 
+                <div class="row">
+                  <div class="col-12">  
+                    <button class="btn btn-icon btn-primary" id="submit" type="submit"> 
+                     <i data-feather="plus"></i>
+                      <span>حفظ</span>
+                    </button>
+                  </div>
+                </div>  
 
-                <div class="col-12 d-flex flex-sm-row flex-column mt-2">
-                  <button type="submit" id="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">حفظ</button> 
-                </div>
-
-              </div>
-
-
+              </div> 
             </div>
-          </form>
-
-         </div>
-        
-
-
+          </form> 
+         </div>  
       </div>
     </div>
   </div>

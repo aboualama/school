@@ -33,19 +33,20 @@ class StageController extends Controller
         $record = new ClassRoom;  
         $record->create($request->all()); 
     }
-
-
-    public function update(Request $request, ClassRoom $classRoom)
-    {
-        $classRoom->update($request->all()); 
-         
-    }
  
 
-    public function destroy(ClassRoom $classRoom)
+    public function delete_stage($id) 
     {
-        $classRoom->delete(); 
-    }
+        $record = Stage::find($id);  
+        $record->delete(); 
+    } 
+
+
+    public function delete_classroom($id)
+    { 
+         $record = ClassRoom::find($id);  
+         $record->delete(); 
+    } 
 
      
 }

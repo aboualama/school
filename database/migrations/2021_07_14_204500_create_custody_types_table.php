@@ -17,7 +17,7 @@ class CreateCustodyTypesTable extends Migration
             $table->id();
             $table->timestamps(); 
 			$table->string('name');
-			$table->foreignId('category_id')->constrained();
+			$table->foreignId('category_id')->constrained()->onUpdate('cascade')->onDelete('cascade'); 
         });
     }
 

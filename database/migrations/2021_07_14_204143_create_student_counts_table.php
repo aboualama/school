@@ -17,8 +17,8 @@ class CreateStudentCountsTable extends Migration
             $table->id();
             $table->timestamps();
 			$table->integer('count');
-			$table->foreignId('class_room_id')->constrained();
-			$table->foreignId('year_id')->constrained();
+			$table->foreignId('class_room_id')->constrained()->onUpdate('cascade')->onDelete('cascade'); 
+			$table->foreignId('year_id')->constrained()->onUpdate('cascade')->onDelete('cascade'); 
         });
     }
 

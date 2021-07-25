@@ -24,7 +24,7 @@ class CreateOtherSettingsTable extends Migration
 			$table->integer('primary_no');
 			$table->integer('middle_no');
 			$table->integer('secondary_no');
-			$table->foreignId('year_id')->constrained();
+			$table->foreignId('year_id')->constrained()->onUpdate('cascade')->onDelete('cascade'); 
         });
     }
    

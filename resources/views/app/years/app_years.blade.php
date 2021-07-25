@@ -3,13 +3,11 @@
 
 @section('title', 'بيانات المدرسة')
 
-@section('vendor-style')
-  {{-- vendor css files --}}  
+@section('vendor-style') 
   <link rel="stylesheet" href="{{ asset(mix('vendors/css/extensions/toastr.min.css')) }}">  
 @endsection
 
-@section('page-style')
-  <!-- Page css files --> 
+@section('page-style') 
   <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/extensions/ext-component-toastr.css')) }}">  
 @endsection 
   
@@ -212,30 +210,21 @@
 @endsection
 
 
-@section('vendor-script') 
-  
-  <!-- toastr -->
-  <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>  
-
+@section('vendor-script')  
+  <script src="{{ asset(mix('vendors/js/extensions/toastr.min.js')) }}"></script>   
 @endsection 
-
  
-
-
 @section('page-script')
   {{-- Page js files --}} 
    
   <script src="{{ asset(mix('js/scripts/components/components-modals.js')) }}"></script>
   <script>
-
+ 
+    $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
 
  
-$.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
-
-
-
  //  edit model
- $('.edit').on("click", function (e) {
+    $('.edit').on("click", function (e) {
       e.stopPropagation();
       var id = $('#year').val();
       console.log(id);
@@ -251,7 +240,7 @@ $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('conten
 
     
  //  add model
- $('.add').on("click", function (e) {
+    $('.add').on("click", function (e) {
       e.stopPropagation();  
       $.ajax({
         type: 'GET',
@@ -265,7 +254,7 @@ $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('conten
 
 
  // change year
- $('#year').on("change", function (e) {
+    $('#year').on("change", function (e) {
       e.stopPropagation();
       var id = $('#year').val();
       $.ajax({
@@ -276,29 +265,9 @@ $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('conten
         }
       });
     });
-
  
- 
-
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
    
- $(document).on('click', '#submit', function (e) {
+    $(document).on('click', '#submit', function (e) {
       e.preventDefault();
       $(".small_error").text('');
       var url = $("#url").val(); 
@@ -339,47 +308,8 @@ $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('conten
 
           }
       });
-  });
-  
- 
-
-
-
-
-
-
-
-
-
-
-
- 
-  $('#year').on('change',function(e) {
-           //$("#form").find('input[type=text]').val(''); 
-              $("form").each(function(){
-               $(this).find('input[type=number]').val(''); 
-              });
-          var id = e.target.value; 
-          console.log(id);
-            // $.ajax({ 
-            //   type:"get",
-            //   data: {
-            //   id: id
-            //   },
-            //   success:function (data) { 
-            //     $('#form').empty();
-            //     $.each(data,function(index,zone){
-            //       $('#form').append('<option value="'+zone.num+'">المنطقة رقم: '+zone.num+'</option>');
-            //     })   
-            //     $('#to').empty();
-            //     $.each(data,function(index,zone){
-            //       $('#to').append('<option value="'+zone.num+'">المنطقة رقم: '+zone.num+'</option>');
-            //     })
-            //   }
-            // })
- 
-        }); 
-
+    });
+   
   </script>   
 
 @endsection

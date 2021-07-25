@@ -17,7 +17,7 @@ class CreateSchoolRecordTypesTable extends Migration
             $table->id();
             $table->timestamps();
 			$table->string('title'); 
-			$table->foreignId('school_record_id')->constrained();
+			$table->foreignId('school_record_id')->constrained()->onUpdate('cascade')->onDelete('cascade'); 
         });
     }
 
