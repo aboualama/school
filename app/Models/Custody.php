@@ -10,7 +10,7 @@ class Custody extends Model
     use HasFactory;
  
     protected $fillable = [
-        'years_id',
+        'year_id',
         'custody_type_id',
         'item_no',
         'item_name',

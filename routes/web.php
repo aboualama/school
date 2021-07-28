@@ -81,6 +81,7 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
   Route::get('get-type', [CustodyController::class,'get_type'])->name('get-type'); 
   Route::get('get-type-form', [CustodyController::class,'get_type_form'])->name('get-type-form'); 
   Route::get('get-record-type', [CustodyController::class,'get_record_type'])->name('get-record-type'); 
+  Route::post('custody', [CustodyController::class,'store'])->name('add-custody');
 
    
   

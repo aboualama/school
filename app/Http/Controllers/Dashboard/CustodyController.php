@@ -60,7 +60,15 @@ class CustodyController extends Controller
         $types = SchoolRecordType::where('school_record_id', $request->school_record_id)->get(); 
         return $types;
     }
-    
+     
+
+
+    public function store(Request $request)
+    {     
+        $record = new Custody;  
+        $record->create($request->all()); 
+    }
+
 
 }
 

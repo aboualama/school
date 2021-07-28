@@ -1,12 +1,12 @@
+ 
 
-   
   <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-flat-pickr.css')) }}">
   <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-pickadate.css')) }}">
 
+ 
+    <input type="hidden" value="custody" id="url">  
 
-  <form id="form" > 
-    <input type="hidden" value="custodies" id="form_url">  
-    <div class="row"> 
+    <div class="row clear_form"> 
       <div class="col-12">
         <div class="form-group">
           <label for="item_des">الوصف</label>
@@ -18,7 +18,8 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="item_status"> حالة الصنف</label> 
-              <select class="form-control" name="item_status"  id="item_status" >
+              <select class="form-control" name="item_status"  id="item_status" > 
+                <option value="">.........  </option>
                 <option  value="سليم">سليم</option> 
                 <option  value="تالف">تالف</option> 
               </select>
@@ -28,6 +29,7 @@
             <div class="form-group">
               <label for="item_type">نوع الصنف </label> 
               <select class="form-control" name="item_type" id="item_type" >
+                <option value="">.........  </option>
                 <option  value="مستهلك">مستهلك</option> 
                 <option  value="دائم ">دائم</option> 
               </select>
@@ -40,7 +42,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="quantity"> الكمية</label> 
-              <input type="number" class="form-control" name="quantity" id="quantity" placeholder=" " > 
+              <input type="number" class="form-control" name="quantity" id="quantity" placeholder=" " required  /> 
             </div>
           </div>   
           <div class="col-md-6">
@@ -52,15 +54,18 @@
         </div> 
       </div>    
       <div class="col-12 ">
-        <button type="button" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">   
+        <button type="submit" id="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">   
           <span>أضافة</span>
         </button> 
       </div>
     </div> 
-  </form> 
 
   
   <script src="{{ asset(mix('js/scripts/forms/pickers/form-pickers.js')) }}"></script>
+
+
+
+   
 
   
 {{-- https://github.com/balbarak/bootstrap-hijri-datepicker --}}
@@ -88,5 +93,3 @@
       $("#hijri-date-input").hijriDatePicker();
   });
 </script> --}}
-
-

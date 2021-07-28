@@ -23,56 +23,57 @@
   <div class="card">
     <div class="card-body">
  
-      <div class="tab-content">
-        <!-- Account Tab starts -->
-        <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel"> 
-          <div class="row">
-            <div class="col-md-12 col-12">
-              <div class="form-group">
-                <label for="status"> العام الدراسي </label>
-                <select class="form-control" name="defaultyear_id" id="defaultyear" >
-                  <option  value="0">----</option>
-                  @foreach ($allyears as $year) 
-                    <option value="{{$year->id}}" {{($year->year  == $defaultyear->year) ? 'selected' : '' }}>{{$year->year}}</option> 
-                  @endforeach
-                </select>
+      <form id="form" > 
+        <div class="tab-content">
+          <!-- Account Tab starts -->
+          <div class="tab-pane active" id="account" aria-labelledby="account-tab" role="tabpanel"> 
+            <div class="row">
+              <div class="col-md-12 col-12">
+                <div class="form-group">
+                  <label for="status"> العام الدراسي </label>
+                  <select class="form-control" name="year_id" id="defaultyear" >
+                    <option value="">----</option>
+                    @foreach ($allyears as $year) 
+                      <option value="{{$year->id}}" {{($year->year  == $defaultyear->year) ? 'selected' : '' }}>{{$year->year}}</option> 
+                    @endforeach
+                  </select>
+                </div> 
               </div> 
-            </div> 
 
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="status">نوع العهدة</label>
-                <select class="form-control" name="category_id" id="category" > 
-                  <option >.........  </option>
-                  @foreach ($categories as $category) 
-                    <option value="{{$category->id}}">{{$category->name}}</option> 
-                  @endforeach
-                </select>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="status">نوع العهدة</label>
+                  <select class="form-control" name="category_id" id="category" > 
+                    <option  value="">.........  </option>
+                    @foreach ($categories as $category) 
+                      <option value="{{$category->id}}">{{$category->name}}</option> 
+                    @endforeach
+                  </select>
+                </div> 
               </div> 
-            </div> 
 
-            <div class="col-md-6">
-              <div class="form-group">
-                <label for="role"> العهدة</label>
-                <select class="form-control" name="type" id="type"> 
-                  <option > اختار نوع العهدة اولا</option>
-                </select>
+              <div class="col-md-6">
+                <div class="form-group">
+                  <label for="role"> العهدة</label>
+                  <select class="form-control" name="custody_type_id" id="type"> 
+                    <option  value=""> اختار نوع العهدة اولا</option>
+                  </select>
+                </div> 
               </div> 
+  
+              <div class="col-md-12"  id="section_forms">   
+              </div>    
+              
             </div> 
- 
-            <div class="col-md-12"  id="section_forms">   
-            </div>    
-            
           </div> 
-        </div> 
- 
- 
-      </div>
+  
+  
+        </div>
+      </form> 
     </div>
   </div>
 </section>
  
-  
   
 @endsection
 
@@ -135,7 +136,44 @@
     });
   });
     
+ 
+  
 
+  
+  $(document).on('click', '#submit', function (e) {
+    e.preventDefault(); 
+    $(".small_error").text('');
+    var url = $("#url").val(); 
+    var formData = new FormData($('#form')[0]); 
+    $.ajax({
+        type: 'post',
+        enctype: 'multipart/form-data',
+        url: url,
+        data: formData,
+        processData: false,
+        contentType: false,
+        cache: false,
+        success: function (data) {  
+                toastr['success'](
+                      'تم اضافة قسم جديد بنجاح ',
+                      ' أقسام العهدة  ' ,
+                      {
+                        closeButton: true,
+                        tapToDismiss: false, 
+                        positionClass: 'toast-top-right',
+                        rtl: 'rtl'
+                      }
+                    );   
+            $('#category').val("");
+            $('#type').empty();
+            $('#type').append('<option> اختار نوع العهدة اولا</option>');
+            $('.clear_form').fadeOut();  
+        }, error: function (xhr) {
+
+        }
+    });
+  });
+      
 </script>   
  
 
