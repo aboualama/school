@@ -24,13 +24,15 @@ class CreateCustodiesTable extends Migration
 			$table->integer('quantity')->nullable(); 
 			$table->date('insert_date')->nullable();
 			$table->integer('notebook_no')->nullable();
-			$table->integer('notebook_name')->nullable();
+			$table->string('notebook_name')->nullable();
 			$table->string('unit')->nullable();
 			$table->integer('shortage')->nullable();
 			$table->integer('record_no')->nullable();
 			$table->string('record_description')->nullable();
 			$table->string('notes')->nullable();
 			$table->integer('serial_number')->nullable();
+			$table->string('custody_name')->nullable();
+			$table->integer('count')->nullable();
 			$table->string('received_date')->nullable();
 			$table->string('received_signature')->nullable();
 			$table->string('recipient_signature')->nullable();
@@ -46,7 +48,7 @@ class CreateCustodiesTable extends Migration
 			$table->string('date_of_publication')->nullable(); 
 			$table->foreignId('year_id')->constrained()->onUpdate('cascade')->onDelete('cascade'); 
 			$table->foreignId('custody_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade'); 
-			$table->foreignId('school_record_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade')->nullable(); 
+			$table->foreignId('school_record_type_id')->nullable()->constrained()->onUpdate('cascade')->onDelete('cascade'); 
         });
     }
 

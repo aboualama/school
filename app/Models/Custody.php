@@ -28,6 +28,8 @@ class Custody extends Model
         'record_description',
         'notes',
         'serial_number',
+        'custody_name',
+        'count',
         'received_date',
         'received_signature',
         'recipient_signature',
@@ -45,16 +47,16 @@ class Custody extends Model
 
     public function year()
     {
-        return $this->belongsTo('Year');
+        return $this->belongsTo(Year::class);
     }
 
     public function type()
     {
-        return $this->belongsTo('CustodyType');
+        return $this->belongsTo(CustodyType::class , 'custody_type_id');
     }
 
     public function document()
     {
-        return $this->hasOne('Document');
+        return $this->hasOne(Document::class);
     }
 }

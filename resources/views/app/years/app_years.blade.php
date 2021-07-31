@@ -153,26 +153,7 @@
   </section>
  
 
-
-   <!--Edit Modal -->
-   <div class="modal fade text-left" id="model-block" tabindex="-1" role="dialog" aria-labelledby="myModalLabel18" aria-hidden="true" >
-    <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h4 class="modal-title" id="myModalLabel18">تعديل   {{$setting->name}}</h4>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-         <div class="modal-body">   
-         </div> 
-      </div>
-    </div>
-   </div> 
-    <!--Edit Modal -->
-
-
-
+ 
 
   <!-- Modal -->
   <div class="col-12">
@@ -183,7 +164,7 @@
           <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-lg" role="document">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">تعديل اعدادات    {{$setting->name}} </h5>
+                <h5 class="modal-title" id="exampleModalLongTitle"> اعدادات  {{$setting->name}} </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                   <span aria-hidden="true">&times;</span>
                 </button>

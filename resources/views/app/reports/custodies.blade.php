@@ -110,7 +110,6 @@
       success: function (data) {   
             $('#type').empty();
             $('#type').append('<option> .........</option>');
-            $('.clear_form').fadeOut();  
             $.each(data,function(index,type){
               $('#type').append('<option value="'+type.id+'">  '+ type.name +'</option>');
             }) 

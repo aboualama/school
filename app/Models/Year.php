@@ -15,4 +15,9 @@ class Year extends Model
     {
         return $this->hasOne(OtherSetting::class);
     }
+
+    public function custodies()
+    {
+        return $this->hasMany(Custody::class);
+    }
 }

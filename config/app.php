@@ -182,6 +182,8 @@ return [
         App\Providers\ComposerServiceProvider::class, 
         
         Alkoumi\LaravelHijriDate\LaravelHijriDateServiceProvider::class,
+        Barryvdh\DomPDF\ServiceProvider::class,
+
     ],
 
     /*
@@ -235,6 +237,10 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         // custom theme helper
         'Helper' => App\Helpers\Helper::class,
+        
+        'PDF' => Barryvdh\DomPDF\Facade::class,
+
+
     ],
 
-];
+]; 

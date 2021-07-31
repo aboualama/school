@@ -85,9 +85,11 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
 
    
   
+  Route::get('get-report/{id}', [CustodyController::class,'get_report'])->name('get-report'); 
+  Route::post('pdf-report', [CustodyController::class,'pdf'])->name('pdf-report'); 
+  
 
-
-
+  
   // Route::post('years', [YearController::class,'store'])->name('edit-years'); 
 
   // Route::get('classrooms', [ClassRoomController::class,'index'])->name('app-classrooms');

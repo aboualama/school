@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Models\Year;
+use App\Models\Category;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -11,8 +13,9 @@ class DashboardController extends Controller
   public function dashboardAnalytics()
   {
     $pageConfigs = ['pageHeader' => false];
-
-    return view('/app/dashboard/dashboard-analytics', ['pageConfigs' => $pageConfigs]);
+    $categories    = Category::get();  
+    $years = Year::whereHas('custodies')->get();
+    return view('/app/dashboard/dashboard-analytics', ['pageConfigs' => $pageConfigs, 'categories' => $categories, 'years' => $years]);
   }
 
   // Dashboard - Ecommerce
