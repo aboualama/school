@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Dashboard;
 use App\Models\Year;
 use App\Models\Custody;
 use App\Models\Category;
+use App\Models\Document;
+use Barryvdh\DomPDF\PDF;
 use App\Models\CustodyType;
 use Illuminate\Http\Request;
 use App\Models\SchoolRecordType;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
-use Barryvdh\DomPDF\PDF;
  
 class CustodyController extends Controller
 {  
@@ -38,7 +39,7 @@ class CustodyController extends Controller
         $category = $request->category_id;  
         $form = $this->get_form($type , $category); 
 
-        return view('/app/categories/form/' . $form); 
+        return view('/app/categories/form/' . $form, ['type' => $type]); 
     }
 
     public function get_record_type(Request $request)
@@ -48,13 +49,33 @@ class CustodyController extends Controller
     }
      
 
-
+    
     public function store(Request $request)
     {     
         $record = new Custody;  
         $record->create($request->all()); 
     }
 
+    
+    public function doc_store(Request $request)
+    {       
+        $input = $request->except(['year_id', 'category_id', 'custody_type_id', 'person', 'number', 'name', 'reason_leaving']);
+     
+        $record = new Custody;  
+        $record['year_id']         = $request->year_id;
+        $record['custody_type_id'] = $request->custody_type_id; 
+        $record->save();
+        
+        $doc = new Document;
+        $doc['person']         = $request->person;
+        $doc['number']         = $request->number;
+        $doc['name']           = $request->name;
+        $doc['reason_leaving'] = $request->reason_leaving;
+        $doc['documents']      = json_encode(array_keys($input));
+        $doc['custody_id']     = $record->id;
+        $doc->save();
+
+    }
 
 
 
@@ -165,6 +186,11 @@ class CustodyController extends Controller
         return  $form ; 
     }
 
+
+    public function tem()
+    {       
+        return view('app.reports.app_categories' ); 
+    }
 
     
 }

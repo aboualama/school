@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Document extends Model
 {
     use HasFactory;
-}
+      
+    protected $fillable = ['person', 'number', 'name', 'reason_leaving', 'documents', 'custody_id'];
+
+    public function year()
+    {
+        return $this->belongsTo(Custody::class);
+    }
+} 

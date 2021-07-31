@@ -15,7 +15,13 @@ class CreateDocumentsTable extends Migration
     {
         Schema::create('documents', function (Blueprint $table) {
             $table->id();
-            $table->timestamps();
+			$table->timestamps(); 
+			$table->enum('person', ['teacher', 'student']);
+			$table->integer('number');
+			$table->string('name');
+			$table->string('reason_leaving')->nullable();
+			$table->text('documents');
+			$table->foreignId('custody_id')->constrained()->onUpdate('cascade')->onDelete('cascade'); 
         });
     }
 

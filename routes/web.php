@@ -82,13 +82,15 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
   Route::get('get-type-form', [CustodyController::class,'get_type_form'])->name('get-type-form'); 
   Route::get('get-record-type', [CustodyController::class,'get_record_type'])->name('get-record-type'); 
   Route::post('custody', [CustodyController::class,'store'])->name('add-custody');
-
+  Route::post('doc_custody', [CustodyController::class,'doc_store'])->name('add-doc-custody');
+  
    
   
   Route::get('get-report/{id}', [CustodyController::class,'get_report'])->name('get-report'); 
   Route::post('pdf-report', [CustodyController::class,'pdf'])->name('pdf-report'); 
   
 
+  Route::get('tem', [CustodyController::class,'tem'])->name('tem'); 
   
   // Route::post('years', [YearController::class,'store'])->name('edit-years'); 
 
