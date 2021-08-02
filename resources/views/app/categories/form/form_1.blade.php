@@ -1,7 +1,5 @@
  
 
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-flat-pickr.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-pickadate.css')) }}">
 
  
     <input type="hidden" value="custody" id="url">  
@@ -10,7 +8,7 @@
       <div class="col-12">
         <div class="form-group">
           <label for="item_des">الوصف</label>
-          <textarea class="form-control " id="item_des" name="item_des" rows="5" placeholder="اضافة وصف الصنف"></textarea> 
+          <textarea class="form-control " id="item_des" name="item_des" rows="5" placeholder="اضافة وصف الصنف" required></textarea> 
         </div>
       </div>   
       <div class="col-md-12"> 
@@ -18,7 +16,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="item_status"> حالة الصنف</label> 
-              <select class="form-control" name="item_status"  id="item_status" > 
+              <select class="form-control" name="item_status"  id="item_status" required> 
                 <option value="">.........  </option>
                 <option  value="سليم">سليم</option> 
                 <option  value="تالف">تالف</option> 
@@ -28,7 +26,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="item_type">نوع الصنف </label> 
-              <select class="form-control" name="item_type" id="item_type" >
+              <select class="form-control" name="item_type" id="item_type" required>
                 <option value="">.........  </option>
                 <option  value="مستهلك">مستهلك</option> 
                 <option  value="دائم ">دائم</option> 
@@ -42,17 +40,19 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="quantity"> الكمية</label> 
-              <input type="number" class="form-control" name="quantity" id="quantity" placeholder=" " required  /> 
+              <input type="number" class="form-control" name="quantity" id="quantity" placeholder=" " required  />  
             </div>
           </div>   
           <div class="col-md-6">
             <div class="form-group">
               <label for="insert_date">تاريخ الادخال </label> 
-              <input  type="text" id="fp-default" class="form-control flatpickr-basic" name="insert_date" placeholder="YYYY-MM-DD" >  
+              <input  type="text" id="fp-default" class="form-control flatpickr-basic" name="insert_date" placeholder="YYYY-MM-DD" required>  
             </div>
           </div>     
         </div> 
       </div>    
+
+      
       <div class="col-12 ">
         <button type="submit" id="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">   
           <span>أضافة</span>
@@ -61,9 +61,8 @@
     </div> 
 
   
-  <script src="{{ asset(mix('js/scripts/forms/pickers/form-pickers.js')) }}"></script>
-
-
+<script src="{{ asset(mix('js/scripts/forms/pickers/form-pickers.js')) }}"></script> 
+  
 
    
 

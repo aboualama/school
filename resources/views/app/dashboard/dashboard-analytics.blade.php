@@ -269,12 +269,12 @@
                     <select class="form-control" name="custody_type_id" id="type"> 
                       <option  value=""> اختار نوع العهدة اولا</option>
                     </select>
-                    <span id="custody_type_id_error" class="form-text text-danger small_error"> </span> 
+                    <span id="custody_type_id_error" class="form-text text-danger small_error"> </span>     
                   </div> 
                 </div>   
                 <div class="col-md-1 offset-md-2 col-sm-12">
                   <div class="form-group mt-2">
-                    <button  type="submit" id="submit" class="btn btn-danger btn-block text-nowrap px-1 waves-effect" data-repeater-delete="">
+                    <button  type="submit" id="submit" class="btn btn-danger btn-block text-nowrap px-1 waves-effect" disabled>
                        <i data-feather='printer'></i>
                        <span class="ml-1">طباعة</span>
                     </button>
@@ -398,8 +398,8 @@
           category_id: category_id
         },
         url: '/get-type-form/',
-        success: function (data) {  
-              $('#section_forms').html(data);
+        success: function (data) {   
+              $('#submit').prop("disabled", false);
         }
       });
     });
@@ -428,20 +428,11 @@
                     var str = key.split('.').join(newchar); 
                     $("#" + str + "_error").text(val[0]); 
                   });
-                }else{ 
-                      toastr['success'](
-                            'تم اضافة قسم جديد بنجاح ',
-                            ' أقسام العهدة  ' ,
-                            {
-                              closeButton: true,
-                              tapToDismiss: false, 
-                              positionClass: 'toast-top-right',
-                              rtl: 'rtl'
-                            }
-                          );   
+                  $('#type').empty();
+                }else{  
                   $('#category').val("");
                   $('#type').empty();
-                  $('#type').append('<option> اختار نوع العهدة اولا</option>');
+                  $('#type').append('<option value=""> اختار نوع العهدة اولا</option>');
                   $('.clear_form').fadeOut();  
                 }
           }, error: function (xhr) {

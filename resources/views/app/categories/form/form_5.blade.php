@@ -1,13 +1,14 @@
- 
-    <input type="hidden" value="doc_custody" id="url">  
 
-    <div class="row clear_form"> 
+<input type="hidden" value="doc_custody" id="url">  
 
-    
-  
-        @if ($type == 10)   
+<div class="row clear_form"> 
 
-         
+
+
+    @if ($type == 10)    
+        
+        <div class="col-12 "> 
+
         
             <input type="hidden" value="teacher" name="person">  
 
@@ -16,13 +17,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                     <label for="number">  رقم المعلمة </label> 
-                    <input type="number" class="form-control" name="number" id="number" placeholder=" " > 
+                    <input type="number" class="form-control" name="number" id="number" placeholder=" "  required> 
                     </div>
                 </div>   
                 <div class="col-md-6">
                     <div class="form-group">
                     <label for="name">اسم المعلمة    </label> 
-                    <input type="text" class="form-control" name="name" id="name" placeholder=" " > 
+                    <input type="text" class="form-control" name="name" id="name" placeholder=" "  required> 
                     </div>
                 </div>     
                 </div> 
@@ -146,15 +147,17 @@
             <div class="col-md-12">  
                 <div class="form-group">
                     <label for="reason_leaving">سبب ترك العمل  </label> 
-                    <input type="text" class="form-control" name="reason_leaving" id="reason_leaving" placeholder=" " > 
+                    <input type="text" class="form-control" name="reason_leaving" id="reason_leaving" placeholder=" "  required> 
                 </div>  
             </div>   
         
 
+        </div> 
 
-        @else
- 
-    
+    @else
+
+        <div class="col-12 "> 
+
             <input type="hidden" value="student" name="person">  
             
             <div class="col-md-12"> 
@@ -162,13 +165,13 @@
                 <div class="col-md-6">
                     <div class="form-group">
                     <label for="number">  رقم الطالبة </label> 
-                    <input type="number" class="form-control" name="number" id="number" placeholder=" " > 
+                    <input type="number" class="form-control" name="number" id="number" placeholder=" "  required> 
                     </div>
                 </div>   
                 <div class="col-md-6">
                     <div class="form-group">
                     <label for="name">اسم الطالبة    </label> 
-                    <input type="text" class="form-control" name="name" id="name" placeholder=" " > 
+                    <input type="text" class="form-control" name="name" id="name" placeholder=" "  required> 
                     </div>
                 </div>     
                 </div> 
@@ -257,12 +260,14 @@
             </div> 
 
 
-        @endif
-
-        <div class="col-12 ">
-            <button type="submit" id="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">   
-            <span>أضافة</span>
-            </button> 
         </div>
 
-    </div> 
+    @endif
+
+    <div class="col-12 ">
+        <button type="submit" id="submit" class="btn btn-primary mb-1 mb-sm-0 mr-0 mr-sm-1">   
+        <span>أضافة</span>
+        </button> 
+    </div>
+
+</div> 

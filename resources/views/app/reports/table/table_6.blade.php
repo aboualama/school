@@ -1,10 +1,7 @@
 
     <section class="app-user-edit m-0 footer">
-      <div class="card">
- 
-
-        <div class="card-body pr-5 pl-5">
-      
+      <div class="card"> 
+        <div class="card-body pr-5 pl-5"> 
               <div class="row d-flex align-items-end">
                 <div class="col-md-4  col-sm-12"> 
                   <div class="row d-flex">  
@@ -33,10 +30,12 @@
                     </div>   
                   </div>  
                 </div>    
-              </div> 
- 
+              </div>  
         </div>
       </div>
     </section>
      
   
+	</body>
+  </html>
+     

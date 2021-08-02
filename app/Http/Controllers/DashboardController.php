@@ -14,7 +14,7 @@ class DashboardController extends Controller
   {
     $pageConfigs = ['pageHeader' => false];
     $categories    = Category::get();  
-    $years = Year::whereHas('custodies')->get();
+    $years = Year::whereHas('custodies')->get(); 
     return view('/app/dashboard/dashboard-analytics', ['pageConfigs' => $pageConfigs, 'categories' => $categories, 'years' => $years]);
   }
 

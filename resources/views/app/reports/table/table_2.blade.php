@@ -64,3 +64,57 @@
   window.print();
 </script>
 @endsection
+
+ 
+header {
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 50px 1fr 1fr;
+  grid-template-areas:
+    "header header header"
+    "section_1 css js" 
+  display: grid;
+  font-size: 1.5em;
+  height: 100vh;
+  grid-area: header;
+  background-color: black;
+  color: white;
+}
+
+section {
+  background-color: #555;
+  color: white;
+  border: 1px solid black;
+}
+
+.section_1 {
+  grid-area: html;
+}
+
+.section_2 {
+  grid-area: css;
+}
+
+.section_2 {
+  grid-area: js;
+}
+ 
+
+<htmlpageheader name="page-header">
+
+  <header>CODEPEN HEADER</header>
+    
+  <section class="section_1">HTML</section>
+  <section class="section_2">CSS</section>
+  <section class="section_3">JS</section> 
+  <main>RENDERED PAGE</main>
+
+</htmlpageheader>
+
+<htmlpagefooter name="page-footer">
+	Your Footer Content
+</htmlpagefooter> 
+
+@page {
+	header: page-header;
+	footer: page-footer;
+}

@@ -8,13 +8,13 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="notebook_no">  رقم الدفتر</label> 
-              <input type="number" class="form-control" name="notebook_no" id="notebook_no" placeholder=" " > 
+              <input type="number" class="form-control" name="notebook_no" id="notebook_no" placeholder=" "  required> 
             </div>
           </div>   
           <div class="col-md-6">
             <div class="form-group">
               <label for="notebook_name">اسم الدفتر   </label> 
-              <input type="text" class="form-control" name="notebook_name" id="notebook_name" placeholder=" " > 
+              <input type="text" class="form-control" name="notebook_name" id="notebook_name" placeholder=" "  required> 
             </div>
           </div>     
         </div> 
@@ -23,7 +23,7 @@
       <div class="col-md-12">
         <div class="form-group">
           <label for="unit"> الوحدة</label> 
-          <input type="text" class="form-control" name="unit" id="unit" placeholder=" " > 
+          <input type="text" class="form-control" name="unit" id="unit" placeholder=" "  required> 
         </div>
       </div>    
 
@@ -32,13 +32,13 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="quantity"> الكمية</label> 
-              <input type="number" class="form-control" name="quantity" id="quantity" placeholder=" " > 
+              <input type="number" class="form-control" name="quantity" id="quantity" placeholder=" "  required> 
             </div>
           </div>   
           <div class="col-md-6">
             <div class="form-group">
               <label for="shortage"> النقص</label> 
-              <input type="number" class="form-control" name="shortage" id="shortage" placeholder=" " > 
+              <input type="number" class="form-control" name="shortage" id="shortage" placeholder=" "  required> 
             </div>
           </div>    
         </div> 

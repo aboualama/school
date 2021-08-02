@@ -1,32 +1,28 @@
-  
-
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-flat-pickr.css')) }}">
-  <link rel="stylesheet" href="{{ asset(mix('css/base/plugins/forms/pickers/form-pickadate.css')) }}">
+   
 
  
     <input type="hidden" value="custody" id="url">  
 
     <div class="row clear_form"> 
-
-  
+ 
       <div class="col-md-12"> 
         <div class="row">  
           <div class="col-md-4">
             <div class="form-group">
               <label for="serial_number"> رقم مسلسل</label> 
-              <input type="number" class="form-control" name="serial_number" id="serial_number" placeholder=" " > 
+              <input type="number" class="form-control" name="serial_number" id="serial_number" placeholder=" " required> 
             </div>
           </div>   
           <div class="col-md-4">
             <div class="form-group">
               <label for="public_number"> رقم عام </label> 
-              <input type="number" class="form-control" name="public_number" id="public_number" placeholder=" " > 
+              <input type="number" class="form-control" name="public_number" id="public_number" placeholder=" " required> 
             </div>
           </div>   
           <div class="col-md-4">
             <div class="form-group">
               <label for="count"> رقم خاص </label> 
-              <input type="number" class="form-control" name="count" id="count" placeholder=" " > 
+              <input type="number" class="form-control" name="count" id="count" placeholder=" " required> 
             </div>
           </div>    
         </div> 
@@ -39,13 +35,13 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="received_date">تاريخ الاستلام </label> 
-              <input  type="text" id="fp-default" class="form-control flatpickr-basic" name="received_date" placeholder="YYYY-MM-DD" >  
+              <input  type="text" id="fp-default" class="form-control flatpickr-basic" name="received_date" placeholder="YYYY-MM-DD" required>  
             </div>
           </div>   
           <div class="col-md-6">
             <div class="form-group">
               <label for="date_of_publication">تاريخ النشر </label> 
-              <input  type="text" id="date_of_publication" class="form-control flatpickr-basic" name="date_of_publication" placeholder="YYYY-MM-DD" >  
+              <input  type="text" id="date_of_publication" class="form-control flatpickr-basic" name="date_of_publication" placeholder="YYYY-MM-DD" required>  
             </div>
           </div>     
         </div> 
@@ -57,13 +53,13 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="receipt_number">  رقم الورود</label> 
-              <input type="number" class="form-control" name="receipt_number" id="receipt_number" placeholder=" " > 
+              <input type="number" class="form-control" name="receipt_number" id="receipt_number" placeholder=" " required> 
             </div>
           </div>   
           <div class="col-md-6">
             <div class="form-group">
               <label for="book_supplier"> جهة الورود </label> 
-              <input type="text" class="form-control" name="book_supplier" id="book_supplier" placeholder=" " > 
+              <input type="text" class="form-control" name="book_supplier" id="book_supplier" placeholder=" " required> 
             </div>
           </div>    
         </div> 
@@ -76,13 +72,13 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="book_title">  عنوان الكتاب</label> 
-              <input type="text" class="form-control" name="book_title" id="book_title" placeholder=" " > 
+              <input type="text" class="form-control" name="book_title" id="book_title" placeholder=" " required> 
             </div>
           </div>   
           <div class="col-md-6">
             <div class="form-group">
               <label for="author"> المؤلف </label> 
-              <input type="text" class="form-control" name="author" id="author" placeholder=" " > 
+              <input type="text" class="form-control" name="author" id="author" placeholder=" " required> 
             </div>
           </div>    
         </div> 
@@ -95,13 +91,13 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="publisher"> الناشر</label> 
-              <input type="text" class="form-control" name="publisher" id="publisher" placeholder=" " > 
+              <input type="text" class="form-control" name="publisher" id="publisher" placeholder=" " required> 
             </div>
           </div>   
           <div class="col-md-6">
             <div class="form-group">
               <label for="place_of_publication"> مكان النشر </label> 
-              <input type="text" class="form-control" name="place_of_publication" id="place_of_publication" placeholder=" " > 
+              <input type="text" class="form-control" name="place_of_publication" id="place_of_publication" placeholder=" " required> 
             </div>
           </div>    
         </div> 
@@ -111,7 +107,7 @@
       <div class="col-md-12">
         <div class="form-group">
           <label for="notes"> الملاحظات</label>  
-          <textarea class="form-control " id="notes" name="notes" rows="5" placeholder="اضاف بعض الملاحظات"></textarea> 
+          <textarea class="form-control " id="notes" name="notes" rows="5" placeholder="اضاف بعض الملاحظات" required></textarea> 
         </div>
       </div>    
 

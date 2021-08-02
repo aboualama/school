@@ -7,7 +7,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="school_record_id">  السجلات المدرسية</label> 
-              <select class="form-control" name="school_record_id" id="school_record_id" > 
+              <select class="form-control" name="school_record_id" id="school_record_id"  required> 
                 <option >.........  </option>
                 @foreach ($school_records as $record) 
                   <option value="{{$record->id}}">{{$record->type}}</option> 
@@ -18,7 +18,7 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="school_record_type_id">نوع السجل </label> 
-              <select class="form-control" name="school_record_type_id" id="school_record_type_id" >
+              <select class="form-control" name="school_record_type_id" id="school_record_type_id"  required>
                 <option > اختار السجل اولا</option>
               </select>
             </div>
@@ -30,13 +30,13 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="record_no"> رقم السجل</label> 
-              <input type="text" class="form-control" name="record_no" id="record_no" placeholder=" " > 
+              <input type="text" class="form-control" name="record_no" id="record_no" placeholder=" "  required> 
             </div>
           </div>   
           <div class="col-md-6">
             <div class="form-group">
               <label for="unit"> الوحدة</label> 
-              <input type="text" class="form-control" name="unit" id="unit" placeholder=" " > 
+              <input type="text" class="form-control" name="unit" id="unit" placeholder=" "  required> 
             </div>
           </div>    
         </div> 
@@ -44,7 +44,7 @@
       <div class="col-12">
         <div class="form-group">
           <label for="record_description">وصف السجل</label>
-          <textarea class="form-control " id="record_description" name="record_description" rows="5" placeholder="اضافة وصف السجل"></textarea> 
+          <textarea class="form-control " id="record_description" name="record_description" rows="5" placeholder="اضافة وصف السجل" required></textarea> 
         </div>
       </div>   
       <div class="col-md-12"> 
@@ -52,13 +52,13 @@
           <div class="col-md-6">
             <div class="form-group">
               <label for="quantity"> الكمية</label> 
-              <input type="number" class="form-control" name="quantity" id="quantity" placeholder=" " > 
+              <input type="number" class="form-control" name="quantity" id="quantity" placeholder=" "  required> 
             </div>
           </div>   
           <div class="col-md-6">
             <div class="form-group">
               <label for="shortage"> النقص</label> 
-              <input type="number" class="form-control" name="shortage" id="shortage" placeholder=" " > 
+              <input type="number" class="form-control" name="shortage" id="shortage" placeholder=" "  required> 
             </div>
           </div>    
         </div> 

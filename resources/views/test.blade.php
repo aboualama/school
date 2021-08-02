@@ -97,10 +97,58 @@
 			.invoice-box.rtl table tr td:nth-child(2) {
 				text-align: left;
 			}
+
+			@page {
+				header: page-header;
+				footer: page-footer;
+			}
 		</style>
 	</head>
 
-	<body>
+	<body> 
+		</head>
+	
+		<body>
+			
+		<htmlpageheader name="page-header">  
+	
+			<div class="invoice-box">
+				<table>
+					<tr>
+	
+						<td class="title">
+							<img src="https://www.sparksuite.com/images/logo.png" style="width: 100%; max-width: 300px" />
+						</td>
+	
+						<td>
+							Invoice #: 123<br />
+							Created: January 1, 2015<br />
+							Due: February 1, 2015
+						</td>
+					</tr>
+				</table>
+			</div>
+		</htmlpageheader>
+	
+		<htmlpagefooter name="page-footer"> 
+			<div class="invoice-box">
+				<table>
+					<tr>
+	
+						<td class="title">
+							<img src="https://www.sparksuite.com/images/logo.png" style="width: 100%; max-width: 300px" />
+						</td>
+	
+						<td>
+							Invoice #: 123<br />
+							Created: January 1, 2015<br />
+							Due: February 1, 2015
+						</td>
+					</tr>
+				</table>
+			</div>
+		</htmlpagefooter>
+	
 		<div class="invoice-box">
 			<table cellpadding="0" cellspacing="0">
 				<tr class="top">
@@ -191,3 +239,43 @@
 	
 	</body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{{-- 
+	$validator = Validator::make($request->all(), 
+	[ 'year_id' => 'required', 'custody_type_id' => 'required', ], 
+	[ 'year_id.required' =>  ' يجب اختيار العام الدراسي ', 'custody_type_id.required' => ' يجب اختيار نوع العهدة ' ]);  
+
+	if ($validator->fails()) {
+	return response()->json(['errors' => $validator->errors(), 'status' => 442]);
+	}    
+	if ($validator->fails()) { 
+		return back()->withErrors($validator->errors());
+	}   
+		
+	@if (count($errors) > 0) 
+		@foreach ($errors->all() as $error) 
+		<span id="custody_type_id_error" class="form-text text-danger ">{{ $error }} </span>    
+		@endforeach 
+	@endif  
+	--}}
