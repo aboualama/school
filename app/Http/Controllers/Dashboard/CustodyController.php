@@ -92,8 +92,11 @@ class CustodyController extends Controller
 
         $custodies = Custody::where('year_id', $request->year_id)->where('custody_type_id', $type)->get(); 
    
-        $pdf =  PDF::loadView('app.reports.table/' . $table, ['custodies' => $custodies]); 
+        // $pdf =  PDF::loadView('app.reports.table/' . $table, ['custodies' => $custodies]); 
+        $pdf =  PDF::loadView('app.reports.table/table_1', ['custodies' => $custodies]); 
         return $pdf->stream('custodies.pdf');    
+        
+        return view('app.reports.print1' , ['custodies' => $custodies]); 
     } 
 
 

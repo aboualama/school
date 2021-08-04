@@ -18,6 +18,7 @@ use App\Http\Controllers\PageLayoutController;
 use App\Http\Controllers\MiscellaneousController;
 use App\Http\Controllers\UserInterfaceController;
 use App\Http\Controllers\AuthenticationController;
+use App\Http\Controllers\Dashboard\NoteController;
 use App\Http\Controllers\Dashboard\YearController; 
 use App\Http\Controllers\Dashboard\StageController; 
 use  App\Http\Controllers\Dashboard\UserController;   
@@ -85,16 +86,28 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
   Route::post('doc_custody', [CustodyController::class,'doc_store'])->name('add-doc-custody');
   
    
-  
-  Route::get('get-report/{id}', [CustodyController::class,'get_report'])->name('get-report'); 
-  Route::post('pdf-report', [CustodyController::class,'pdf'])->name('pdf-report'); 
-  
-  Route::get('admin', [CustodyController::class,'admin'])->name('admin'); 
-  
-  Route::get('tem', [CustodyController::class,'tem'])->name('tem'); 
-  
-  // Route::post('years', [YearController::class,'store'])->name('edit-years'); 
+   // Note Route 
+  Route::get('notes', [NoteController::class,'index'])->name('app-notes'); 
+  Route::post('notes', [NoteController::class,'store'])->name('store-notes'); 
 
+
+
+  // Reports Route 
+ Route::get('get-report/{id}', [CustodyController::class,'get_report'])->name('get-report'); 
+ Route::post('pdf-report', [CustodyController::class,'pdf'])->name('pdf-report'); 
+  
+
+
+
+
+
+
+
+
+  // test Route 
+  // Route::get('admin', [CustodyController::class,'admin'])->name('admin');  
+  // Route::get('tem', [CustodyController::class,'tem'])->name('tem');  
+  // Route::post('years', [YearController::class,'store'])->name('edit-years');  
   // Route::get('classrooms', [ClassRoomController::class,'index'])->name('app-classrooms');
 
 

@@ -9,9 +9,9 @@ trait CustodyTrait {
     public function get_form($type , $category)
     {      
         $arr1 = ['1', '3', '4', '6', '7', '11'];                // 36
-        $arr2 = ['2'];                                          // test
+        $arr2 = ['2'];                                          // test اختبارات 
         $arr3 = ['5'];                                          // records
-        $arr4 = ['8'];                                          // 43
+        $arr4 = ['8'];                                          // 43  معامل ومختبرات
         $arr5 = ['9', '10'];                                    // dec 
         $arr6 = ['12', '17'];                                   // book 
         $arr7 = ['13', '14', '15', '16', '18', '19', '20'];     // ch

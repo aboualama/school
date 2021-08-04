@@ -291,35 +291,7 @@
   
   </section> 
 
-
-
-  <!-- Modal -->
-  {{-- <div class="col-12">
-    <div class="row">
-      <div class="modal-size-xl mr-1 mb-1 d-inline-block">
-        <div class="modal fade text-left" id="modal-block" tabindex="-1" role="dialog"
-             aria-labelledby="myModalLabel17" aria-hidden="true">
-          <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"> اعدادات  {{$setting->name}} </h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-                </button>
-              </div>
-              <div class="modal-body">
-                <div id="setting"></div>
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary pdf" data-dismiss="modal">خروج</button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div> --}}
-
+ 
 
 @endsection
 
@@ -330,39 +302,7 @@
 
 
   <script>
-      
-    // model
-      //  $('.model').on("click", function (e) {
-      //    e.stopPropagation();
-      //    var id = $(this).data('id');
-      //    console.log(id);
-      //    $.ajax({
-      //      type: 'GET',
-      //      url: '/get-report/' + id,
-      //      data: {type_id : id},
-      //      success: function (data) {
-      //       //  $('#modal-block').modal('toggle');
-      //       //  $('#setting').html(data);
-      //      }
-      //    });
-      //  });
-      
-      // model
-        //  $('.pdf').on("click", function (e) {
-        //    e.stopPropagation();  
-        //    $.ajax({
-        //      type: 'GET',
-        //      url: '/pdf-report/' , 
-        //      success: function (data) {
-        //        $('#modal-block').modal('toggle'); 
-        //      }
-        //    });
-        //  });
-
-
-
- 
-  
+        
   
   $.ajaxSetup({headers: {'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')}});
 
@@ -399,47 +339,22 @@
         },
         url: '/get-type-form/',
         success: function (data) {   
-              $('#submit').prop("disabled", false);
+          if($('#year').val() !== ''){ 
+            $('#submit').prop("disabled", false);
+          }
         }
       });
     });
       
-
-    
-
-    
-    $(document).on('click', '#submit', function (e) { 
-      $(".small_error").text('');
-      var url = $("#url").val(); 
-      var formData = new FormData($('#form')[0]); 
-      $.ajax({
-          type: 'post',
-          enctype: 'multipart/form-data',
-          url: '/pdf-report/',
-          data: formData,
-          processData: false,
-          contentType: false,
-          cache: false,
-          success: function (data) {  
-            
-            if (data.status == 442){
-                  $.each(data.errors, function (key, val) {
-                    var newchar = '_'
-                    var str = key.split('.').join(newchar); 
-                    $("#" + str + "_error").text(val[0]); 
-                  });
-                  $('#type').empty();
-                }else{  
-                  $('#category').val("");
-                  $('#type').empty();
-                  $('#type').append('<option value=""> اختار نوع العهدة اولا</option>');
-                  $('.clear_form').fadeOut();  
-                }
-          }, error: function (xhr) {
-
-          }
-      });
+     
+    // change year
+    $('#year').on("change", function (e) {
+      e.stopPropagation();  
+          if($('#type').val() !== ''){ 
+            $('#submit').prop("disabled", false);
+          } 
     });
+     
       
   </script>   
  

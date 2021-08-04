@@ -1,10 +1,45 @@
+
+
+@extends('layouts/print')
+
+@section('title', 'لوحة التحكم')
  
 
+@include('app.reports.__header')
+@section('content') 
 
- {{-- 1 عهده مستديمة --}} 
+<style>
 
 
-<div class="row" id="table-bordered">
+
+@media print {
+  .header {
+    position: fixed; 
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    top: 0;
+    right:  0;
+    margin: 0 auto;
+  } 
+  .footer {
+    position: fixed; 
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    bottom: 0;
+    right:  0;
+    margin: 0 auto;
+  }
+
+}
+
+
+  
+</style>
+
+
+<div class="row" id="table-bordered" style="margin: 5px">
   <div class="col-12">
     <div class="card">
       <div class="card-header">
@@ -49,4 +84,18 @@
     </div>
   </div>
 </div>
-  
+ 
+
+@include('app.reports.__footer') 
+
+@endsection
+ 
+@section('page-script')  
+
+<script>
+  window.print();
+</script>
+@endsection
+
+ 
+ 

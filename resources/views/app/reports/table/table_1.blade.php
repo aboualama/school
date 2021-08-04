@@ -486,14 +486,14 @@
 				direction: rtl;
 				font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
 			}
-
+ 
       .img{
           display: block;
           margin: 0 auto;  
           border: 1px solid #ddd;
           border-radius: 4px !important;
-          padding: 15px;  
-          width: 150%;
+          padding: 15px;  130px;
+          width:  130px  !important;
         }
 			.invoice-box.rtl table {
 				text-align: center !important;
@@ -508,17 +508,17 @@
     <div class="invoice-box">
       <table>
         <tr class="header-table"> 
-          <td >
-            <img class="img" src="https://www.sparksuite.com/images/logo.png" />
+          <td class="hele">
+            <img class="img" src="https://drive.google.com/file/d/1hl6pRtESa1nE5EsqZi2bMXSbK5Jh52nx/view?usp=sharing" />
             <p>صورة </p>
           </td>
 
           <td  > 
-            <img class="img" src="https://www.sparksuite.com/images/logo.png" width='80' />
+            <img class="img" src="https://drive.google.com/file/d/1hl6pRtESa1nE5EsqZi2bMXSbK5Jh52nx/view?usp=sharing"  />
             <p>صورة </p>
           </td>
 
-          <td  > 
+          <td > 
             <img class="img" src="https://cdn.mosoah.com/wp-content/uploads/2019/11/05171421/%D8%B5%D9%88%D8%B1-%D8%B4%D8%B9%D8%A7%D8%B1-%D8%B1%D8%A4%D9%8A%D8%A9-%D9%88%D8%B7%D9%86-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A95-746x510.jpg"  />
             <p>صورة </p>
           </td>

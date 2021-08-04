@@ -10,8 +10,8 @@ class Document extends Model
     use HasFactory;
       
     protected $fillable = ['person', 'number', 'name', 'reason_leaving', 'documents', 'custody_id'];
-
-    public function year()
+ 
+    public function custody()
     {
         return $this->belongsTo(Custody::class);
     }

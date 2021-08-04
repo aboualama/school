@@ -6,7 +6,7 @@
     <div class="row clear_form"> 
  
       <div class="col-md-12"> 
-        <div class="row">  
+        <div class="row">   
           <div class="col-md-4">
             <div class="form-group">
               <label for="serial_number"> رقم مسلسل</label> 
@@ -21,8 +21,8 @@
           </div>   
           <div class="col-md-4">
             <div class="form-group">
-              <label for="count"> رقم خاص </label> 
-              <input type="number" class="form-control" name="count" id="count" placeholder=" " required> 
+              <label for="private_number"> رقم خاص </label> 
+              <input type="number" class="form-control" name="private_number" id="private_number" placeholder=" " required> 
             </div>
           </div>    
         </div> 
