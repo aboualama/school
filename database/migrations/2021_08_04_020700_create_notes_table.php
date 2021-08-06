@@ -17,7 +17,7 @@ class CreateNotesTable extends Migration
             $table->id();
             $table->timestamps(); 
 			$table->enum('type', ['input', 'output', 'missing', 'retrieved', 'damaged', 'transported']); 
-			$table->string('date');
+			$table->string('insert_date');
 			$table->string('files');
 			$table->foreignId('year_id')->constrained()->onUpdate('cascade')->onDelete('cascade'); 
 			$table->foreignId('custody_type_id')->constrained()->onUpdate('cascade')->onDelete('cascade');   

@@ -13,8 +13,8 @@ return [
     'margin_footer'        => 0,
 
     'orientation'          => 'P',
-    'title'                => 'RCAT',
-    'author'               => 'RCAT',
+    'title'                => 'برنامج العهدة المدرسية',
+    'author'               => 'برنامج العهدة المدرسية',
     'watermark'            => '',
     'show_watermark'       => false,
     'watermark_font'       => 'sans-serif',

@@ -122,6 +122,12 @@ $configData = Helper::applClasses();
 
  
 
+      <li class="nav-item {{ Route::currentRouteName() === "app-notes" ? 'active' : '' }} {{ $custom_classes }}">
+        <a href="/notes" class="d-flex align-items-center" target="_self">
+          <i data-feather="code"></i>
+          <span class="menu-title text-truncate"> المدخلات والمخرجات</span> 
+        </a> 
+      </li> 
 
 
 

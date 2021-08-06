@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Note extends Model
 {
     use HasFactory;
-    protected $fillable = ['type', 'date', 'files', 'year_id', 'custody_type_id'];
+    protected $fillable = ['type', 'insert_date', 'files', 'year_id', 'custody_type_id'];
 
     public function year()
     {

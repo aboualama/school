@@ -37,7 +37,7 @@
       align-items: center;
       justify-content: center;
       flex-wrap: wrap;
-      padding: 33px 30px;
+      padding: 13px 10px;
     }
 
     .wrap-table100 {
@@ -56,7 +56,7 @@
       padding-right: 10px;
     }
 
-    .column100 {
+    /* .column100 {
       width: 130px;
       padding-left: 25px;
     }
@@ -64,7 +64,7 @@
     .column100.column1 {
       width: 265px;
       padding-left: 42px;
-    }
+    } */
 
     .row100.head th {
       padding-top: 24px;
@@ -401,15 +401,14 @@
     .invoice-box {
 				max-width: 800px;
 				margin: auto;
-				padding: 30px;
+				padding: 10px;
 				/* border: 1px solid #eee;
 				box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
 				font-size: 16px;
 				line-height: 24px;
 				font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
 				color: #555;
-			}
-
+			}    
 			.invoice-box table {
 				width: 100%;
 				line-height: inherit;
@@ -487,18 +486,21 @@
 				font-family: Tahoma, 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
 			}
  
-      .img{
-          display: block;
-          margin: 0 auto;  
-          border: 1px solid #ddd;
-          border-radius: 4px !important;
-          padding: 15px;  130px;
-          width:  130px  !important;
+      .img{ 
+          /* border: 1px solid #ddd; */
+          border-radius: 14px !important;
+          padding: 15px;  
+          width:  180px  !important;
+          height:   130px  !important;
         }
 			.invoice-box.rtl table {
 				text-align: center !important;
 			}
-  
+      table {
+				text-align: center !important;
+			} 
+   
+
   </style>
 </head>
 <body> 
@@ -508,71 +510,126 @@
     <div class="invoice-box">
       <table>
         <tr class="header-table"> 
-          <td class="hele">
-            <img class="img" src="https://drive.google.com/file/d/1hl6pRtESa1nE5EsqZi2bMXSbK5Jh52nx/view?usp=sharing" />
-            <p>صورة </p>
-          </td>
-
-          <td  > 
-            <img class="img" src="https://drive.google.com/file/d/1hl6pRtESa1nE5EsqZi2bMXSbK5Jh52nx/view?usp=sharing"  />
-            <p>صورة </p>
-          </td>
-
-          <td > 
+          <td style="text-align: right">
+            <img class="img" src="https://upload.wikimedia.org/wikipedia/ar/thumb/2/20/MOELogo.svg/1200px-MOELogo.svg.png"  />
+          </td> 
+          <td>   
+          </td> 
+          <td style="text-align: left;"> 
             <img class="img" src="https://cdn.mosoah.com/wp-content/uploads/2019/11/05171421/%D8%B5%D9%88%D8%B1-%D8%B4%D8%B9%D8%A7%D8%B1-%D8%B1%D8%A4%D9%8A%D8%A9-%D9%88%D8%B7%D9%86-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A95-746x510.jpg"  />
-            <p>صورة </p>
           </td>
         </tr>
-      </table>
+ 
+        <tr style="text-align: cente"> 
+          <td >
+             <p style="font-size: 14px; text-align: cente">  المدرسة: {{$setting->name}}  </p>
+          </td> 
+          <td>  </td> 
+          <td> 
+             <p style="font-size: 14px;">تاريخ اليوم: {{$fulldate}} </p>
+          </td>
+        </tr>
+  
+     
+      </table> 
+    </div>
+
+    <div style="display: block;">
+      <p style="font-size: 14px; text-align: center"> تقرير : {{$custodies[0]->type->category->name}} - {{$custodies[0]->type->name}}  للعام الدراسي -  {{$custodies[0]->year->year}}   </p>
+
     </div>
   </htmlpageheader>
 
 <htmlpagefooter name="page-footer">
+	
+<hr style="width: 50%">
+
+  <div  class="invoice-box">
+    <table>
+      <tr > 
+        <td  style="font-size: 14px; text-align: right">  مديرة المدرسة: {{$setting->manger}}  </td> 
+        <td  style="font-size: 14px; text-align: center">	  - {PAGENO} - 	</td> 
+        <td  style="font-size: 14px; text-align: left"> cc 	مديرة المدرسة: {{$setting->manger}} 	</td>
+      </tr>
+    </table>
+  </div>
  
 </htmlpagefooter> 
 
-	<div class="limiter">
-		<div class="container-table100">
-			<div class="wrap-table100">
-  
-
-				<div class="table100 ver5 m-b-110">
-					<table data-vertable="ver5">
-						<thead>
-							<tr class="row100 head">
-								<th class="column100 column1" data-column="column1">رقم الصنف</th>
-								<th class="column100 column2" data-column="column2">وصف الصنف </th>
-								<th class="column100 column3" data-column="column3">نوع العهدة</th>
-								<th class="column100 column4" data-column="column4">الحالة</th>
-								<th class="column100 column5" data-column="column5">الكمية</th>
-								<th class="column100 column6" data-column="column6">تاريخ الاستلام</th> 
-							</tr>
-						</thead>
-						<tbody>  
+{{-- <div class="limiter">
+  <div  >
+    <div > 
+      <table >
+        <thead>
+          <tr  >
+            <th></th> 
+            <th></th> 
+            <th></th> 
+          </tr>
+        </thead>
+        <tbody>  
  
-              @foreach ($custodies as $custody)
-              <tr  class="row100">
+          <tr> 
+            <td> رقم الصنف: {{$setting->manger}} </td>
+            <td> رقم الصنف: {{$setting->manger}} </td>
+            <td> رقم الصنف: {{$setting->manger}} </td>
+          </tr>  
 
-                <td class="column100 column1" data-column="column1"> {{$custody->id}} </td>
-                <td class="column100 column2" data-column="column2"> {{$custody->item_des}} </td>
-                <td class="column100 column3" data-column="column3"> {{$custody->type->name}} </td>
-                <td class="column100 column4" data-column="column4"> {{$custody->item_status}} </td>
-                <td class="column100 column5" data-column="column5"><span> {{$custody->quantity}} </span></td>
-                <td class="column100 column6" data-column="column6"><span> {{$custody->insert_date}} </span></td>
-          
-              </tr> 
-            @endforeach
-		 
-						</tbody>
-					</table>
-				</div>
+        </tbody>
+      </table>  
+    </div>
+  </div>
+</div> 
+
+
+<hr>
+--}}
+
+
+<hr style="width: 50%">
+
+
+<div class="limiter" style="margin-top: 40px; display: block;">
+  <div class="container-table100">
+    <div class="wrap-table100">
  
- 
+      <div class="table100 ver5 m-b-110">
+        <table data-vertable="ver5">
+          <thead>
+            <tr class="row100 head">
+              <th class="column100 column1" data-column="column1">رقم الصنف</th>
+              <th class="column100 column2" data-column="column2">وصف الصنف </th>
+              <th class="column100 column3" data-column="column3">نوع الصنف</th>
+              <th class="column100 column4" data-column="column4">الحالة</th>
+              <th class="column100 column5" data-column="column5">الكمية</th>
+              <th class="column100 column6" data-column="column6">تاريخ الاستلام</th> 
+            </tr>
+          </thead>
+          <tbody>  
 
-			</div>
-		</div>
-	</div>
+            @foreach ($custodies as $custody)
+            <tr  class="row100">
 
+              <td class="column100 column1" data-column="column1"> {{$custody->id}} </td>
+              <td class="column100 column2" data-column="column2"> {{$custody->item_des}} </td>
+              {{-- <td class="column100 column3" data-column="column3"> {{$custody->type->name}} </td> --}}
+              <td class="column100 column3" data-column="column3"> {{$custody->item_type}} </td>    
+              <td class="column100 column4" data-column="column4"> {{$custody->item_status}} </td>
+              <td class="column100 column5" data-column="column5"><span> {{$custody->quantity}} </span></td>
+              <td class="column100 column6" data-column="column6"><span> {{$custody->insert_date}} </span></td>
+        
+            </tr> 
+          @endforeach
+   
+          </tbody>
+        </table>
+      </div>
+
+
+
+    </div>
+  </div>
+</div>
  
 
 </body>

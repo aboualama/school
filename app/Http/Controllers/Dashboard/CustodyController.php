@@ -88,12 +88,14 @@ class CustodyController extends Controller
     {     
         $type = $request->custody_type_id;   
         $category = $request->category_id;  
-        $table = $this->get_table($type , $category);  
-
+        $table = $this->get_table($type , $category);   
         $custodies = Custody::where('year_id', $request->year_id)->where('custody_type_id', $type)->get(); 
    
-        // $pdf =  PDF::loadView('app.reports.table/' . $table, ['custodies' => $custodies]); 
-        $pdf =  PDF::loadView('app.reports.table/table_1', ['custodies' => $custodies]); 
+        if($table == "table_5"){  
+            config(['pdf.orientation' => 'L']);
+        }; 
+
+        $pdf =  PDF::loadView('app.reports.table/' . $table, ['custodies' => $custodies]); 
         return $pdf->stream('custodies.pdf');    
         
         return view('app.reports.print1' , ['custodies' => $custodies]); 
@@ -104,8 +106,7 @@ class CustodyController extends Controller
     {       
         return view('app.reports.table.38' ); 
     }
-
-    
+ 
 }
  
    
