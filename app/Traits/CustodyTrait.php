@@ -50,7 +50,7 @@ trait CustodyTrait {
     {      
         $arr1 = ['1', '3', '4', '6', '7', '11'];                // 36
         $arr2 = ['2'];                                          // test
-        $arr3 = ['5'];                                          // records
+        $arr3 = ['5'];                                          // records  ؟؟؟؟؟؟؟؟
         $arr4 = ['8'];                                          // 43
         $arr5 = ['9', '10'];                                    // dec 
         $arr6 = ['12', '17'];                                   // book 

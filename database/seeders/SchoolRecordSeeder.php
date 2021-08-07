@@ -19,7 +19,7 @@ class SchoolRecordSeeder extends Seeder
         for($i = 0 ; $i < 6 ; $i++)
         { 
             SchoolRecord::create([
-                'type' => $arr[$i], 
+                'period' => $arr[$i], 
           ]); 
         } 
     }

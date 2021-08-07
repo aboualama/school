@@ -59,4 +59,9 @@ class Custody extends Model
     {
         return $this->hasOne(Document::class);
     }
+
+    public function recordtype()
+    {
+        return $this->hasOne(SchoolRecordType::class);
+    }
 }
