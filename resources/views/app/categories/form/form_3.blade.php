@@ -10,7 +10,7 @@
               <select class="form-control" name="school_record_id" id="school_record_id"  required> 
                 <option >.........  </option>
                 @foreach ($school_records as $record) 
-                  <option value="{{$record->id}}">{{$record->type}}</option> 
+                  <option value="{{$record->id}}">{{$record->period}}</option> 
                 @endforeach
               </select> 
             </div>

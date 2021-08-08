@@ -572,30 +572,30 @@
                 <table data-vertable="ver5">
                   <thead>
                   <tr class="row100 head"> 
-                    <th class="column100 column1" data-column="column1">رقم الطالبة</th>
-                    <th class="column100 column1" data-column="column1">اسم الطالبة  </th> 
-                    <th class="column100 column1" data-column="column1">بطاقة الهوية</th> 
-                    <th class="column100 column1" data-column="column1">كرت التطعيم</th> 
-                    <th class="column100 column1" data-column="column1">شهادة الابتدائي</th>  
-                    <th class="column100 column1" data-column="column1">الكشف الطبي</th>  
-                    <th class="column100 column1" data-column="column1">شهادة المتوسط</th>  
-                    <th class="column100 column1" data-column="column1">شهادة الفصلين</th>  
-                    <th class="column100 column1" data-column="column1">شهادة الميلاد</th>  
+                    <th>رقم الطالبة</th>
+                    <th>اسم الطالبة  </th> 
+                    <th>بطاقة الهوية</th> 
+                    <th>كرت التطعيم</th> 
+                    <th>شهادة الابتدائي</th>  
+                    <th>الكشف الطبي</th>  
+                    <th>شهادة المتوسط</th>  
+                    <th>شهادة الفصلين</th>  
+                    <th>شهادة الميلاد</th>  
                   </tr>
                   </thead>
                   <tbody>  
 
                   @foreach ($custodies as $custody)
                   <tr  class="row100">  
-                    <td class="column100 column1" data-column="column1"> {{$custody->document->number}} </td>
-                    <td class="column100 column1" data-column="column1"> {{$custody->document->name}} </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('identity' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('vaccination_card' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('elementary_certificate' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('medical_examination' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('intermediate_certificate' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('semester_certificate' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('birth_certificate' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
+                    <td> {{$custody->document->number}} </td>
+                    <td> {{$custody->document->name}} </td>
+                    <td> <input type="checkbox" {{ (in_array('identity' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
+                    <td> <input type="checkbox" {{ (in_array('vaccination_card' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
+                    <td> <input type="checkbox" {{ (in_array('elementary_certificate' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
+                    <td> <input type="checkbox" {{ (in_array('medical_examination' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
+                    <td> <input type="checkbox" {{ (in_array('intermediate_certificate' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
+                    <td> <input type="checkbox" {{ (in_array('semester_certificate' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
+                    <td> <input type="checkbox" {{ (in_array('birth_certificate' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
                   </tr> 
                   @endforeach
               
@@ -607,38 +607,38 @@
                 <table data-vertable="ver5">
                   <thead>
                   <tr class="row100 head"> 
-                    <th class="column100 column1" data-column="column1">رقم المعلمة</th>
-                    <th class="column100 column1" data-column="column1">اسم المعلمة  </th>  
-                    <th class="column100 column1" data-column="column1">بطاقة العائله</th> 
-                    <th class="column100 column1" data-column="column1"> تحديد التكاليف  </th>  
-                    <th class="column100 column1" data-column="column1">المؤهل  </th>  
-                    <th class="column100 column1" data-column="column1">الاداء الوظيفي</th>  
-                    <th class="column100 column1" data-column="column1">  قرار التعيين</th>  
-                    <th class="column100 column1" data-column="column1">تقارير مرضية   </th>  
-                    <th class="column100 column1" data-column="column1">المباشرة  </th>  
-                    <th class="column100 column1" data-column="column1">خطاب شكر  </th>  
-                    <th class="column100 column1" data-column="column1">ترشيح مديرة  </th>  
-                    <th class="column100 column1" data-column="column1">بيان خدمة  </th>   
-                    <th class="column100 column1" data-column="column1">  سبب ترك العمل  </th>   
+                    <th>رقم المعلمة</th>
+                    <th>اسم المعلمة  </th>  
+                    <th>بطاقة العائله</th> 
+                    <th> تحديد التكاليف  </th>  
+                    <th>المؤهل  </th>  
+                    <th>الاداء الوظيفي</th>  
+                    <th>  قرار التعيين</th>  
+                    <th>تقارير مرضية   </th>  
+                    <th>المباشرة  </th>  
+                    <th>خطاب شكر  </th>  
+                    <th>ترشيح مديرة  </th>  
+                    <th>بيان خدمة  </th>   
+                    <th>  سبب ترك العمل  </th>   
                   </tr>
                   </thead>
                   <tbody>  
 
                   @foreach ($custodies as $custody)
                   <tr  class="row100"> 
-                    <td class="column100 column1" data-column="column1"> {{$custody->document->number}} </td>
-                    <td class="column100 column1" data-column="column1"> {{$custody->document->name}} </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('identity' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('costs' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('qualification' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('functionality' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('job_decision' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('satisfactory_reports' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('direct' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('thanks_letter' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('director_nomination' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1"> <input type="checkbox" {{ (in_array('service_statement' , jsondecode($custody->document->documents))) ? 'checked' : '' }}/> </td>
-                    <td class="column100 column1" data-column="column1">  {{  $custody->document->reason_leaving  }} </td>
+                    <td> {{$custody->document->number}} </td>
+                    <td> {{$custody->document->name}} </td>
+                    <td> <input type="checkbox" {{ (in_array("identity" , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}  /> </td>
+                    <td> <input type="checkbox" {{ (in_array('costs' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
+                    <td> <input type="checkbox" {{ (in_array('qualification' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
+                    <td> <input type="checkbox" {{ (in_array('functionality' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
+                    <td> <input type="checkbox" {{ (in_array('job_decision' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
+                    <td> <input type="checkbox" {{ (in_array('satisfactory_reports' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
+                    <td> <input type="checkbox" {{ (in_array('direct' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
+                    <td> <input type="checkbox" {{ (in_array('thanks_letter' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
+                    <td> <input type="checkbox" {{ (in_array('director_nomination' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
+                    <td> <input type="checkbox" {{ (in_array('service_statement' , json_decode($custody->document->documents))) ? 'checked="checked"' : '' }}/> </td>
+                    <td>  {{  $custody->document->reason_leaving  }} </td>
                   </tr> 
                   @endforeach
               

@@ -44,7 +44,7 @@
                 تمنياتنا بيوم جديد مليئ بالنجاح والتوفيق باذن الله .
               </p>
               <p class="card-text m-auto w-75" style="text-align: left; margin-top: 10px !important;">
-                <strong>مديرة المدرسة</strong>
+                <strong>مديرة المدرسة: {{$settings->manger}}</strong>
               </p>
             </div>
           </div>
@@ -58,7 +58,7 @@
         <div class="card  bg-primary text-white">
           <div class="card-header">
             <div>
-              <h2 class="font-weight-bolder mb-0 text-white">{{$settingByyear->agents}}</h2>
+              <h2 class="font-weight-bolder mb-0 text-white">{{$settingByyear->agents ??  0}}</h2>
               <p class="card-text">عدد الوكيلات   </p>
             </div>
             <div class="avatar  bg-primary bg-lighten-2 p-50 m-0">
@@ -73,7 +73,7 @@
         <div class="card  bg-success text-white">
           <div class="card-header">
             <div>
-              <h2 class="font-weight-bolder mb-0 text-white">{{$settingByyear->administrators}}</h2>
+              <h2 class="font-weight-bolder mb-0 text-white">{{$settingByyear->administrators ??  0}}</h2>
               <p class="card-text">عدد الاداريات   </p>
             </div>
             <div class="avatar  bg-success bg-lighten-2 p-50 m-0">
@@ -88,7 +88,7 @@
         <div class="card  bg-info text-white">
           <div class="card-header">
             <div>
-              <h2 class="font-weight-bolder mb-0 text-white">{{$settingByyear->teachers}}</h2>
+              <h2 class="font-weight-bolder mb-0 text-white">{{$settingByyear->teachers ??  0}}</h2>
               <p class="card-text">عدد المعلمات   </p>
             </div>
             <div class="avatar  bg-info bg-lighten-2 p-50 m-0">
@@ -103,7 +103,7 @@
         <div class="card  bg-warning text-white">
           <div class="card-header">
             <div>
-              <h2 class="font-weight-bolder mb-0 text-white">{{$students_count}}</h2>
+              <h2 class="font-weight-bolder mb-0 text-white">{{$students_count ??  0}}</h2>
               <p class="card-text">عدد الطالبات   </p>
             </div>
             <div class="avatar  bg-warning bg-lighten-2 p-50 m-0">
@@ -136,7 +136,7 @@
               <div class="col-lg-4 col-md-12 col-sm-12 col-12 mb-2 mb-md-0">
                 <div class="media"> 
                   <div class="media-body my-auto">
-                    <h4 class="font-weight-bolder mb-1 text-info">{{$settingByyear->primary_no}}</h4>
+                    <h4 class="font-weight-bolder mb-1 text-info">{{$settingByyear->primary_no ??  0}}</h4>
                     <p class="card-text font-small-8 mb-0">قسم الابتدائي</p>
                   </div>
                 </div>
@@ -144,7 +144,7 @@
               <div class="col-lg-4 col-md-12 col-sm-12 col-12 mb-2 mb-md-0">
                 <div class="media"> 
                   <div class="media-body my-auto">
-                    <h4 class="font-weight-bolder mb-1 text-info">{{$settingByyear->middle_no}}</h4>
+                    <h4 class="font-weight-bolder mb-1 text-info">{{$settingByyear->middle_no ??  0}}</h4>
                     <p class="card-text font-small-8 mb-0">قسم المتوسط</p>
                   </div>
                 </div>
@@ -152,7 +152,7 @@
               <div class="col-lg-4 col-md-12 col-sm-12 col-12 mb-2 mb-sm-0">
                 <div class="media"> 
                   <div class="media-body my-auto">
-                    <h4 class="font-weight-bolder mb-1 text-info">{{$settingByyear->secondary_no}}</h4>
+                    <h4 class="font-weight-bolder mb-1 text-info">{{$settingByyear->secondary_no ??  0}}</h4>
                     <p class="card-text font-small-8 mb-0">قسم الثانوي</p>
                   </div>
                 </div>

@@ -12,7 +12,7 @@ class SchoolRecordType extends Model
 
     public function period()
     {
-        return $this->hasOne(SchoolRecord::class);
+        return $this->belongsTo(SchoolRecord::class , 'school_record_id');
     }
 }
  

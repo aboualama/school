@@ -45,7 +45,7 @@
                           <div class="row">  
                             <div class="col-md-6">
                               <div class="form-group"> 
-                                {{$record->type}} 
+                                {{$record->period}} 
                               </div>
                             </div>
                             <div class="col-md-6">

@@ -62,6 +62,6 @@ class Custody extends Model
 
     public function recordtype()
     {
-        return $this->hasOne(SchoolRecordType::class);
+        return $this->belongsTo(SchoolRecordType::class , 'school_record_type_id');
     }
 }

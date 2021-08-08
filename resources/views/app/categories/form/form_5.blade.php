@@ -12,21 +12,23 @@
         
             <input type="hidden" value="teacher" name="person">  
 
-            <div class="col-md-12"> 
-                <div class="row">  
-                <div class="col-md-6">
-                    <div class="form-group">
-                    <label for="number">  رقم المعلمة </label> 
-                    <input type="number" class="form-control" name="number" id="number" placeholder=" "  required> 
-                    </div>
+            <div class="row">  
+                <div class="col-md-12"> 
+                    <div class="row">  
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label for="number">  رقم المعلمة </label> 
+                            <input type="number" class="form-control" name="number" id="number" placeholder=" "  required> 
+                            </div>
+                        </div>   
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label for="name">اسم المعلمة    </label> 
+                            <input type="text" class="form-control" name="name" id="name" placeholder=" "  required> 
+                            </div>
+                        </div>     
+                    </div> 
                 </div>   
-                <div class="col-md-6">
-                    <div class="form-group">
-                    <label for="name">اسم المعلمة    </label> 
-                    <input type="text" class="form-control" name="name" id="name" placeholder=" "  required> 
-                    </div>
-                </div>     
-                </div> 
             </div>    
 
             <div class="mt-2 mb-4" style="    width: 80%; display: block; margin: 0 auto; border: 1px solid #ccc; border-radius: 12px; padding: 20px;"> 
@@ -160,21 +162,23 @@
 
             <input type="hidden" value="student" name="person">  
             
-            <div class="col-md-12"> 
-                <div class="row">  
-                <div class="col-md-6">
-                    <div class="form-group">
-                    <label for="number">  رقم الطالبة </label> 
-                    <input type="number" class="form-control" name="number" id="number" placeholder=" "  required> 
-                    </div>
-                </div>   
-                <div class="col-md-6">
-                    <div class="form-group">
-                    <label for="name">اسم الطالبة    </label> 
-                    <input type="text" class="form-control" name="name" id="name" placeholder=" "  required> 
-                    </div>
-                </div>     
-                </div> 
+            <div class="row">  
+                <div class="col-md-12"> 
+                    <div class="row">  
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label for="number">  رقم الطالبة </label> 
+                            <input type="number" class="form-control" name="number" id="number" placeholder=" "  required> 
+                            </div>
+                        </div>   
+                        <div class="col-md-6">
+                            <div class="form-group">
+                            <label for="name">اسم الطالبة    </label> 
+                            <input type="text" class="form-control" name="name" id="name" placeholder=" "  required> 
+                            </div>
+                        </div>     
+                    </div> 
+                </div>    
             </div>    
 
             <div class="mt-2 mb-4" style="    width: 80%; display: block; margin: 0 auto; border: 1px solid #ccc; border-radius: 12px; padding: 20px;"> 

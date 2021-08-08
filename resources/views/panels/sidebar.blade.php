@@ -117,9 +117,7 @@ $configData = Helper::applClasses();
           </li>  
         </ul> 
       </li>
-
-
-
+ 
  
 
       <li class="nav-item {{ Route::currentRouteName() === "app-notes" ? 'active' : '' }} {{ $custom_classes }}">
@@ -189,7 +187,7 @@ $configData = Helper::applClasses();
     {{-- to show all menu --}}
 
      @php
-    $show = "3"; 
+    $show = "1"; 
     @endphp 
     
      <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" style="display: {{$show === "1" ? 'none' : '' }}" > 
