@@ -7,11 +7,11 @@ use App\Http\Controllers\FormsController;
 use App\Http\Controllers\PagesController;
 use App\Http\Controllers\TableController;
 use App\Http\Controllers\ChartsController;
-use App\Http\Controllers\LanguageController;
-use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LanguageController; 
 use App\Http\Controllers\ExtensionController;
 use App\Http\Controllers\ComponentsController;
 use App\Http\Controllers\PageLayoutController;
+use App\Http\Controllers\Dashboard\DashboardController;
 
 
 
@@ -28,13 +28,12 @@ use App\Http\Controllers\Dashboard\SettingController;
 use App\Http\Controllers\Dashboard\ClassRoomController; 
 use App\Http\Controllers\Dashboard\OtherSettingController;
 use App\Http\Controllers\Dashboard\SchoolRecordController;
+use App\Http\Controllers\Dashboard\ReportController;
  
 
 Auth::routes(['verify' => true , 'register' => false]);
 
-
-
-
+ 
 Route::group(['middleware' => ['auth', 'verified']], function () {
 
   // Main Page Route 
@@ -84,17 +83,14 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
   Route::get('get-record-type', [CustodyController::class,'get_record_type'])->name('get-record-type'); 
   Route::post('custody', [CustodyController::class,'store'])->name('add-custody');
   Route::post('doc_custody', [CustodyController::class,'doc_store'])->name('add-doc-custody');
-  
    
-   // Note Route 
+  // Note Route 
   Route::get('notes', [NoteController::class,'index'])->name('app-notes'); 
   Route::post('notes', [NoteController::class,'store'])->name('store-notes'); 
-
-
-
+ 
   // Reports Route 
- Route::get('get-report/{id}', [CustodyController::class,'get_report'])->name('get-report'); 
- Route::post('pdf-report', [CustodyController::class,'pdf'])->name('pdf-report'); 
+  Route::get('reports', [ReportController::class,'index'])->name('get-report'); 
+  Route::post('custody-report', [ReportController::class,'custody_report'])->name('custody-report'); 
   
 
 

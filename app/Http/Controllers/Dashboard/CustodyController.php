@@ -82,29 +82,6 @@ class CustodyController extends Controller
         $doc->save();
 
     } 
-
-
-
-    public function pdf(Request $request)
-    {     
-        $type = $request->custody_type_id;   
-        $category = $request->category_id;  
-        $table = $this->get_table($type , $category);   
-        $custodies = Custody::where('year_id', $request->year_id)->where('custody_type_id', $type)->get(); 
-   
-        if($table == "table_5" || "table_3"){  
-            config(['pdf.orientation' => 'L']);
-        }; 
- 
-        $custody_type = CustodyType::where('id', $type)->first(); 
- 
-        if($custodies->count() === 0){   
-            return view('app.reports.none', ['custody_type' => $custody_type]);   
-        } else{
-            $pdf =  PDF::loadView('app.reports.table/' . $table, ['custodies' => $custodies]); 
-            return $pdf->stream('custodies.pdf');     
-        }
-    } 
  
  
 }

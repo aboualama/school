@@ -108,31 +108,52 @@ $configData = Helper::applClasses();
               <i data-feather="circle"></i>
               <span class="menu-title text-truncate"> السجلات المدرسية  </span> 
             </a> 
-          </li> 
+          </li>  
+        </ul> 
+      </li>
+ 
+   
+ 
+
+      <li class="nav-item {{ Route::currentRouteName() === ''  ? 'active' : '' }} {{ $custom_classes }}">
+        <a href="javascript:void(0)" class="d-flex align-items-center" target="_self">
+          <i data-feather="code"></i>
+          <span class="menu-title text-truncate">العهدة والمذكرات</span> 
+        </a>  
+        <ul class="menu-content">  
           <li class="nav-item {{ Route::currentRouteName() === "app-custodies" ? 'active' : '' }} {{ $custom_classes }}">
             <a href="/custodies" class="d-flex align-items-center" target="_self">
               <i data-feather="circle"></i>
               <span class="menu-title text-truncate">اضافة عهدة</span> 
             </a> 
           </li>  
+          <li class="nav-item {{ Route::currentRouteName() === "app-notes" ? 'active' : '' }} {{ $custom_classes }}">
+            <a href="/notes" class="d-flex align-items-center" target="_self">
+              <i data-feather="circle"></i>
+              <span class="menu-title text-truncate"> المدخلات والمخرجات</span> 
+            </a> 
+          </li> 
         </ul> 
       </li>
  
+
+
  
 
-      <li class="nav-item {{ Route::currentRouteName() === "app-notes" ? 'active' : '' }} {{ $custom_classes }}">
-        <a href="/notes" class="d-flex align-items-center" target="_self">
-          <i data-feather="code"></i>
-          <span class="menu-title text-truncate"> المدخلات والمخرجات</span> 
-        </a> 
-      </li> 
-
-
-
-
-
-
-
+      <li class="nav-item {{ Route::currentRouteName() === ''  ? 'active' : '' }} {{ $custom_classes }}">
+        <a href="javascript:void(0)" class="d-flex align-items-center" target="_self">
+          <i data-feather='check-square'></i>
+          <span class="menu-title text-truncate"> التقارير  </span> 
+        </a>  
+        <ul class="menu-content">   
+          <li class="nav-item {{ Route::currentRouteName() === "app-custodies" ? 'active' : '' }} {{ $custom_classes }}">
+            <a href="/reports" class="d-flex align-items-center" target="_self">
+              <i data-feather="circle"></i>
+              <span class="menu-title text-truncate">طباعة التقارير</span> 
+            </a> 
+          </li>  
+        </ul> 
+      </li>
 
 
 
@@ -187,7 +208,7 @@ $configData = Helper::applClasses();
     {{-- to show all menu --}}
 
      @php
-    $show = "1"; 
+    $show = "4"; 
     @endphp 
     
      <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" style="display: {{$show === "1" ? 'none' : '' }}" > 
