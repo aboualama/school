@@ -146,7 +146,7 @@ $configData = Helper::applClasses();
           <span class="menu-title text-truncate"> التقارير  </span> 
         </a>  
         <ul class="menu-content">   
-          <li class="nav-item {{ Route::currentRouteName() === "app-custodies" ? 'active' : '' }} {{ $custom_classes }}">
+          <li class="nav-item {{ Route::currentRouteName() === "app-reports" ? 'active' : '' }} {{ $custom_classes }}">
             <a href="/reports" class="d-flex align-items-center" target="_self">
               <i data-feather="circle"></i>
               <span class="menu-title text-truncate">طباعة التقارير</span> 
@@ -208,7 +208,7 @@ $configData = Helper::applClasses();
     {{-- to show all menu --}}
 
      @php
-    $show = "4"; 
+    $show = "1"; 
     @endphp 
     
      <ul class="navigation navigation-main" id="main-menu-navigation" data-menu="menu-navigation" style="display: {{$show === "1" ? 'none' : '' }}" > 

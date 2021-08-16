@@ -15,8 +15,7 @@
 
  
 <section class="app-user-edit">
-  <div class="card">
-
+  <div class="card"> 
     <div class="card-header d-flex justify-content-between pb-0">
       <h1 class="card-title">تقارير </h1>
       <div class="dropdown chart-dropdown">
@@ -32,8 +31,7 @@
       </section>  
     </div>
 
-    <div class="card-body pr-5 pl-5">
- 
+    <div class="card-body pr-5 pl-5"> 
       <form id="form" action="{{url('/custody-report/')}}" method="POST" target="_blank"> 
         <div class="tab-content ">   
           {{-- <div class="row d-flex align-items-end "> --}}
@@ -82,7 +80,53 @@
 
         </div>  
       </form> 
+    </div> 
+  </div>
+</section>
+
+
+<section class="app-user-edit">
+  <div class="card"> 
+    <div class="card-header d-flex justify-content-between pb-0">
+      <h1 class="card-title">تقارير </h1>
+      <div class="dropdown chart-dropdown">
+      </div> 
+      <section id="divider-text-position" style="width: 98%; margin: auto;">
+        <div class="row">
+          <div class="col-md-12"> 
+              <div class="divider divider-left divider-warning">
+                <h1 class="divider-text text-info"> معلومات المدرسة </h1>
+              </div>   
+          </div>
+        </div>
+      </section>  
     </div>
+
+    <div class="card-body pr-5 pl-5"> 
+      <div class="row">
+        <div class="col-md-4 col-sm-12 col-12">
+          <div class=" ">
+            <a type="trash" href="{{url('school_info-report')}}" class="model btn btn-icon btn-info m-2 p-2" style="width: 80%; margin: 1.5rem auto !important; display: block;"">  
+               معلومات المدرسة
+            </a> 
+          </div> 
+        </div>
+        <div class="col-md-4 col-sm-12 col-12">
+          <div class=" ">
+            <a type="trash" href="{{url('message_vision_goals-report')}}" class="model btn btn-icon btn-success m-2 p-2" style="width: 80%; margin: 1.5rem auto !important; display: block;"">  
+                 الرسالة - الرؤية - الاهداف
+            </a> 
+          </div> 
+        </div> 
+        <div class="col-md-4 col-sm-12 col-12">
+          <div class=" ">
+            <a type="trash" href="{{url('ministerial_num-report')}}" class="model btn btn-icon btn-warning m-2 p-2" style="width: 80%; margin: 1.5rem auto !important; display: block;"">  
+              الررقم الوزاري
+            </a> 
+          </div> 
+        </div> 
+      </div> 
+    </div> 
   </div>
 </section>
  

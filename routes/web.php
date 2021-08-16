@@ -89,12 +89,14 @@ Route::group(['middleware' => ['auth', 'verified']], function () {
   Route::post('notes', [NoteController::class,'store'])->name('store-notes'); 
  
   // Reports Route 
-  Route::get('reports', [ReportController::class,'index'])->name('get-report'); 
+  Route::get('reports', [ReportController::class,'index'])->name('app-reports'); 
   Route::post('custody-report', [ReportController::class,'custody_report'])->name('custody-report'); 
+  Route::get('school_info-report', [ReportController::class,'school_info_report'])->name('school_info-report'); 
+  Route::get('ministerial_num-report', [ReportController::class,'ministerial_num_report'])->name('ministerial_num-report'); 
+  Route::get('message_vision_goals-report', [ReportController::class,'message_vision_goals_report'])->name('message_vision_goals-report'); 
   
 
-
-
+ 
 
 
 

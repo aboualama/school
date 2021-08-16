@@ -46,4 +46,32 @@ class ReportController extends Controller
             return $pdf->stream('custodies.pdf');     
         }
     } 
+  
+ 
+
+    public function school_info_report()
+    {       
+        $pdf =  PDF::loadView('app.reports.school_info'); 
+        return $pdf->stream('custodies.pdf');    
+    }  
+   
+
+    public function ministerial_num_report()
+    {      
+        config(['pdf.orientation' => 'L']);
+        $pdf =  PDF::loadView('app.reports.ministerial_num'); 
+        return $pdf->stream('custodies.pdf');    
+    } 
+ 
+
+    public function message_vision_goals_report()
+    {      
+        config(['pdf.orientation' => 'L']);
+        $pdf =  PDF::loadView('app.reports.message_vision_goals'); 
+        return $pdf->stream('custodies.pdf');    
+    } 
+
+
+
+    
 }
